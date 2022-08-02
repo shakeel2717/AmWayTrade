@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="0.942827in" height="0.942827in" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 213.09 213.09"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .fil0 {fill:none}
+    .fil1 {fill:#1C3FAA;fill-rule:nonzero}
+    .fil2 {fill:url(#id0);fill-rule:nonzero}
+    .fil3 {fill:url(#id1);fill-rule:nonzero}
+   ]]>
+  </style>
+  <linearGradient id="id0" gradientUnits="userSpaceOnUse" x1="63.91" y1="129.61" x2="37.98" y2="176.68">
+   <stop offset="0" style="stop-opacity:1; stop-color:#1C3FAA"/>
+   <stop offset="1" style="stop-opacity:1; stop-color:#0098DA"/>
+  </linearGradient>
+  <linearGradient id="id1" gradientUnits="userSpaceOnUse" xlink:href="#id0" x1="105.81" y1="113.24" x2="55.28" y2="160.2">
+  </linearGradient>
+ </defs>
+ <g id="Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <rect class="fil0" width="213.09" height="213.09" rx="9.42" ry="9.42"/>
+  <g id="_1959733300960">
+   <path class="fil1" d="M156.13 110.51c-9.13,4.63 -19.74,10.78 -30.53,18.66 8.79,26.09 17.35,51.41 17.59,52.14l38.55 0 -25.61 -70.8zm-28.49 -78.73l0 0 -42.18 0 -44.02 121.63c5.36,-6.75 12.11,-14.31 20.34,-21.88 8.55,-7.85 19.35,-16.25 32.49,-23.74 6.67,-19.75 12.07,-35.76 12.07,-35.76 0,0 3.66,10.86 8.68,25.73 10,-4.05 21.01,-7.39 33.02,-9.61l-20.4 -56.38z"/>
+   <path class="fil2" d="M181.74 92.12c0,0 -0.01,0 -0.06,0.01 -2.31,0.7 -76.52,23.5 -112.21,89.17l-38.13 0c0,0 43.73,-89.19 150.39,-89.19z"/>
+   <path class="fil3" d="M181.68 92.14c-2.31,0.7 -76.52,23.5 -112.21,89.17l-18.75 0c6.42,-12.18 19.91,-32.66 45.63,-52.99 39.56,-31.31 83.55,-36.02 85.33,-36.19z"/>
+  </g>
+ </g>
+</svg>

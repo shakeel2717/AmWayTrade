@@ -1,3 +1,1 @@
-@props(['disabled' => false])
-
-<input {{ $disabled ? 'disabled' : '' }} {!! $attributes->merge(['class' => 'rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50']) !!}>
+<input type="{{ $type }}" name="{{ $name }}" id="{{ $name }}" class="intro-x login__input form-control py-3  mt-4 px-4 border-gray-300 d-block" placeholder="{{ $placeholder }}" {{ $attribute }}>
