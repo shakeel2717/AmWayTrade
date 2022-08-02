@@ -20,11 +20,12 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('phone');
-            $table->string('country');
+            $table->string('phone')->nullable();
+            $table->string('country')->nullable();
             $table->boolean('status')->default(false);
             $table->boolean('suspend')->default(false);
             $table->string('refer')->default('default');
+            $table->string('role')->default('user');
             $table->rememberToken();
             $table->timestamps();
         });
