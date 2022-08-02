@@ -8,7 +8,7 @@
     <meta name="description" content="{{ env('APP_DESC') }}">
     <meta name="keywords" content="{{ env('APP_KEYWORDS') }}">
     <meta name="author" content="ASAN WEBS DEVELOPMENT">
-    <title>@yield('title', 'Dashboard') | {{ env('APP_DESC') }}</title>
+    <title>@yield('title', 'Authentication') | {{ env('APP_DESC') }}</title>
     <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}" />
 </head>
 
