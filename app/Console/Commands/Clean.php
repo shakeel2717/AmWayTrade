@@ -32,6 +32,7 @@ class Clean extends Command
         $this->call("view:clear");
         $this->call("route:clear");
         $this->call("config:clear");
+        $this->call("db:seed");
 
         return 0;
     }

@@ -18,29 +18,27 @@
             <a href="" class="d-flex me-auto">
                 <img alt="{{ env('APP_DESC') }}" class="w-6" src="dist/images/logo.svg">
             </a>
-            <a href="javascript:;" id="mobile-menu-toggler" class="mobile-menu-bar__toggler"> <i
-                    data-feather="bar-chart-2" class="w-8 h-8 text-white"></i> </a>
+            <a href="javascript:;" id="mobile-menu-toggler" class="mobile-menu-bar__toggler"> <i data-feather="bar-chart-2" class="w-8 h-8 text-white"></i> </a>
         </div>
         <ul class="mobile-menu-wrapper border-top border-theme-29 dark-border-dark-3 py-5">
             @if (auth()->user()->role == 'admin')
-                <x-admin.nav mode="0" />
+            <x-admin.nav mode="0" />
             @elseif (auth()->user()->role == 'user')
-                <x-user.nav mode="0" />
+            <x-user.nav mode="0" />
             @endif
         </ul>
     </div>
     <div class="d-flex">
         <nav class="side-nav">
             <a href="" class="intro-x d-flex align-items-center ps-5 pt-4">
-                <img alt="Rubick Tailwind HTML Admin Template" class="w-40"
-                    src="{{ asset('assets/brand/logo-light.svg') }}">
+                <img alt="Rubick Tailwind HTML Admin Template" class="w-40" src="{{ asset('assets/brand/logo-light.svg') }}">
             </a>
             <div class="side-nav__devider my-6"></div>
             <ul>
                 @if (auth()->user()->role == 'admin')
-                    <x-admin.nav mode="1" />
+                <x-admin.nav mode="1" />
                 @elseif (auth()->user()->role == 'user')
-                    <x-user.nav mode="1" />
+                <x-user.nav mode="1" />
                 @endif
             </ul>
         </nav>
@@ -57,9 +55,7 @@
                     </a>
                 </div>
                 <div class="intro-x dropdown me-auto me-sm-6">
-                    <div class="dropdown-toggle notification notification--bullet cursor-pointer" role="button"
-                        aria-expanded="false" data-bs-toggle="dropdown"> <i data-feather="bell"
-                            class="notification__icon dark-text-gray-300"></i> </div>
+                    <div class="dropdown-toggle notification notification--bullet cursor-pointer" role="button" aria-expanded="false" data-bs-toggle="dropdown"> <i data-feather="bell" class="notification__icon dark-text-gray-300"></i> </div>
                     <div class="notification-content pt-2 dropdown-menu">
                         <div class="notification-content__box dropdown-content">
                             <div class="notification-content__title dark-text-gray-300">Notifications</div>
@@ -67,8 +63,7 @@
                     </div>
                 </div>
                 <div class="intro-x dropdown w-8 h-8">
-                    <div class="dropdown-toggle w-8 h-8 rounded-pill overflow-hidden shadow-lg image-fit zoom-in"
-                        role="button" aria-expanded="false" data-bs-toggle="dropdown">
+                    <div class="dropdown-toggle w-8 h-8 rounded-pill overflow-hidden shadow-lg image-fit zoom-in" role="button" aria-expanded="false" data-bs-toggle="dropdown">
                         <img alt="Rubick Tailwind HTML Admin Template" src="{{ asset('assets/images/profile-4.jpg') }}">
                     </div>
                     <div class="dropdown-menu w-56">
@@ -81,19 +76,13 @@
                                 <hr class="dropdown-divider border-theme-27 dark-border-dark-3">
                             </li>
                             <li>
-                                <a href=""
-                                    class="dropdown-item text-white bg-theme-1-hover dark-bg-dark-3-hover"> <i
-                                        data-feather="user" class="w-4 h-4 me-2"></i> Profile </a>
+                                <a href="" class="dropdown-item text-white bg-theme-1-hover dark-bg-dark-3-hover"> <i data-feather="user" class="w-4 h-4 me-2"></i> Profile </a>
                             </li>
                             <li>
-                                <a href=""
-                                    class="dropdown-item text-white bg-theme-1-hover dark-bg-dark-3-hover"> <i
-                                        data-feather="lock" class="w-4 h-4 me-2"></i> Change Password </a>
+                                <a href="" class="dropdown-item text-white bg-theme-1-hover dark-bg-dark-3-hover"> <i data-feather="lock" class="w-4 h-4 me-2"></i> Change Password </a>
                             </li>
                             <li>
-                                <a href=""
-                                    class="dropdown-item text-white bg-theme-1-hover dark-bg-dark-3-hover"> <i
-                                        data-feather="help-circle" class="w-4 h-4 me-2"></i> Help </a>
+                                <a href="" class="dropdown-item text-white bg-theme-1-hover dark-bg-dark-3-hover"> <i data-feather="help-circle" class="w-4 h-4 me-2"></i> Help </a>
                             </li>
                             <li>
                                 <hr class="dropdown-divider border-theme-27 dark-border-dark-3">
@@ -114,6 +103,7 @@
         </div>
     </div>
     <script src="{{ asset('assets/js/app.js') }}"></script>
+    <x-alert />
 </body>
 
 </html>

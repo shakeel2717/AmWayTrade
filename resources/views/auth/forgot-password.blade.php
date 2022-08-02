@@ -27,15 +27,9 @@
             <div class="intro-x mt-8">
                 <x-input name="email" type="email" placeholder="Type your Email" />
             </div>
-            <div class="intro-x d-flex text-gray-700 dark-text-gray-600 fs-xs fs-sm-sm mt-4">
-                <div class="d-flex align-items-center me-auto">
-                    <input id="remember-me" type="checkbox" class="form-check-input border me-2">
-                    <label class="cursor-pointer select-none" for="remember-me">Remember Me</label>
-                </div>
-            </div>
             <div class="intro-x mt-5 mt-xl-8 text-center text-xl-start">
                 <button class="btn btn-primary py-3 px-4 me-xl-3 align-top">Send me Email</button>
-                <a href="{{route('login')}}" class="btn btn-outline-secondary py-3 px-4 mt-3 mt-xl-0 align-top">Remember Password?</a>
+                <a href="{{route('login')}}" class="btn btn-outline-secondary py-3 px-4 mt-3 mt-xl-0 align-top">Go Back</a>
             </div>
         </form>
     </div>
