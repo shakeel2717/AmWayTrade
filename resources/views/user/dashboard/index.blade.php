@@ -146,15 +146,30 @@
                         Earn <span class="fw-medium">FREE</span> Rewards!</div>
                     <div class="w-full w-sm-60 lh-lg text-gray-600 mt-2">Copy and Share this link with your friends &
                         family, you will get paid once anyone join.</div>
-                    <div class="w-48 position-relative mt-6 cursor-pointer tooltip" title="Copy referral link">
-                        <input class="form-control" value="{{ route('register', ['refer' => auth()->user()->username]) }}">
-                        <i data-feather="copy" class="position-absolute end-0 top-0 bottom-0 my-auto me-4 w-4 h-4"></i>
+                    <div class="col-md-6">
+                        <div class="position-relative mt-6 cursor-pointer tooltip" title="Copy referral link">
+                            <input class="form-control" id="link"
+                                value="{{ route('register', ['refer' => auth()->user()->username]) }}">
+                            <i data-feather="copy" onclick="copyFunction()"
+                                class="position-absolute z-30 end-0 top-0 bottom-0 my-auto me-4 w-4 h-4"></i>
+                        </div>
                     </div>
                     <img class="d-none d-sm-block position-absolute top-0 end-0 w-1/2 mt-1 me-n12"
-                        alt="Rubick Bootstrap HTML Admin Template" src="/assets/images/phone-illustration.svg">
+                        alt="Rubick Bootstrap HTML Admin Template"
+                        src="{{ asset('assets/images/phone-illustration.svg') }}">
                 </div>
             </div>
             <!-- END: Ads 2 -->
         </div>
     </div>
+@endsection
+@section('footer')
+    <script>
+        function copyFunction() {
+            var copyText = document.getElementById("link");
+            copyText.select();
+            copyText.setSelectionRange(0, 99999); /* For mobile devices */
+            navigator.clipboard.writeText(copyText.value);
+        }
+    </script>
 @endsection

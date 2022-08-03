@@ -110,6 +110,7 @@
         </div>
         <script src="{{ asset('assets/js/app.js') }}"></script>
         <x-alert />
+        @yield("footer")
 </body>
 
 </html>
