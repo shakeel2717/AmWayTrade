@@ -28,8 +28,11 @@
     <div class="col-md-6">
         @if ($icon != '')
             <div class="d-flex justify-content-center align-items-center">
-                <img src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl={{ $qr }}&choe=UTF-8"
-                    alt="QR Address" class="img-fluid" width="250">
+                <div class="code">
+                    <p class="">Only Send <span class="fw-bold">{{ $coin }}</span> to this Address, Otherwise your Asset will be lost.</p>
+                    <img src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl={{ $qr }}&choe=UTF-8"
+                        alt="QR Address" class="img-fluid mx-auto" width="250">
+                </div>
             </div>
         @endif
     </div>
