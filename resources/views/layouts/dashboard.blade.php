@@ -17,7 +17,7 @@
     <div class="mobile-menu d-md-none">
         <div class="mobile-menu-bar">
             <a href="" class="d-flex me-auto">
-                <img alt="{{ env('APP_DESC') }}" class="w-6" src="dist/images/logo.svg">
+                <img alt="{{ env('APP_DESC') }}" class="w-48" src="{{ asset("assets/brand/logo-light.svg") }}">
             </a>
             <a href="javascript:;" id="mobile-menu-toggler" class="mobile-menu-bar__toggler"> <i data-feather="bar-chart-2" class="w-8 h-8 text-white"></i> </a>
         </div>
