@@ -77,9 +77,11 @@
                             <div class="ms-4 me-auto">
                                 <div class="fw-medium">
                                     {{ env('APP_CURRENCY') }}{{ number_format($transaction->amount, 2) }}</div>
-                                <div class="text-gray-600 fs-xs mt-0.5">{{ $transaction->created_at->diffForHumans() }}</div>
+                                <div class="text-gray-600 fs-xs mt-0.5">{{ $transaction->created_at->diffForHumans() }}
+                                </div>
                             </div>
-                            <div class="py-1 px-2 rounded-pill fs-xs bg-theme-9 text-white cursor-pointer fw-medium">{{ $transaction->status ? "Approved" : "Pending" }}</div>
+                            <div class="py-1 px-2 rounded-pill fs-xs bg-theme-9 text-white cursor-pointer fw-medium">
+                                {{ $transaction->status ? 'Approved' : 'Pending' }}</div>
                         </div>
                     </div>
                 </div>
@@ -110,10 +112,12 @@
                             </div>
                             <div class="ms-4 me-auto">
                                 <div class="fw-medium">
-                                    {{ env('APP_CURRENCY') }}{{ number_format($userPlan->amount, 2) }} <span class="text-theme-1">({{ $userPlan->plan->name }} Plan)</span></div>
+                                    {{ env('APP_CURRENCY') }}{{ number_format($userPlan->amount, 2) }} <span
+                                        class="text-theme-1">({{ $userPlan->plan->name }} Plan)</span></div>
                                 <div class="text-gray-600 fs-xs mt-0.5">{{ $userPlan->created_at->diffForHumans() }}</div>
                             </div>
-                            <div class="py-1 px-2 rounded-pill fs-xs bg-theme-9 text-white cursor-pointer fw-medium">{{ $userPlan->status ? "Active" : "Pending" }}</div>
+                            <div class="py-1 px-2 rounded-pill fs-xs bg-theme-9 text-white cursor-pointer fw-medium">
+                                {{ $userPlan->status ? 'Active' : 'Pending' }}</div>
                         </div>
                     </div>
                 </div>
@@ -138,13 +142,16 @@
             <!-- BEGIN: Ads 2 -->
             <div class="mt-5">
                 <div class="box p-8 position-relative overflow-hidden intro-y">
-                    <div class="ads-box__title w-full w-sm-52 text-theme-1 dark-text-white fs-xl mt-n3">Invite friends & Earn <span class="fw-medium">FREE</span> Rewards!</div>
-                    <div class="w-full w-sm-60 lh-lg text-gray-600 mt-2">Copy and Share this link with your friends & family, you will get paid once anyone join.</div>
+                    <div class="ads-box__title w-full w-sm-52 text-theme-1 dark-text-white fs-xl mt-n3">Invite friends &
+                        Earn <span class="fw-medium">FREE</span> Rewards!</div>
+                    <div class="w-full w-sm-60 lh-lg text-gray-600 mt-2">Copy and Share this link with your friends &
+                        family, you will get paid once anyone join.</div>
                     <div class="w-48 position-relative mt-6 cursor-pointer tooltip" title="Copy referral link">
-                        <input class="form-control" value="https://dashboard.in">
+                        <input class="form-control" value="{{ route('register', ['refer' => auth()->user()->username]) }}">
                         <i data-feather="copy" class="position-absolute end-0 top-0 bottom-0 my-auto me-4 w-4 h-4"></i>
                     </div>
-                    <img class="d-none d-sm-block position-absolute top-0 end-0 w-1/2 mt-1 me-n12" alt="Rubick Bootstrap HTML Admin Template" src="/assets/images/phone-illustration.svg">
+                    <img class="d-none d-sm-block position-absolute top-0 end-0 w-1/2 mt-1 me-n12"
+                        alt="Rubick Bootstrap HTML Admin Template" src="/assets/images/phone-illustration.svg">
                 </div>
             </div>
             <!-- END: Ads 2 -->

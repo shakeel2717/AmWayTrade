@@ -30,6 +30,7 @@
                 <x-input name="email" type="email" placeholder="Email" />
                 <x-input name="password" type="password" placeholder="Password" />
                 <x-input name="password_confirmation" type="password" placeholder="Confirm Password" />
+                <x-input name="refer" type="text" placeholder="Refer Username" value="{{ $refer }}" />
             </div>
             <div class="intro-x d-flex text-gray-700 dark-text-gray-600 fs-xs fs-sm-sm mt-4">
                 <div class="d-flex align-items-center me-auto">

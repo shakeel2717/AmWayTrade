@@ -18,9 +18,15 @@ class RegisteredUserController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function create()
+    public function create($refer = "default")
     {
-        return view('auth.register');
+        if ($refer != "default") {
+            $referDetail = User::where('username', $refer)->firstOrFail();
+            $refer = $referDetail->username;
+        } else {
+            $refer = "";
+        }
+        return view('auth.register', compact("refer"));
     }
 
     /**
@@ -33,16 +39,27 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $validated = $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'username' => ['required', 'string', 'alpha_num', 'max:255', 'unique:users'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'refer' => ['nullable', 'string', 'alpha_num', 'max:255', 'exists:users,username'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
+
+        if ($validated['refer'] != "") {
+            $refer = User::where('username', $validated['refer'])->first();
+            if ($refer != "") {
+                $refer = $refer->username;
+            }
+        } else {
+            $refer = "default";
+        }
 
         $user = User::create([
             'name' => $request->name,
             'username' => $request->username,
+            'refer' => $refer,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
