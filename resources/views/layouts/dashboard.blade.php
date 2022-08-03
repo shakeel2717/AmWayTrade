@@ -10,6 +10,7 @@
     <meta name="author" content="ASAN WEBS DEVELOPMENT">
     <title>@yield('title', 'Dashboard') - {{ env('APP_DESC') }}</title>
     <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}" />
+    @livewireStyles
 </head>
 
 <body class="main">
@@ -111,6 +112,7 @@
         <script src="{{ asset('assets/js/app.js') }}"></script>
         <x-alert />
         @yield("footer")
+        @livewireScripts
 </body>
 
 </html>

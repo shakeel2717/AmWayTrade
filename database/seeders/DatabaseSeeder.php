@@ -3,7 +3,10 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Support\Str;
 
+use App\Models\Address;
+use App\Models\Currency;
 use App\Models\Plan;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -67,6 +70,34 @@ class DatabaseSeeder extends Seeder
             'profit_from' => 0.5,
             'profit_to' => 0.7,
             'status' => true,
+        ]);
+
+
+        Currency::create([
+            'name' => "Bitcoin",
+            'symbol' => "BTC",
+            'icon' => "btc",
+            'status' => true
+        ]);
+
+        Currency::create([
+            'name' => "Tether",
+            'symbol' => "USDT.TRC20",
+            'icon' => "usdt",
+            'status' => true
+        ]);
+
+
+        Address::create([
+            'user_id' => 1,
+            'currency_id' => 1,
+            'address' => Str::random(30),
+        ]);
+
+        Address::create([
+            'user_id' => 1,
+            'currency_id' => 2,
+            'address' => Str::random(30),
         ]);
     }
 }

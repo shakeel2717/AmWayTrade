@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DepositController;
 use App\Http\Controllers\user\DashboardController;
 use App\Http\Controllers\user\PlanController;
 use App\Http\Controllers\user\ProfileController;
@@ -13,6 +14,7 @@ Route::prefix('user/')->middleware('auth', 'user')->name('user.')->group(functio
     Route::get('/profile/change-passwor', [ProfileController::class, "changePassword"])->name("profile.change.password");
     Route::post('/profile/change-passwor', [ProfileController::class, "updatePassword"])->name("profile.password.update");
     Route::resource('profile', ProfileController::class);
+    Route::resource('deposit', DepositController::class);
 });
 
 require __DIR__ . '/auth.php';
