@@ -8,7 +8,7 @@
     <meta name="description" content="{{ env('APP_DESC') }}">
     <meta name="keywords" content="{{ env('APP_KEYWORDS') }}">
     <meta name="author" content="ASAN WEBS DEVELOPMENT">
-    <title>@yield('title', 'Dashboard') | {{ env('APP_DESC') }}</title>
+    <title>@yield('title', 'Dashboard') - {{ env('APP_DESC') }}</title>
     <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}" />
 </head>
 
@@ -99,11 +99,17 @@
                     </div>
                 </div>
             </div>
-            @yield('content')
+            <div class="g-col-12 mt-8">
+                <div class="intro-y h-10 mb-4">
+                    <h2 class="fs-lg fw-medium truncate me-5">
+                        General Report
+                    </h2>
+                </div>
+                @yield('content')
+            </div>
         </div>
-    </div>
-    <script src="{{ asset('assets/js/app.js') }}"></script>
-    <x-alert />
+        <script src="{{ asset('assets/js/app.js') }}"></script>
+        <x-alert />
 </body>
 
 </html>
