@@ -102,7 +102,7 @@
             <div class="g-col-12 mt-8">
                 <div class="intro-y h-10 mb-4">
                     <h2 class="fs-lg fw-medium truncate me-5">
-                        General Report
+                        @yield("title")
                     </h2>
                 </div>
                 @yield('content')

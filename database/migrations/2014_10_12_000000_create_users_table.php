@@ -21,6 +21,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('phone')->nullable();
+            $table->string('city')->nullable();
             $table->string('country')->nullable();
             $table->boolean('status')->default(false);
             $table->boolean('suspend')->default(false);
