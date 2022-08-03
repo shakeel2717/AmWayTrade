@@ -13,6 +13,13 @@
 </li>
 
 <li>
+    <a href="{{ route('user.plans.index') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
+        <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="airplay"></i> </div>
+        <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> Plan Activate </div>
+    </a>
+</li>
+
+<li>
     <a href="javascript:;" class="{{ $mode == true ? 'side-' : '' }}menu">
         <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="sliders"></i> </div>
         <div class="{{ $mode == true ? 'side-' : '' }}menu__title">

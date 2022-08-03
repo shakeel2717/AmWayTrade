@@ -22,7 +22,7 @@
             <div class="d-flex align-items-center">
                 <div class="w-2/4 flex-none">
                     <div class="fs-lg fw-medium truncate">
-                        {{ env('APP_CURRENCY') }}{{ number_format(0, 2) }}
+                        {{ env('APP_CURRENCY') }}{{ number_format(totalInvest(auth()->user()->id), 2) }}
                     </div>
                     <div class="text-gray-600 lead mt-1">Total Investment</div>
                 </div>
