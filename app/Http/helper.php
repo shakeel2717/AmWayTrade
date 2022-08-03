@@ -1,13 +1,16 @@
 <?php
 
+use App\Models\Transaction;
 use App\Models\User;
 use App\Models\UserPlan;
+use App\Models\Withdraw;
 
 function balance($user_id)
 {
-    return 0;
+    $in = Transaction::where('user_id', $user_id)->where('sum', true)->sum('amount');
+    $out = Transaction::where('user_id', $user_id)->where('sum', false)->sum('amount');
+    return $in - $out;
 }
-
 
 function allRefers($user_id)
 {
@@ -23,10 +26,12 @@ function allRefers($user_id)
 function totalInvest($user_id)
 {
     $invest = 0;
-    $userPlans = UserPlan::where("user_id", $user_id)->get();
-    foreach ($userPlans as $userPlan) {
-        $invest += $userPlan->amount;
-    }
+    $userPlans = UserPlan::where("user_id", $user_id)->sum('amount');
+    return $userPlans;
+}
 
-    return $invest;
+
+function totalPayout($user_id)
+{
+    return $wihdraws = Withdraw::where('user_id', $user_id)->sum("amount");
 }

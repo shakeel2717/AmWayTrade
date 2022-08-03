@@ -37,7 +37,7 @@
             <div class="d-flex align-items-center">
                 <div class="w-2/4 flex-none">
                     <div class="fs-lg fw-medium truncate">
-                        {{ env('APP_CURRENCY') }}{{ number_format(0, 2) }}
+                        {{ env('APP_CURRENCY') }}{{ number_format(totalPayout(auth()->user()->id), 2) }}
                     </div>
                     <div class="text-gray-600 lead mt-1">Total Payout</div>
                 </div>
@@ -79,12 +79,12 @@
                     </div>
                     <div class="ms-4 me-auto">
                         <div class="fw-medium">
-                            {{ env('APP_CURRENCY') }}{{ number_format($transaction->amount, 2) }}
+                            {{ env('APP_CURRENCY') }}{{ number_format($transaction->amount, 2) }} ({{ $transaction->type }})
                         </div>
                         <div class="text-gray-600 fs-xs mt-0.5">{{ $transaction->created_at->diffForHumans() }}
                         </div>
                     </div>
-                    <div class="py-1 px-2 rounded-pill fs-xs bg-theme-9 text-white cursor-pointer fw-medium">
+                    <div class="py-1 px-2 rounded-pill fs-xs bg-theme-{{ $transaction->sum ? '9' : '6' }} text-white cursor-pointer fw-medium">
                         {{ $transaction->status ? 'Approved' : 'Pending' }}
                     </div>
                 </div>

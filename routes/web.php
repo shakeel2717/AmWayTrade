@@ -4,6 +4,7 @@ use App\Http\Controllers\DepositController;
 use App\Http\Controllers\user\DashboardController;
 use App\Http\Controllers\user\PlanController;
 use App\Http\Controllers\user\ProfileController;
+use App\Http\Controllers\WithdarwController;
 use Illuminate\Support\Facades\Route;
 
 Route::redirect('/', '/login');
@@ -15,6 +16,7 @@ Route::prefix('user/')->middleware('auth', 'user')->name('user.')->group(functio
     Route::post('/profile/change-passwor', [ProfileController::class, "updatePassword"])->name("profile.password.update");
     Route::resource('profile', ProfileController::class);
     Route::resource('deposit', DepositController::class);
+    Route::resource('withdraw', WithdarwController::class);
 });
 
 require __DIR__ . '/auth.php';
