@@ -1,6 +1,7 @@
-<div>
-    <!-- 
-  <options=bold>“ Happiness is not something readymade. It comes from your own actions. ”</>
-  <fg=gray>— Dalai Lama</>
- -->
-</div>
+<li>
+    <a href="{{ route('admin.dashboard.index') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
+        <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="airplay"></i> </div>
+        <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> Dashboard </div>
+    </a>
+</li>
+

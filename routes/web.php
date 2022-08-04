@@ -29,3 +29,4 @@ Route::prefix('user/')->middleware('auth', 'user')->name('user.')->group(functio
 });
 
 require __DIR__ . '/auth.php';
+require __DIR__ . '/admin.php';
