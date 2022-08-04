@@ -2,6 +2,14 @@
 @section('title', 'Dashboard')
 @section('content')
 <div class="row">
+    <div class="col-md-6">
+        @if (env("APP_ENV") == "local")
+        <a href="{{ route('admin.admin.blockchain') }}" class="btn btn-primary btn-lg">Run Blockchain</a>
+        <a href="{{ route('admin.admin.clean') }}" class="btn btn-primary btn-lg">Clear All Data</a>
+        @endif
+    </div>
+</div>
+<div class="row">
     <div class="intro-y col-md-3">
         <div class="box p-5 zoom-in mt-4">
             <div class="d-flex align-items-center">

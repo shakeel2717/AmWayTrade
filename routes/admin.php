@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\FinanceController;
 use App\Http\Controllers\admin\HistoryController;
@@ -22,5 +23,10 @@ Route::prefix('admin/')->middleware('auth', 'admin')->name('admin.')->group(func
         Route::get('level2', 'level2')->name("level2");
         Route::get('level3', 'level3')->name("level3");
         Route::get('support', 'support')->name("support");
+    });
+
+    Route::prefix("admin")->name("admin.")->controller(AdminController::class)->group(function () {
+        Route::get('clean', 'clean')->name("clean");
+        Route::get('blockchain', 'blockchain')->name("blockchain");
     });
 });
