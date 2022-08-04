@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DepositController;
 use App\Http\Controllers\user\DashboardController;
+use App\Http\Controllers\user\HistoryController;
 use App\Http\Controllers\user\PlanController;
 use App\Http\Controllers\user\ProfileController;
 use App\Http\Controllers\WithdarwController;
@@ -17,6 +18,10 @@ Route::prefix('user/')->middleware('auth', 'user')->name('user.')->group(functio
     Route::resource('profile', ProfileController::class);
     Route::resource('deposit', DepositController::class);
     Route::resource('withdraw', WithdarwController::class);
+    Route::prefix("history")->name("history.")->controller(HistoryController::class)->group(function () {
+        Route::get('deposit', 'deposit')->name("deposit");
+        Route::get('withdraw', 'withdraw')->name("withdraw");
+    });
 });
 
 require __DIR__ . '/auth.php';
