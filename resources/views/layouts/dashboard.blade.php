@@ -11,6 +11,7 @@
     <title>@yield('title', 'Dashboard') - {{ env('APP_DESC') }}</title>
     <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}" />
     @livewireStyles
+    @powerGridStyles
 </head>
 
 <body class="main">
@@ -113,6 +114,7 @@
         <x-alert />
         @yield("footer")
         @livewireScripts
+        @powerGridScripts
 </body>
 
 </html>
