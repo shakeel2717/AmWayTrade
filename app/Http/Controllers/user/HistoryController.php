@@ -19,6 +19,27 @@ class HistoryController extends Controller
         return view("user.history.withdraw");
     }
 
+    public function direct()
+    {
+        return view("user.history.direct");
+    }
+
+
+    public function level1()
+    {
+        return view("user.history.indirect.level1");
+    }
+
+    public function level2()
+    {
+        return view("user.history.indirect.level2");
+    }
+
+    public function level3()
+    {
+        return view("user.history.indirect.level3");
+    }
+
     public function index()
     {
         //

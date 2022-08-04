@@ -115,8 +115,13 @@ function levelFourthRefers($user_id)
 
 function totalInvest($user_id)
 {
-    $invest = 0;
     $userPlans = UserPlan::where("user_id", $user_id)->sum('amount');
+    return $userPlans;
+}
+
+function totalActiveInvest($user_id)
+{
+    $userPlans = UserPlan::where("user_id", $user_id)->where('status', true)->sum('amount');
     return $userPlans;
 }
 

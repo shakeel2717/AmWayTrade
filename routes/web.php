@@ -21,6 +21,10 @@ Route::prefix('user/')->middleware('auth', 'user')->name('user.')->group(functio
     Route::prefix("history")->name("history.")->controller(HistoryController::class)->group(function () {
         Route::get('deposit', 'deposit')->name("deposit");
         Route::get('withdraw', 'withdraw')->name("withdraw");
+        Route::get('direct', 'direct')->name("direct");
+        Route::get('level1', 'level1')->name("level1");
+        Route::get('level2', 'level2')->name("level2");
+        Route::get('level3', 'level3')->name("level3");
     });
 });
 
