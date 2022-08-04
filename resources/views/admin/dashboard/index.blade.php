@@ -172,9 +172,9 @@
             <div class="d-flex align-items-center">
                 <div class="w-2/4 flex-none">
                     <div class="fs-lg fw-medium truncate">
-                        ${{ number_format($transactions->where('type','withdraw')->where('status',true)->where('created_at', '>=', date('Y-m-d'))->sum("amount"),2) }}
+                        ${{ number_format($transactions->where('type','withdrawals fees')->where('status',true)->sum("amount"),2) }}
                     </div>
-                    <div class="text-gray-600 lead mt-1">Today Withdraw</div>
+                    <div class="text-gray-600 lead mt-1">Withdrawal Fees</div>
                 </div>
                 <div class="flex-none ms-auto position-relative">
                     <img src="{{ asset('assets/icons/graph.png') }}" alt="Balance">

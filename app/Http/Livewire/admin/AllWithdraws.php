@@ -51,7 +51,7 @@ final class AllWithdraws extends PowerGridComponent
      */
     public function datasource(): Builder
     {
-        return Transaction::query()->where('type', 'withdraw');
+        return Transaction::query()->where('type', 'withdraw')->where('status',true);
     }
 
     /*
