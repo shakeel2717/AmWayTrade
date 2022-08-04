@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Option;
 use App\Models\Transaction;
 use App\Models\User;
 use App\Models\UserPlan;
@@ -34,4 +35,11 @@ function totalInvest($user_id)
 function totalPayout($user_id)
 {
     return $wihdraws = Withdraw::where('user_id', $user_id)->sum("amount");
+}
+
+
+function options($name)
+{
+    $option = Option::where('name', $name)->first();
+    return $option->value;
 }

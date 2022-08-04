@@ -7,6 +7,7 @@ use Illuminate\Support\Str;
 
 use App\Models\Address;
 use App\Models\Currency;
+use App\Models\Option;
 use App\Models\Plan;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -98,6 +99,62 @@ class DatabaseSeeder extends Seeder
             'user_id' => 1,
             'currency_id' => 2,
             'address' => Str::random(30),
+        ]);
+
+
+        Option::create([
+            "name" => "direct",
+            "value" => 8,
+        ]);
+
+        Option::create([
+            "name" => "indirect 1",
+            "value" => 3,
+        ]);
+
+        Option::create([
+            "name" => "indirect 2",
+            "value" => 2,
+        ]);
+
+        Option::create([
+            "name" => "indirect 3",
+            "value" => 1,
+        ]);
+
+        Option::create([
+            "name" => "uni level 1",
+            "value" => 8,
+        ]);
+
+        Option::create([
+            "name" => "uni level 2",
+            "value" => 6,
+        ]);
+
+        Option::create([
+            "name" => "uni level 3",
+            "value" => 3,
+        ]);
+
+        Option::create([
+            "name" => "uni level 4",
+            "value" => 2,
+        ]);
+
+        Option::create([
+            "name" => "uni level 5",
+            "value" => 1,
+        ]);
+
+        Option::create([
+            "name" => "min withdraw",
+            "value" => 20,
+        ]);
+
+        Option::create([
+            "name" => "withdraw fees",
+            "value" => 5,
         ]);
     }
 }

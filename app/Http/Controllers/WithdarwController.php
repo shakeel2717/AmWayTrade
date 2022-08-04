@@ -43,6 +43,12 @@ class WithdarwController extends Controller
 
         $currency = Currency::findOrFail($validated['coin']);
 
+        // checking if withdraw is not min
+        if ($validated['amount'] < options("min withdraw")) {
+            // fallback
+            return redirect()->back()->withErrors("Min Withdrawals Limit is: " . options("min withdraw"));
+        }
+
         $withdraw = auth()->user()->withdraws()->create([
             'currency_id' => $currency->id,
             'amount' => $validated['amount'],
