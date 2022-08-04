@@ -91,11 +91,7 @@ class PlanController extends Controller
             'status' => true,
         ]);
 
-        // checking if this user has valid refer
-        if (auth()->user()->refer != "default") {
-            // dispatch event
-            PlanCommissionEvent::dispatch($userPlan);
-        }
+        PlanCommissionEvent::dispatch($userPlan);
 
         // creating transactions
         $packageActive = auth()->user()->transactions()->create([
