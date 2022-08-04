@@ -94,3 +94,10 @@
         </li>
     </ul>
 </li>
+
+<li>
+    <a href="{{ route('user.support.index') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
+        <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="airplay"></i> </div>
+        <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> Help / Support </div>
+    </a>
+</li>
