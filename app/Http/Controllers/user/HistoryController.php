@@ -40,6 +40,11 @@ class HistoryController extends Controller
         return view("user.history.indirect.level3");
     }
 
+    public function support()
+    {
+        return view("user.history.support");
+    }
+
     public function index()
     {
         //

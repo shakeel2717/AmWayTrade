@@ -5,20 +5,26 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Support extends Model
+class Conversation extends Model
 {
     use HasFactory;
 
 
     protected $fillable = [
         'user_id',
-        'category',
+        'support_id',
         'message',
-        'solved',
     ];
 
-    public function conversations()
+
+    public function support()
     {
-        return $this->hasMany(Conversation::class)->orderBy("id","Desc");
+        return $this->belongsTo(Support::class);
+    }
+
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

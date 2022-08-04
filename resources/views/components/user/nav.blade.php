@@ -101,3 +101,9 @@
         <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> Help / Support </div>
     </a>
 </li>
+<li>
+    <a href="{{ route('user.history.support') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
+        <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="airplay"></i> </div>
+        <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> Support Tickets </div>
+    </a>
+</li>

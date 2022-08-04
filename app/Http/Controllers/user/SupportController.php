@@ -57,9 +57,9 @@ class SupportController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Support $support)
     {
-        //
+        return view("user.support.show", compact("support"));
     }
 
     /**
@@ -80,9 +80,19 @@ class SupportController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Support $support)
     {
-        //
+        $validated = $request->validate([
+            'message' => 'required|string',
+        ]);
+
+        // adding a reply under this Support ticket
+        $support->conversations()->create([
+            'user_id' => auth()->user()->id,
+            'message' => $validated['message'],
+        ]);
+
+        return redirect()->back()->with('success','Your Message Sent Successfully to Support Team.');
     }
 
     /**
