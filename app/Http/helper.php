@@ -15,6 +15,17 @@ function balance($user_id)
 
 function allRefers($user_id)
 {
+    $collection = directRefers($user_id);
+    $collection->prepend(levelFirstRefers($user_id));
+    $collection->prepend(levelSecondRefers($user_id));
+    $collection->prepend(levelThirdRefers($user_id));
+
+    return $collection;
+}
+
+
+function directRefers($user_id)
+{
     $allRefers = [];
     $user = User::find($user_id);
     $refers = User::where('refer', $user->username)->get();
@@ -23,6 +34,84 @@ function allRefers($user_id)
     }
     return collect($allRefers);
 }
+
+
+function levelFirstRefers($user_id)
+{
+    $allRefers = [];
+    $user = User::find($user_id);
+    $refers = User::where('refer', $user->username)->get();
+    foreach ($refers as $refer) {
+        $level1Refers = User::where('refer', $refer->username)->get();
+        foreach ($level1Refers as $level1Refer) {
+            $allRefers[] = $level1Refer->id;
+        }
+    }
+    return collect($allRefers);
+}
+
+
+function levelSecondRefers($user_id)
+{
+    $allRefers = [];
+    $user = User::find($user_id);
+    $refers = User::where('refer', $user->username)->get();
+    foreach ($refers as $refer) {
+        $level1Refers = User::where('refer', $refer->username)->get();
+        foreach ($level1Refers as $level1Refer) {
+            $level2Refers = User::where('refer', $level1Refer->username)->get();
+            foreach ($level2Refers as $level2Refer) {
+                $allRefers[] = $level2Refer->id;
+            }
+        }
+    }
+    return collect($allRefers);
+}
+
+
+function levelThirdRefers($user_id)
+{
+    $allRefers = [];
+    $user = User::find($user_id);
+    $refers = User::where('refer', $user->username)->get();
+    foreach ($refers as $refer) {
+        $level1Refers = User::where('refer', $refer->username)->get();
+        foreach ($level1Refers as $level1Refer) {
+            $level2Refers = User::where('refer', $level1Refer->username)->get();
+            foreach ($level2Refers as $level2Refer) {
+                $level3Refers = User::where('refer', $level2Refer->username)->get();
+                foreach ($level3Refers as $level3Refer) {
+                    $allRefers[] = $level3Refer->id;
+                }
+            }
+        }
+    }
+    return collect($allRefers);
+}
+
+function levelFourthRefers($user_id)
+{
+    $allRefers = [];
+    $user = User::find($user_id);
+    $refers = User::where('refer', $user->username)->get();
+    foreach ($refers as $refer) {
+        $level1Refers = User::where('refer', $refer->username)->get();
+        foreach ($level1Refers as $level1Refer) {
+            $level2Refers = User::where('refer', $level1Refer->username)->get();
+            foreach ($level2Refers as $level2Refer) {
+                $level3Refers = User::where('refer', $level2Refer->username)->get();
+                foreach ($level3Refers as $level3Refer) {
+                    $level4Refers = User::where('refer', $level3Refer->username)->get();
+                    foreach ($level4Refers as $level4Refer) {
+                        $allRefers[] = $level4Refer->id;
+                    }
+                }
+            }
+        }
+    }
+    return collect($allRefers);
+}
+
 
 function totalInvest($user_id)
 {

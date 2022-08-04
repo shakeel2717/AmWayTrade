@@ -36,6 +36,38 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt("asdfasdf"),
         ]);
 
+        User::create([
+            'name' => 'Basharat Ali',
+            'email' => 'basharat604@gmail.com',
+            'username' => 'basharat604',
+            'refer' => 'shakeel2717',
+            'password' => bcrypt("asdfasdf"),
+        ]);
+
+        User::create([
+            'name' => 'Ali Raza',
+            'email' => 'ali@gmail.com',
+            'username' => 'ali2717',
+            'refer' => 'basharat604',
+            'password' => bcrypt("asdfasdf"),
+        ]);
+
+        User::create([
+            'name' => 'Ali Raza',
+            'email' => 'ali2@gmail.com',
+            'username' => 'ali22717',
+            'refer' => 'ali2717',
+            'password' => bcrypt("asdfasdf"),
+        ]);
+
+        User::create([
+            'name' => 'Ali Raza',
+            'email' => 'ali3@gmail.com',
+            'username' => 'ali32717',
+            'refer' => 'ali22717',
+            'password' => bcrypt("asdfasdf"),
+        ]);
+
 
         Plan::create([
             'name' => "Basic",
