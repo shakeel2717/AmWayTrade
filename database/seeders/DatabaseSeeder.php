@@ -34,6 +34,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@gmail.com',
             'username' => 'admin',
             'role' => 'admin',
+            'status' => true,
             'password' => bcrypt("asdfasdf"),
         ]);
 
@@ -46,34 +47,42 @@ class DatabaseSeeder extends Seeder
         ]);
 
         User::create([
-            'name' => 'Basharat Ali',
-            'email' => 'basharat604@gmail.com',
-            'username' => 'basharat604',
+            'name' => 'test1',
+            'email' => 'test1@gmail.com',
+            'username' => 'test1',
             'refer' => 'shakeel2717',
             'password' => bcrypt("asdfasdf"),
         ]);
 
         User::create([
-            'name' => 'Ali Raza',
-            'email' => 'ali@gmail.com',
-            'username' => 'ali2717',
-            'refer' => 'basharat604',
+            'name' => 'test2',
+            'email' => 'test2@gmail.com',
+            'username' => 'test2',
+            'refer' => 'test1',
             'password' => bcrypt("asdfasdf"),
         ]);
 
         User::create([
-            'name' => 'Ali Raza',
-            'email' => 'ali2@gmail.com',
-            'username' => 'ali22717',
-            'refer' => 'ali2717',
+            'name' => 'test3',
+            'email' => 'test3@gmail.com',
+            'username' => 'test3',
+            'refer' => 'test2',
             'password' => bcrypt("asdfasdf"),
         ]);
 
         User::create([
-            'name' => 'Ali Raza',
-            'email' => 'ali3@gmail.com',
-            'username' => 'ali32717',
-            'refer' => 'ali22717',
+            'name' => 'test4',
+            'email' => 'test4@gmail.com',
+            'username' => 'test4',
+            'refer' => 'test3',
+            'password' => bcrypt("asdfasdf"),
+        ]);
+
+        User::create([
+            'name' => 'test5',
+            'email' => 'test5@gmail.com',
+            'username' => 'test5',
+            'refer' => 'test4',
             'password' => bcrypt("asdfasdf"),
         ]);
 
@@ -84,6 +93,7 @@ class DatabaseSeeder extends Seeder
             'price_to' => 499,
             'profit_from' => 0.5,
             'profit_to' => 0.7,
+            'profit' => 0.5,
             'status' => true,
         ]);
 
@@ -93,6 +103,7 @@ class DatabaseSeeder extends Seeder
             'price_to' => 2999,
             'profit_from' => 0.5,
             'profit_to' => 0.7,
+            'profit' => 0.5,
             'status' => true,
         ]);
 
@@ -102,6 +113,7 @@ class DatabaseSeeder extends Seeder
             'price_to' => 9999,
             'profit_from' => 0.5,
             'profit_to' => 0.7,
+            'profit' => 0.5,
             'status' => true,
         ]);
 
@@ -111,6 +123,7 @@ class DatabaseSeeder extends Seeder
             'price_to' => 100000,
             'profit_from' => 0.5,
             'profit_to' => 0.7,
+            'profit' => 0.5,
             'status' => true,
         ]);
 

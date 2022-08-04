@@ -80,6 +80,9 @@ class PlanController extends Controller
         $plan = Plan::findOrFail($id);
 
         // checking balance
+        if ($validated['amount'] > balance(auth()->user()->id)) {
+            return redirect()->back()->withErrors("Insufficient Balance");
+        }
 
         // activating plan
         $userPlan = auth()->user()->userPlans()->create([
@@ -96,7 +99,7 @@ class PlanController extends Controller
 
         // creating transactions
         $packageActive = auth()->user()->transactions()->create([
-            'type' => "Plan Activate",
+            'type' => "plan activate",
             'amount' => $validated['amount'],
             'sum' => false,
             'reference' => $plan->name . " Plan Activated!",

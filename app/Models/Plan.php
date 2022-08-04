@@ -16,6 +16,7 @@ class Plan extends Model
         'price_to',
         'profit_from',
         'profit_to',
+        'profit',
         'status',
     ];
 

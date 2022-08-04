@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string("price_to");
             $table->string("profit_from");
             $table->string("profit_to");
+            $table->string("profit");
             $table->boolean("status")->default(true);
             $table->timestamps();
         });

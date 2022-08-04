@@ -79,7 +79,7 @@
                     </div>
                     <div class="ms-4 me-auto">
                         <div class="fw-medium">
-                            {{ env('APP_CURRENCY') }}{{ number_format($transaction->amount, 2) }} ({{ $transaction->type }})
+                            {{ env('APP_CURRENCY') }}{{ number_format($transaction->amount, 2) }} <span class="text-uppercase">({{ $transaction->type }})</span>
                         </div>
                         <div class="text-gray-600 fs-xs mt-0.5">{{ $transaction->created_at->diffForHumans() }}
                         </div>
