@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\user;
+namespace App\Http\Livewire\admin;
 
 use App\Models\Transaction;
 use Illuminate\Support\Carbon;
@@ -82,12 +82,11 @@ final class AllDeposit extends PowerGridComponent
     public function addColumns(): PowerGridEloquent
     {
         return PowerGrid::eloquent()
+            ->addColumn('id')
             ->addColumn('type')
             ->addColumn('amount')
             ->addColumn('sum')
-            ->addColumn('status_format', function (Transaction $model) {
-                return $model->status ? "Approved" : "Pending";
-            })
+            ->addColumn('note')
             ->addColumn('reference')
             ->addColumn('created_at_formatted', fn (Transaction $model) => Carbon::parse($model->created_at)->format('d/m/Y H:i:s'))
             ->addColumn('updated_at_formatted', fn (Transaction $model) => Carbon::parse($model->updated_at)->format('d/m/Y H:i:s'));
@@ -120,17 +119,17 @@ final class AllDeposit extends PowerGridComponent
                 ->searchable()
                 ->makeInputText(),
 
-            Column::make('STATUS', 'status_format')
-                ->sortable()
-                ->searchable()
-                ->makeInputText(),
-
             Column::make('REFERENCE', 'reference')
                 ->sortable()
                 ->searchable()
                 ->makeInputText(),
 
             Column::make('CREATED AT', 'created_at_formatted', 'created_at')
+                ->searchable()
+                ->sortable()
+                ->makeInputDatePicker(),
+
+            Column::make('UPDATED AT', 'updated_at_formatted', 'updated_at')
                 ->searchable()
                 ->sortable()
                 ->makeInputDatePicker(),
@@ -152,21 +151,36 @@ final class AllDeposit extends PowerGridComponent
      * @return array<int, Button>
      */
 
-    /*
+
     public function actions(): array
     {
-       return [
-           Button::make('edit', 'Edit')
-               ->class('bg-indigo-500 cursor-pointer text-white px-3 py-2.5 m-1 rounded text-sm')
-               ->route('transaction.edit', ['transaction' => 'id']),
+        return [
+            //    Button::make('edit', 'Edit')
+            //        ->class('bg-indigo-500 cursor-pointer text-white px-3 py-2.5 m-1 rounded text-sm')
+            //        ->route('transaction.edit', ['transaction' => 'id']),
 
-           Button::make('destroy', 'Delete')
-               ->class('bg-red-500 cursor-pointer text-white px-3 py-2 m-1 rounded text-sm')
-               ->route('transaction.destroy', ['transaction' => 'id'])
-               ->method('delete')
+            Button::make('destroy', 'Delete')
+                ->class('btn btn-danger btn-sm')
+                ->emit('delete', ['id' => 'id'])
         ];
     }
-    */
+
+
+    protected function getListeners()
+    {
+        return array_merge(
+            parent::getListeners(),
+            [
+                'delete',
+            ]
+        );
+    }
+
+    public function delete($id)
+    {
+        $method = Transaction::find($id['id']);
+        $method->delete();
+    }
 
     /*
     |--------------------------------------------------------------------------

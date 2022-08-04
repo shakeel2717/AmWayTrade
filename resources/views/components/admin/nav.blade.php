@@ -20,3 +20,25 @@
     </a>
 </li>
 
+
+<li>
+    <a href="{{ route('admin.history.deposits') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
+        <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="airplay"></i> </div>
+        <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> All Deposit </div>
+    </a>
+</li>
+
+<li>
+    <a href="{{ route('admin.history.withdraws') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
+        <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="airplay"></i> </div>
+        <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> All Withdraw </div>
+    </a>
+</li>
+
+<li>
+    <a href="{{ route('admin.history.withdraws.pending') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
+        <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="airplay"></i> </div>
+        <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> Pending Withdraw </div>
+    </a>
+</li>
+

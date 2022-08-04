@@ -1,15 +1,16 @@
 <?php
 
-namespace App\Http\Livewire\user;
+namespace App\Http\Livewire\admin;
 
 use App\Models\Transaction;
+use App\Models\Withdraw;
 use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use PowerComponents\LivewirePowerGrid\Rules\{Rule, RuleActions};
 use PowerComponents\LivewirePowerGrid\Traits\ActionButton;
 use PowerComponents\LivewirePowerGrid\{Button, Column, Exportable, Footer, Header, PowerGrid, PowerGridComponent, PowerGridEloquent};
 
-final class AllDeposit extends PowerGridComponent
+final class pendingWithdraw extends PowerGridComponent
 {
     use ActionButton;
 
@@ -50,7 +51,7 @@ final class AllDeposit extends PowerGridComponent
      */
     public function datasource(): Builder
     {
-        return Transaction::query()->where('type', 'deposit');
+        return Transaction::query()->where('type', 'withdraw')->where('status', false);
     }
 
     /*
@@ -82,12 +83,11 @@ final class AllDeposit extends PowerGridComponent
     public function addColumns(): PowerGridEloquent
     {
         return PowerGrid::eloquent()
+            ->addColumn('id')
             ->addColumn('type')
             ->addColumn('amount')
             ->addColumn('sum')
-            ->addColumn('status_format', function (Transaction $model) {
-                return $model->status ? "Approved" : "Pending";
-            })
+            ->addColumn('note')
             ->addColumn('reference')
             ->addColumn('created_at_formatted', fn (Transaction $model) => Carbon::parse($model->created_at)->format('d/m/Y H:i:s'))
             ->addColumn('updated_at_formatted', fn (Transaction $model) => Carbon::parse($model->updated_at)->format('d/m/Y H:i:s'));
@@ -120,17 +120,17 @@ final class AllDeposit extends PowerGridComponent
                 ->searchable()
                 ->makeInputText(),
 
-            Column::make('STATUS', 'status_format')
-                ->sortable()
-                ->searchable()
-                ->makeInputText(),
-
             Column::make('REFERENCE', 'reference')
                 ->sortable()
                 ->searchable()
                 ->makeInputText(),
 
             Column::make('CREATED AT', 'created_at_formatted', 'created_at')
+                ->searchable()
+                ->sortable()
+                ->makeInputDatePicker(),
+
+            Column::make('UPDATED AT', 'updated_at_formatted', 'updated_at')
                 ->searchable()
                 ->sortable()
                 ->makeInputDatePicker(),
@@ -152,21 +152,84 @@ final class AllDeposit extends PowerGridComponent
      * @return array<int, Button>
      */
 
-    /*
+
     public function actions(): array
     {
-       return [
-           Button::make('edit', 'Edit')
-               ->class('bg-indigo-500 cursor-pointer text-white px-3 py-2.5 m-1 rounded text-sm')
-               ->route('transaction.edit', ['transaction' => 'id']),
+        return [
+            //       Button::make('edit', 'Edit')
+            //           ->class('bg-indigo-500 cursor-pointer text-white px-3 py-2.5 m-1 rounded text-sm')
+            //           ->route('transaction.edit', ['transaction' => 'id']),
 
-           Button::make('destroy', 'Delete')
-               ->class('bg-red-500 cursor-pointer text-white px-3 py-2 m-1 rounded text-sm')
-               ->route('transaction.destroy', ['transaction' => 'id'])
-               ->method('delete')
+            Button::make('approve', 'Approve')
+                ->class('btn btn-primary btn-sm')
+                ->emit('approve', ['id' => 'id']),
+
+            Button::make('destroy', 'Delete')
+                ->class('btn btn-danger btn-sm')
+                ->emit('delete', ['id' => 'id']),
         ];
     }
+
+
+
+
+    protected function getListeners()
+    {
+        return array_merge(
+            parent::getListeners(),
+            [
+                'delete',
+                'approve',
+            ]
+        );
+    }
+
+    public function approve($id)
+    {
+        $method = Transaction::find($id['id']);
+        $method->status = true;
+        $method->save();
+        $withdraw = Withdraw::find($method->note);
+        $withdraw->status = true;
+        $withdraw->save();
+    }
+
+
+
+    public function delete($id)
+    {
+        $method = Transaction::find($id['id']);
+        $withdraw = Withdraw::find($method->note);
+        $withdraw->delete();
+        $withdraw = Transaction::where('type', 'withdrawals fees ')->where('note', $method->note);
+        $withdraw->delete();
+        $method->delete();
+    }
+
+
+
+
+    /*
+
+    public function onUpdatedEditable(string $id, string $field, string $value): void
+    {
+        Transaction::query()->find($id)->update([
+            $field => $value,
+        ]);
+    }
+
+
+    public function onUpdatedToggleable(string $id, string $field, string $value): void
+    {
+        Transaction::query()->find($id)->update([
+            $field => $value,
+        ]);
+    }
+
     */
+
+
+
 
     /*
     |--------------------------------------------------------------------------

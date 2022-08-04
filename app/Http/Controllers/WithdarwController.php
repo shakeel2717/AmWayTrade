@@ -52,21 +52,23 @@ class WithdarwController extends Controller
         $withdraw = auth()->user()->withdraws()->create([
             'currency_id' => $currency->id,
             'amount' => $validated['amount'],
+            'address' => $validated['address'],
         ]);
 
         $fees = $validated['amount'] * options("withdraw fees") / 100;
 
         // creating transactions
         $withdrawTransaction = auth()->user()->transactions()->create([
-            'type' => "Withdraw",
+            'type' => "withdraw",
             'amount' => $validated['amount'] - $fees,
             'sum' => false,
+            'status' => false,
             'note' => $withdraw->id,
         ]);
 
         // withdrawal fees charges
         $withdrawTransaction = auth()->user()->transactions()->create([
-            'type' => "Withdrawals fees",
+            'type' => "withdrawals fees",
             'amount' => $fees,
             'sum' => false,
             'note' => $withdraw->id,

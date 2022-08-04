@@ -15,5 +15,6 @@ class Withdraw extends Model
         'currency_id',
         'amount',
         'status',
+        'address',
     ];
 }

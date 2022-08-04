@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId("user_id")->constrained()->onDelete("cascade");
             $table->foreignId("currency_id")->constrained()->onDelete("cascade");
             $table->string("amount");
+            $table->string("address");
             $table->boolean("status")->default(false);
             $table->timestamps();
         });

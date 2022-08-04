@@ -14,6 +14,22 @@ class HistoryController extends Controller
         return view("admin.history.users");
     }
 
+
+    public function deposit()
+    {
+        return view("admin.history.deposits");
+    }
+
+    public function withdraws()
+    {
+        return view("admin.history.withdraws");
+    }
+
+    public function withdrawsPending()
+    {
+        return view("admin.history.withdrawsPending");
+    }
+
     public function index()
     {
         //
