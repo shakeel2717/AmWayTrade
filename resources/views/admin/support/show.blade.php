@@ -15,7 +15,7 @@
                                 <div class="fw-medium">
                                     {{ $conversation->message }}
                                 </div>
-                                <div class="text-gray-600 fs-xs mt-0.5 text-uppercase">Reply: {{ ($conversation->user_id == 1) ? "Support Team" : auth()->user()->username }}
+                                <div class="text-gray-600 fs-xs mt-0.5 text-uppercase">Reply: {{ $conversation->user->username }}
                                 </div>
                             </div>
                             <div class="py-1 px-2 rounded-pill fs-xs bg-theme-9 text-white cursor-pointer fw-medium">
@@ -34,7 +34,7 @@
                             </div>
                             <div class="ms-4 me-auto">
                                 <div class="fw-medium">
-                                    No Conversatin in this section, Please Visit This Ticket Later.
+                                    No Conversatin in this section.
                                 </div>
                                 <div class="text-gray-600 fs-xs mt-0.5">N/A
                                 </div>
@@ -56,7 +56,7 @@
                 </div>
                 <div class="card-body">
 
-                    <form action="{{ route('user.support.update', ['support' => $support->id]) }}" method="POST">
+                    <form action="{{ route('admin.support.update', ['support' => $support->id]) }}" method="POST">
                         @csrf
                         @method('PUT')
                         <div class="row">

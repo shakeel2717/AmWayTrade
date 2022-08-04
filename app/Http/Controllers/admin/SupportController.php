@@ -3,38 +3,16 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Support;
 use Illuminate\Http\Request;
 
-class HistoryController extends Controller
+class SupportController extends Controller
 {
-
-
-    public function users()
-    {
-        return view("admin.history.users");
-    }
-
-
-    public function deposit()
-    {
-        return view("admin.history.deposits");
-    }
-
-    public function withdraws()
-    {
-        return view("admin.history.withdraws");
-    }
-
-    public function withdrawsPending()
-    {
-        return view("admin.history.withdrawsPending");
-    }
-
-    public function support()
-    {
-        return view("admin.history.support");
-    }
-
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
         //
@@ -67,9 +45,9 @@ class HistoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Support $support)
     {
-        //
+        return view("admin.support.show", compact("support"));
     }
 
     /**
@@ -90,9 +68,19 @@ class HistoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Support $support)
     {
-        //
+        $validated = $request->validate([
+            'message' => 'required|string',
+        ]);
+
+        // adding a reply under this Support ticket
+        $support->conversations()->create([
+            'user_id' => auth()->user()->id,
+            'message' => $validated['message'],
+        ]);
+
+        return redirect()->back()->with('success', 'Your Message Sent to user Successfully.');
     }
 
     /**

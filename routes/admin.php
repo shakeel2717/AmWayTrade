@@ -3,6 +3,7 @@
 use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\FinanceController;
 use App\Http\Controllers\admin\HistoryController;
+use App\Http\Controllers\admin\SupportController;
 use Illuminate\Support\Facades\Route;
 
 Route::redirect('/admin', '/admin/dashboard');
@@ -10,6 +11,7 @@ Route::redirect('/admin', '/admin/dashboard');
 Route::prefix('admin/')->middleware('auth', 'admin')->name('admin.')->group(function () {
     Route::resource('dashboard', DashboardController::class);
     Route::resource('finance', FinanceController::class);
+    Route::resource('support', SupportController::class);
     Route::prefix("history")->name("history.")->controller(HistoryController::class)->group(function () {
         Route::get('users', 'users')->name("users");
         Route::get('deposits', 'deposit')->name("deposits");
@@ -19,5 +21,6 @@ Route::prefix('admin/')->middleware('auth', 'admin')->name('admin.')->group(func
         Route::get('level1', 'level1')->name("level1");
         Route::get('level2', 'level2')->name("level2");
         Route::get('level3', 'level3')->name("level3");
+        Route::get('support', 'support')->name("support");
     });
 });
