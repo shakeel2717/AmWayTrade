@@ -5,6 +5,7 @@ namespace App\Http\Controllers\user;
 use App\Events\PlanCommissionEvent;
 use App\Http\Controllers\Controller;
 use App\Models\Plan;
+use App\Models\User;
 use App\Models\UserPlan;
 use Illuminate\Http\Request;
 
@@ -101,6 +102,11 @@ class PlanController extends Controller
             'reference' => $plan->name . " Plan Activated!",
             'note' => $userPlan->id,
         ]);
+
+        // activating this user status
+        $user = User::find(auth()->user()->id);
+        $user->status = true;
+        $user->save();
 
         return redirect()->route("user.dashboard.index")->with("success", "Package Activated Successfully");
     }

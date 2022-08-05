@@ -7,63 +7,63 @@
 
 <li>
     <a href="{{ route('user.deposit.index') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
-        <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="airplay"></i> </div>
+        <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="shopping-bag"></i> </div>
         <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> Add Balance </div>
     </a>
 </li>
 
 <li>
     <a href="{{ route('user.plans.index') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
-        <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="airplay"></i> </div>
+        <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="shopping-cart"></i> </div>
         <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> Plan Activate </div>
     </a>
 </li>
 
 <li>
     <a href="{{ route('user.withdraw.index') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
-        <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="airplay"></i> </div>
+        <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="dollar-sign"></i> </div>
         <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> Withdraw </div>
     </a>
 </li>
 
 <li>
     <a href="{{ route('user.history.deposit') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
-        <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="airplay"></i> </div>
+        <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="list"></i> </div>
         <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> All Deposits </div>
     </a>
 </li>
 
 <li>
     <a href="{{ route('user.history.withdraw') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
-        <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="airplay"></i> </div>
+        <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="list"></i> </div>
         <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> All Withdrawals </div>
     </a>
 </li>
 
 <li>
     <a href="{{ route('user.history.direct') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
-        <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="airplay"></i> </div>
+        <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="list"></i> </div>
         <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> Direct Team </div>
     </a>
 </li>
 
 <li>
     <a href="{{ route('user.history.level1') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
-        <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="airplay"></i> </div>
+        <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="list"></i> </div>
         <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> In-Direct Level 1 </div>
     </a>
 </li>
 
 <li>
     <a href="{{ route('user.history.level2') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
-        <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="airplay"></i> </div>
+        <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="list"></i> </div>
         <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> In-Direct Level 2 </div>
     </a>
 </li>
 
 <li>
     <a href="{{ route('user.history.level3') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
-        <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="airplay"></i> </div>
+        <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="list"></i> </div>
         <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> In-Direct Level 3 </div>
     </a>
 </li>
@@ -97,13 +97,13 @@
 
 <li>
     <a href="{{ route('user.support.index') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
-        <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="airplay"></i> </div>
+        <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="help-circle"></i> </div>
         <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> Help / Support </div>
     </a>
 </li>
 <li>
     <a href="{{ route('user.history.support') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
-        <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="airplay"></i> </div>
+        <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="message-square"></i> </div>
         <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> Support Tickets </div>
     </a>
 </li>

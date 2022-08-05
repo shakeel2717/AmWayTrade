@@ -13,6 +13,69 @@ function balance($user_id)
     return $in - $out;
 }
 
+function totalProfit($user_id)
+{
+    $in = Transaction::where('user_id', $user_id)->where('type', 'daily profit')->sum('amount');
+    return $in;
+}
+
+function totalPassiveLevel1($user_id)
+{
+    $level1 = Transaction::where('user_id', $user_id)->where('type', 'uni level 1')->sum('amount');
+    return $level1;
+}
+
+function totalPassiveLevel2($user_id)
+{
+    $level2 = Transaction::where('user_id', $user_id)->where('type', 'uni level 2')->sum('amount');
+    return $level2;
+}
+
+function totalPassiveLevel3($user_id)
+{
+    $level3 = Transaction::where('user_id', $user_id)->where('type', 'uni level 3')->sum('amount');
+    return $level3;
+}
+
+
+function totalPassive($user_id)
+{
+    return totalPassiveLevel1($user_id) + totalPassiveLevel2($user_id) + totalPassiveLevel3($user_id);
+}
+
+function totalCommissionDirect($user_id)
+{
+    $level = Transaction::where('user_id', $user_id)->where('type', 'direct commission')->sum('amount');
+    return $level;
+}
+
+function totalCommissionInDirectL1($user_id)
+{
+    $level = Transaction::where('user_id', $user_id)->where('type', 'indirect level 1')->sum('amount');
+    return $level;
+}
+
+function totalCommissionInDirectL2($user_id)
+{
+    $level = Transaction::where('user_id', $user_id)->where('type', 'indirect level 2')->sum('amount');
+    return $level;
+}
+
+function totalCommissionInDirectL3($user_id)
+{
+    $level = Transaction::where('user_id', $user_id)->where('type', 'indirect level 3')->sum('amount');
+    return $level;
+}
+
+
+function totalCommission($user_id)
+{
+    return totalCommissionDirect($user_id) + totalCommissionInDirectL1($user_id) + totalCommissionInDirectL2($user_id) + totalCommissionInDirectL3($user_id);
+}
+
+
+
+
 function allRefers($user_id)
 {
     $collection = directRefers($user_id);
