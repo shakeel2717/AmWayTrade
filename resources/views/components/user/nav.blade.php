@@ -27,6 +27,13 @@
 </li>
 
 <li>
+    <a href="{{ route('user.history.recent') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
+        <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="list"></i> </div>
+        <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> Recent Transaction </div>
+    </a>
+</li>
+
+<li>
     <a href="{{ route('user.history.deposit') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
         <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="list"></i> </div>
         <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> All Deposits </div>

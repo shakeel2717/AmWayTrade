@@ -21,6 +21,7 @@ Route::prefix('user/')->middleware('auth', 'user')->name('user.')->group(functio
     Route::resource('withdraw', WithdarwController::class);
     Route::resource('support', SupportController::class);
     Route::prefix("history")->name("history.")->controller(HistoryController::class)->group(function () {
+        Route::get('recent', 'recent')->name("recent");
         Route::get('deposit', 'deposit')->name("deposit");
         Route::get('withdraw', 'withdraw')->name("withdraw");
         Route::get('direct', 'direct')->name("direct");

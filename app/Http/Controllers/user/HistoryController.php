@@ -13,6 +13,11 @@ class HistoryController extends Controller
         return view("user.history.deposit");
     }
 
+    public function recent()
+    {
+        return view("user.history.recent");
+    }
+
 
     public function withdraw()
     {
