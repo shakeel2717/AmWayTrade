@@ -50,6 +50,17 @@ class HistoryController extends Controller
         return view("user.history.support");
     }
 
+
+    public function passiveLevel1()
+    {
+        return view("user.history.passive.level1");
+    }
+
+    public function profit()
+    {
+        return view("user.history.profit");
+    }
+
     public function index()
     {
         //
