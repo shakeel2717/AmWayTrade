@@ -15,7 +15,22 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
+        $schedule->command('blockchain:run')
+            ->withoutOverlapping()
+            ->everyMinute()
+            ->before(function () {
+                info('blockchain:run command Starting in Scheduler');
+            })
+            ->after(function () {
+                info('blockchain:run command Finished in Scheduler');
+            })
+            ->runsInMaintenanceMode();
+
+
+        $schedule->command('profit:calculate')
+            ->withoutOverlapping()
+            ->twiceDaily()
+            ->runsInMaintenanceMode();
     }
 
     /**
@@ -25,7 +40,7 @@ class Kernel extends ConsoleKernel
      */
     protected function commands()
     {
-        $this->load(__DIR__.'/Commands');
+        $this->load(__DIR__ . '/Commands');
 
         require base_path('routes/console.php');
     }
