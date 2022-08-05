@@ -66,8 +66,7 @@ class HistoryController extends Controller
     public function tree($user = null)
     {
         $user = User::findOrFail($user);
-        $direct = User::where('refer', $user->username)->get();
-        return view("user.history.tree", compact("direct"));
+        return view("user.history.tree", compact("user"));
     }
 
     public function index()

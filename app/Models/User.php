@@ -57,12 +57,18 @@ class User extends Authenticatable
 
     public function transactions()
     {
-        return $this->hasMany(Transaction::class)->orderBy('id','desc');
+        return $this->hasMany(Transaction::class)->orderBy('id', 'desc');
     }
 
 
     public function withdraws()
     {
         return $this->hasMany(Withdraw::class);
+    }
+
+
+    public function refers()
+    {
+        return $this->hasMany(User::class, 'refer', 'username');
     }
 }
