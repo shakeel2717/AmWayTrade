@@ -180,6 +180,13 @@
 </li>
 
 <li>
+    <a href="{{ route('user.kyc.index') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
+        <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="lock"></i> </div>
+        <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> KYC </div>
+    </a>
+</li>
+
+<li>
     <a href="{{ route('user.support.index') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
         <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="help-circle"></i> </div>
         <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> Help / Support </div>

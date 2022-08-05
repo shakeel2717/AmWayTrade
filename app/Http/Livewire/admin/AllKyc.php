@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\admin;
 
+use App\Models\Kyc;
 use App\Models\User;
 use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Builder;
@@ -9,19 +10,9 @@ use PowerComponents\LivewirePowerGrid\Rules\{Rule, RuleActions};
 use PowerComponents\LivewirePowerGrid\Traits\ActionButton;
 use PowerComponents\LivewirePowerGrid\{Button, Column, Exportable, Footer, Header, PowerGrid, PowerGridComponent, PowerGridEloquent};
 
-final class AllUsers extends PowerGridComponent
+final class AllKyc extends PowerGridComponent
 {
     use ActionButton;
-
-    public $name;
-    public $email;
-    public $phone;
-    public $city;
-    public $country;
-    public $status;
-    public $suspend;
-
-
 
     /*
     |--------------------------------------------------------------------------
@@ -56,11 +47,11 @@ final class AllUsers extends PowerGridComponent
     /**
      * PowerGrid datasource.
      *
-     * @return Builder<\App\Models\User>
+     * @return Builder<\App\Models\Kyc>
      */
     public function datasource(): Builder
     {
-        return User::query();
+        return Kyc::query()->where('status', false);
     }
 
     /*
@@ -93,17 +84,17 @@ final class AllUsers extends PowerGridComponent
     {
         return PowerGrid::eloquent()
             ->addColumn('id')
+            ->addColumn('category')
             ->addColumn('name')
-            ->addColumn('username')
-            ->addColumn('email')
-            ->addColumn('phone')
-            ->addColumn('country')
+            ->addColumn('front_img', function (Kyc $model) {
+                return "<img class='w-32' src='/kyc/" . $model->front . "'>";
+            })
+            ->addColumn('back_img', function (Kyc $model) {
+                return "<img class='w-32' src='/kyc/" . $model->back . "'>";
+            })
             ->addColumn('status')
-            ->addColumn('suspend')
-            ->addColumn('refer')
-            ->addColumn('role')
-            ->addColumn('created_at_formatted', fn (User $model) => Carbon::parse($model->created_at)->format('d/m/Y H:i:s'))
-            ->addColumn('updated_at_formatted', fn (User $model) => Carbon::parse($model->updated_at)->format('d/m/Y H:i:s'));
+            ->addColumn('created_at_formatted', fn (Kyc $model) => Carbon::parse($model->created_at)->format('d/m/Y H:i:s'))
+            ->addColumn('updated_at_formatted', fn (Kyc $model) => Carbon::parse($model->updated_at)->format('d/m/Y H:i:s'));
     }
 
     /*
@@ -123,46 +114,25 @@ final class AllUsers extends PowerGridComponent
     public function columns(): array
     {
         return [
+            Column::make('ID', 'id')
+                ->makeInputRange(),
+
+            Column::make('CATEGORY', 'category')
+                ->sortable()
+                ->searchable()
+                ->makeInputText(),
+
             Column::make('NAME', 'name')
                 ->sortable()
-                ->editOnClick()
                 ->searchable()
                 ->makeInputText(),
 
-            Column::make('USERNAME', 'username')
+            Column::make('FRONT', 'front_img')
                 ->sortable()
                 ->searchable()
                 ->makeInputText(),
 
-            Column::make('EMAIL', 'email')
-                ->sortable()
-                ->searchable()
-                ->editOnClick()
-                ->makeInputText(),
-
-            Column::make('PHONE', 'phone')
-                ->sortable()
-                ->searchable()
-                ->editOnClick()
-                ->makeInputText(),
-
-            Column::make('COUNTRY', 'country')
-                ->sortable()
-                ->searchable()
-                ->editOnClick()
-                ->makeInputText(),
-
-            Column::make('STATUS', 'status')
-                ->toggleable(),
-
-            Column::make('SUSPEND', 'suspend')
-                ->toggleable(),
-
-
-            Column::make('KYC', 'kyc_status')
-                ->toggleable(),
-
-            Column::make('SPONSER', 'refer')
+            Column::make('BACK', 'back_img')
                 ->sortable()
                 ->searchable()
                 ->makeInputText(),
@@ -184,30 +154,71 @@ final class AllUsers extends PowerGridComponent
     */
 
     /**
-     * PowerGrid User Action Buttons.
+     * PowerGrid Kyc Action Buttons.
      *
      * @return array<int, Button>
      */
 
-    /*
+
     public function actions(): array
     {
-       return [
-           Button::make('edit', 'Edit')
-               ->class('bg-indigo-500 cursor-pointer text-white px-3 py-2.5 m-1 rounded text-sm')
-               ->route('user.edit', ['user' => 'id']),
+        return [
+            //       Button::make('edit', 'Edit')
+            //           ->class('bg-indigo-500 cursor-pointer text-white px-3 py-2.5 m-1 rounded text-sm')
+            //           ->route('kyc.edit', ['kyc' => 'id']),
 
-           Button::make('destroy', 'Delete')
-               ->class('bg-red-500 cursor-pointer text-white px-3 py-2 m-1 rounded text-sm')
-               ->route('user.destroy', ['user' => 'id'])
-               ->method('delete')
+            Button::make('destroy', 'Delete')
+                ->class('btn btn-danger btn-sm')
+                ->emit('delete', ['id' => 'id']),
+
+            Button::make('approve', 'Approve')
+                ->class('btn btn-primary btn-sm')
+                ->emit('approve', ['id' => 'id'])
         ];
     }
-    */
+
+
+
+
+    protected function getListeners()
+    {
+        return array_merge(
+            parent::getListeners(),
+            [
+                'delete',
+                'approve',
+            ]
+        );
+    }
+
+
+
+    public function delete($id)
+    {
+        $method = Kyc::find($id['id']);
+        $method->delete();
+    }
+
+    public function approve($id)
+    {
+        $method = Kyc::find($id['id']);
+        $method->status = true;
+        $method->save();
+
+
+        $user = User::find($method->user_id);
+        $user->kyc_status = true;
+        $user->save();
+    }
+
+
+
+
+    /*
 
     public function onUpdatedEditable(string $id, string $field, string $value): void
     {
-        User::query()->find($id)->update([
+        Kyc::query()->find($id)->update([
             $field => $value,
         ]);
     }
@@ -215,10 +226,15 @@ final class AllUsers extends PowerGridComponent
 
     public function onUpdatedToggleable(string $id, string $field, string $value): void
     {
-        User::query()->find($id)->update([
+        Kyc::query()->find($id)->update([
             $field => $value,
         ]);
     }
+
+    */
+
+
+
 
     /*
     |--------------------------------------------------------------------------
@@ -229,7 +245,7 @@ final class AllUsers extends PowerGridComponent
     */
 
     /**
-     * PowerGrid User Action Rules.
+     * PowerGrid Kyc Action Rules.
      *
      * @return array<int, RuleActions>
      */
@@ -241,7 +257,7 @@ final class AllUsers extends PowerGridComponent
 
            //Hide button edit for ID 1
             Rule::button('edit')
-                ->when(fn($user) => $user->id === 1)
+                ->when(fn($kyc) => $kyc->id === 1)
                 ->hide(),
         ];
     }

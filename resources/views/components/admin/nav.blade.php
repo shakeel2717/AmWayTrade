@@ -42,6 +42,14 @@
     </a>
 </li>
 
+<li>
+    <a href="{{ route('admin.kyc.index') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
+        <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="airplay"></i> </div>
+        <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> Kyc Request </div>
+    </a>
+</li>
+
+
 
 <li>
     <a href="{{ route('admin.history.support') }}" class="{{ $mode == true ? 'side-' : '' }}menu">

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DepositController;
+use App\Http\Controllers\KycController;
 use App\Http\Controllers\user\DashboardController;
 use App\Http\Controllers\user\HistoryController;
 use App\Http\Controllers\user\PlanController;
@@ -20,6 +21,7 @@ Route::prefix('user/')->middleware('auth', 'user')->name('user.')->group(functio
     Route::resource('deposit', DepositController::class);
     Route::resource('withdraw', WithdarwController::class);
     Route::resource('support', SupportController::class);
+    Route::resource('kyc', KycController::class);
     Route::prefix("history")->name("history.")->controller(HistoryController::class)->group(function () {
         Route::get('recent', 'recent')->name("recent");
         Route::get('deposit', 'deposit')->name("deposit");

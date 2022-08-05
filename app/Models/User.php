@@ -71,4 +71,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(User::class, 'refer', 'username');
     }
+
+
+    public function kyc()
+    {
+        return $this->hasOne(Kyc::class);
+    }
 }
