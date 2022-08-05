@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class HistoryController extends Controller
@@ -59,6 +60,14 @@ class HistoryController extends Controller
     public function profit()
     {
         return view("user.history.profit");
+    }
+
+
+    public function tree($user = null)
+    {
+        $user = User::findOrFail($user);
+        $direct = User::where('refer', $user->username)->get();
+        return view("user.history.tree", compact("direct"));
     }
 
     public function index()

@@ -35,6 +35,7 @@ Route::prefix('user/')->middleware('auth', 'user')->name('user.')->group(functio
         Route::get('passive/4', 'passiveLevel4')->name("passive.4");
         Route::get('passive/5', 'passiveLevel5')->name("passive.5");
         Route::get('profit', 'profit')->name("profit");
+        Route::get('tree/{user?}', 'tree')->name("tree");
     });
 });
 

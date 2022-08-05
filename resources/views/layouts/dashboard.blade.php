@@ -10,6 +10,7 @@
     <meta name="author" content="ASAN WEBS DEVELOPMENT">
     <title>@yield('title', 'Dashboard') - {{ env('APP_DESC') }}</title>
     <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}" />
+    @yield('header')
     @livewireStyles
     @powerGridStyles
 </head>
