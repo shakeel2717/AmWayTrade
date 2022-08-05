@@ -29,7 +29,7 @@ class Kernel extends ConsoleKernel
 
         $schedule->command('profit:calculate')
             ->withoutOverlapping()
-            ->twiceDaily()
+            ->daily()
             ->runsInMaintenanceMode();
     }
 

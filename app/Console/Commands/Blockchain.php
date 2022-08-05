@@ -39,17 +39,28 @@ class Blockchain extends Command
             $profit_daily = $userPlan->plan->profit;
             $profit = $userPlan->amount * $profit_daily / 100;
 
-            // inserting profit daily profit for this user
-            $transaction = Transaction::create([
-                'user_id' => $userPlan->user_id,
-                'type' => "daily profit",
-                'amount' => $profit,
-                'sum' => true,
-                'reference' => $userPlan->name . " Plan Daily Profit @" . $profit_daily . "% Added!",
-                'note' => "blockchain",
-            ]);
+            // checking if already delivered
+            $security = Transaction::where('user_id', $userPlan->user_id)
+                ->where('type', 'daily profit')
+                ->where('amount', $profit)
+                ->where('note', 'blockchain')
+                ->get();
 
-            UniLevelEvent::dispatch($userPlan,$transaction);
+            if ($security->count() < 1) {
+                // inserting profit daily profit for this user
+                $transaction = Transaction::create([
+                    'user_id' => $userPlan->user_id,
+                    'type' => "daily profit",
+                    'amount' => $profit,
+                    'sum' => true,
+                    'reference' => $userPlan->name . " Plan Daily Profit @" . $profit_daily . "% Added!",
+                    'note' => "blockchain",
+                ]);
+
+                UniLevelEvent::dispatch($userPlan, $transaction);
+            } else {
+                info("Blockchain Already Delivred Profit");
+            }
         }
         info("Blockchain Ended Successfully");
     }
