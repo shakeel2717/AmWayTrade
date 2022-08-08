@@ -64,7 +64,7 @@
     </a>
     <ul class="{{ $mode == true ? 'side-' : '' }}menu__sub">
         <li>
-            <a href="{{ route('user.history.tree') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
+            <a href="{{ route('user.history.tree',['user' => auth()->user()->id]) }}" class="{{ $mode == true ? 'side-' : '' }}menu">
                 <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="corner-down-right"></i>
                 </div>
                 <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> My Tree </div>
