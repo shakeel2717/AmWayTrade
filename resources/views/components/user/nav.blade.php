@@ -144,21 +144,21 @@
             <a href="{{ route('user.history.passive.1') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
                 <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="corner-down-right"></i>
                 </div>
-                <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> Uni-Level 1 </div>
+                <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> Uni-Level 1 Commission </div>
             </a>
         </li>
         <li>
             <a href="{{ route('user.history.passive.2') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
                 <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="corner-down-right"></i>
                 </div>
-                <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> Uni-Level 2 </div>
+                <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> Uni-Level 2 Commission </div>
             </a>
         </li>
         <li>
             <a href="{{ route('user.history.passive.3') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
                 <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="corner-down-right"></i>
                 </div>
-                <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> Uni-Level 3 </div>
+                <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> Uni-Level 3 Commission </div>
             </a>
         </li>
         <li>
@@ -188,7 +188,7 @@
 
 <li>
     <a href="javascript:;" class="{{ $mode == true ? 'side-' : '' }}menu">
-        <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="dollar-sign"></i> </div>
+        <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="users"></i> </div>
         <div class="{{ $mode == true ? 'side-' : '' }}menu__title">
             My Tree
             <div class="{{ $mode == true ? 'side-' : '' }}menu__sub-icon"> <i data-feather="chevron-down"></i>
