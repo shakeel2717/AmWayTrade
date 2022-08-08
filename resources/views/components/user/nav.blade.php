@@ -134,7 +134,7 @@
     <a href="javascript:;" class="{{ $mode == true ? 'side-' : '' }}menu">
         <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="dollar-sign"></i> </div>
         <div class="{{ $mode == true ? 'side-' : '' }}menu__title">
-            Passive Income
+            Earning
             <div class="{{ $mode == true ? 'side-' : '' }}menu__sub-icon"> <i data-feather="chevron-down"></i>
             </div>
         </div>
@@ -144,35 +144,35 @@
             <a href="{{ route('user.history.passive.1') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
                 <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="corner-down-right"></i>
                 </div>
-                <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> Level 1 Income </div>
+                <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> Uni-Level 1 </div>
             </a>
         </li>
         <li>
             <a href="{{ route('user.history.passive.2') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
                 <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="corner-down-right"></i>
                 </div>
-                <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> Level 2 Income </div>
+                <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> Uni-Level 2 </div>
             </a>
         </li>
         <li>
             <a href="{{ route('user.history.passive.3') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
                 <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="corner-down-right"></i>
                 </div>
-                <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> Level 3 Income </div>
+                <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> Uni-Level 3 </div>
             </a>
         </li>
         <li>
             <a href="{{ route('user.history.passive.4') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
                 <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="corner-down-right"></i>
                 </div>
-                <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> Level 4 Income </div>
+                <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> Uni-Level 4 </div>
             </a>
         </li>
         <li>
             <a href="{{ route('user.history.passive.5') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
                 <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="corner-down-right"></i>
                 </div>
-                <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> Level 5 Income </div>
+                <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> Uni-Level 5 </div>
             </a>
         </li>
     </ul>
