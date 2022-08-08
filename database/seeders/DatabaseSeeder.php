@@ -143,7 +143,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Currency::create([
-            'name' => "Tether (TRC20)",
+            'name' => "USDT Tether (TRC20)",
             'symbol' => "USDT.TRC20",
             'icon' => "usdt",
             'status' => true
