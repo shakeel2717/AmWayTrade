@@ -2272,7 +2272,7 @@ a,a:hover, img, .form-control,  .form-control:hover, button{
     Counter Section
 =======================================================*/
 .counter-section{
-    background-image: url(../img/counter-bg.jpg);
+    background-image: url(../cover.jpg);
     background-repeat: no-repeat;
     background-position: top center;
     width: 100%;

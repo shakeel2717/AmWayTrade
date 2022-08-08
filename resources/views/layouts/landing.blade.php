@@ -87,7 +87,7 @@
 
     <div id="main-slider" class="main-slider">
         <div class="single-slide">
-            <div class="bg-img" style="background-image: url(/landing/img/slider-1.jpg);"></div>
+            <div class="bg-img" style="background-image: url(/landing/slide-main.jpg);"></div>
             <div class="slider-content-wrap d-flex align-items-center text-left">
                 <div class="container">
                     <div class="slider-content">
@@ -346,19 +346,28 @@
                 <p>{{ env('APP_DESC') }}</p>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-sm-6 padding-15">
-                    <div class="blog-item">
-                        <div class="blog-thumb">
-                            <img src="assets/img/post-1.jpg" alt="post">
-                            <span class="category"><a href="blog-grid.html">Design</a></span>
-                        </div>
-                        <div class="blog-content">
-                            <h3><a href="blog-single.html"></p>
-                                    <a href="blog-single.html" class="read-more">Read More<i
-                                            class="las la-long-arrow-alt-right"></i></a>
+                @foreach ($plans as $plan)
+                    <div class="col-lg-4 col-sm-6 padding-15">
+                        <div class="blog-item">
+                            <div class="blog-thumb">
+                                <img src="assets/img/post-2.jpg" alt="post">
+                                <span class="category"><a href="{{ route('register') }}">Activate This Plan</a></span>
+                            </div>
+                            <div class="blog-content">
+                                <h3><a href="{{ route('register') }}">{{ $plan->name }} Plan</a></h3>
+                                <h3><a href="{{ route('register') }}">${{ number_format($plan->price_from,2) }} - ${{ number_format($plan->price_to,2) }}</a></h3>
+                                <div class="my-4 mx-auto text-center">
+                                    <img src="{{ asset('landing/trophy.png') }}" alt="Package" class="w-50">
+                                </div>
+                                <p>Min Withdraw: ${{ options("min withdraw") }}</p>
+                                <p>Instant Deposit</p>
+                                <p>Direct Commission ${{ options("direct") }}</p>
+                                <a href="{{ route('register') }}" class="read-more">Buy This Plan<i
+                                        class="las la-long-arrow-alt-right"></i></a>
+                            </div>
                         </div>
                     </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>

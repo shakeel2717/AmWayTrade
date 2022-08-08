@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Plan;
 use Illuminate\Http\Request;
 
 class LandingPageController extends Controller
@@ -13,7 +14,8 @@ class LandingPageController extends Controller
      */
     public function index()
     {
-        return view("landing.index");
+        $plans = Plan::where('status', true)->get();
+        return view("landing.index", compact("plans"));
     }
 
     /**
