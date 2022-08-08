@@ -62,6 +62,26 @@ class HistoryController extends Controller
         return view("user.history.profit");
     }
 
+    public function directCommission()
+    {
+        return view("user.history.directCommission");
+    }
+
+    public function indirectCommissionL1()
+    {
+        return view("user.history.indirectCommissionL1");
+    }
+
+    public function indirectCommissionL2()
+    {
+        return view("user.history.indirectCommissionL2");
+    }
+
+    public function indirectCommissionL3()
+    {
+        return view("user.history.indirectCommissionL3");
+    }
+
 
     public function tree($user = null)
     {

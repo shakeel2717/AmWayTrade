@@ -41,6 +41,10 @@ Route::prefix('user/')->middleware('auth', 'user')->name('user.')->group(functio
         Route::get('passive/5', 'passiveLevel5')->name("passive.5");
         Route::get('profit', 'profit')->name("profit");
         Route::get('tree/{user?}', 'tree')->name("tree");
+        Route::get('/direct/commission', 'directCommission')->name("direct.commission");
+        Route::get('/indirect/level/1/commission', 'indirectCommissionL1')->name("indirect.commission.level1");
+        Route::get('/indirect/level/2/commission', 'indirectCommissionL2')->name("indirect.commission.level2");
+        Route::get('/indirect/level/3/commission', 'indirectCommissionL3')->name("indirect.commission.level3");
     });
 });
 

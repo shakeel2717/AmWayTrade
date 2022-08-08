@@ -54,10 +54,53 @@
 </li>
 
 <li>
-    <a href="{{ route('user.history.tree',['user' => auth()->user()->id ]) }}" class="{{ $mode == true ? 'side-' : '' }}menu">
-        <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="list"></i> </div>
-        <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> My Tree </div>
+    <a href="javascript:;" class="{{ $mode == true ? 'side-' : '' }}menu">
+        <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="dollar-sign"></i> </div>
+        <div class="{{ $mode == true ? 'side-' : '' }}menu__title">
+            Earning
+            <div class="{{ $mode == true ? 'side-' : '' }}menu__sub-icon"> <i data-feather="chevron-down"></i>
+            </div>
+        </div>
     </a>
+    <ul class="{{ $mode == true ? 'side-' : '' }}menu__sub">
+        <li>
+            <a href="{{ route('user.history.tree') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
+                <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="corner-down-right"></i>
+                </div>
+                <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> My Tre </div>
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ route('user.history.direct') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
+                <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="corner-down-right"></i>
+                </div>
+                <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> Direct Team </div>
+            </a>
+        </li>
+        <li>
+            <a href="{{ route('user.history.level1') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
+                <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="corner-down-right"></i>
+                </div>
+                <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> In-Direct Level 1 </div>
+            </a>
+        </li>
+        <li>
+            <a href="{{ route('user.history.level2') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
+                <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="corner-down-right"></i>
+                </div>
+                <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> In-Direct Level 2 </div>
+            </a>
+        </li>
+        <li>
+            <a href="{{ route('user.history.level3') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
+                <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="corner-down-right"></i>
+                </div>
+                <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> In-Direct Level 3 </div>
+            </a>
+        </li>
+
+    </ul>
 </li>
 
 <li>
@@ -99,33 +142,34 @@
             </a>
         </li>
         <li>
-            <a href="{{ route('user.history.direct') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
+            <a href="{{ route('user.history.direct.commission') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
                 <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="corner-down-right"></i>
                 </div>
-                <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> Direct Team </div>
+                <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> Direct Commission </div>
             </a>
         </li>
         <li>
-            <a href="{{ route('user.history.level1') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
+            <a href="{{ route('user.history.indirect.commission.level1') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
                 <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="corner-down-right"></i>
                 </div>
-                <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> In-Direct Level 1 </div>
+                <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> In-Direct 1 Commission </div>
             </a>
         </li>
         <li>
-            <a href="{{ route('user.history.level2') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
+            <a href="{{ route('user.history.indirect.commission.level2') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
                 <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="corner-down-right"></i>
                 </div>
-                <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> In-Direct Level 2 </div>
+                <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> In-Direct 2 Commission </div>
             </a>
         </li>
         <li>
-            <a href="{{ route('user.history.level3') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
+            <a href="{{ route('user.history.indirect.commission.level3') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
                 <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="corner-down-right"></i>
                 </div>
-                <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> In-Direct Level 3 </div>
+                <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> In-Direct 3 Commission </div>
             </a>
         </li>
+
         <li>
             <a href="{{ route('user.history.passive.1') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
                 <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="corner-down-right"></i>
