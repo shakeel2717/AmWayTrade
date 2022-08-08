@@ -9,7 +9,7 @@
     <a href="javascript:;" class="{{ $mode == true ? 'side-' : '' }}menu">
         <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="sliders"></i> </div>
         <div class="{{ $mode == true ? 'side-' : '' }}menu__title">
-            My Account
+            Profile
             <div class="{{ $mode == true ? 'side-' : '' }}menu__sub-icon"> <i data-feather="chevron-down"></i>
             </div>
         </div>
