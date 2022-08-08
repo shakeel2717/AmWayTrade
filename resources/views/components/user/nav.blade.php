@@ -56,7 +56,7 @@
 <li>
     <a href="{{ route('user.history.tree',['user' => auth()->user()->id ]) }}" class="{{ $mode == true ? 'side-' : '' }}menu">
         <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="list"></i> </div>
-        <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> Downline Tree </div>
+        <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> My Tree </div>
     </a>
 </li>
 
@@ -75,13 +75,6 @@
 </li>
 
 <li>
-    <a href="{{ route('user.history.profit') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
-        <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="list"></i> </div>
-        <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> Daily Profit </div>
-    </a>
-</li>
-
-<li>
     <a href="{{ route('user.history.withdraw') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
         <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="list"></i> </div>
         <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> All Withdrawals </div>
@@ -90,14 +83,21 @@
 
 <li>
     <a href="javascript:;" class="{{ $mode == true ? 'side-' : '' }}menu">
-        <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="users"></i> </div>
+        <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="dollar-sign"></i> </div>
         <div class="{{ $mode == true ? 'side-' : '' }}menu__title">
-            My Team
+            Earning
             <div class="{{ $mode == true ? 'side-' : '' }}menu__sub-icon"> <i data-feather="chevron-down"></i>
             </div>
         </div>
     </a>
     <ul class="{{ $mode == true ? 'side-' : '' }}menu__sub">
+        <li>
+            <a href="{{ route('user.history.profit') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
+                <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="corner-down-right"></i>
+                </div>
+                <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> Daily Income </div>
+            </a>
+        </li>
         <li>
             <a href="{{ route('user.history.direct') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
                 <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="corner-down-right"></i>
@@ -126,20 +126,6 @@
                 <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> In-Direct Level 3 </div>
             </a>
         </li>
-
-    </ul>
-</li>
-
-<li>
-    <a href="javascript:;" class="{{ $mode == true ? 'side-' : '' }}menu">
-        <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="dollar-sign"></i> </div>
-        <div class="{{ $mode == true ? 'side-' : '' }}menu__title">
-            Earning
-            <div class="{{ $mode == true ? 'side-' : '' }}menu__sub-icon"> <i data-feather="chevron-down"></i>
-            </div>
-        </div>
-    </a>
-    <ul class="{{ $mode == true ? 'side-' : '' }}menu__sub">
         <li>
             <a href="{{ route('user.history.passive.1') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
                 <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="corner-down-right"></i>
