@@ -57,7 +57,7 @@
     <a href="javascript:;" class="{{ $mode == true ? 'side-' : '' }}menu">
         <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="dollar-sign"></i> </div>
         <div class="{{ $mode == true ? 'side-' : '' }}menu__title">
-            Earning
+            My Tree
             <div class="{{ $mode == true ? 'side-' : '' }}menu__sub-icon"> <i data-feather="chevron-down"></i>
             </div>
         </div>
@@ -67,7 +67,7 @@
             <a href="{{ route('user.history.tree') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
                 <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="corner-down-right"></i>
                 </div>
-                <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> My Tre </div>
+                <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> My Tree </div>
             </a>
         </li>
 
