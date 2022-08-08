@@ -15,7 +15,7 @@
 <li>
     <a href="{{ route('user.plans.index') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
         <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="shopping-cart"></i> </div>
-        <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> Plan Activate </div>
+        <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> Buy Package </div>
     </a>
 </li>
 
