@@ -69,7 +69,7 @@
                             @foreach (notifications() as $notification)
                                 <div class="cursor-pointer position-relative d-flex align-items-center ">
                                     <div class="w-12 h-12 flex-none image-fit me-1">
-                                        <img alt="Rubick Bootstrap HTML Admin Template" class="rounded-pill"
+                                        <img alt="{{ env('APP_NAME') }}" class="rounded-pill"
                                             src="{{ asset('landing/announcement.png') }}">
                                         <div
                                             class="w-3 h-3 bg-theme-9 position-absolute end-0 bottom-0 rounded-pill border-2 border-white dark-border-dark-3">
@@ -77,10 +77,11 @@
                                     </div>
                                     <div class="ms-2 overflow-hidden">
                                         <div class="d-flex align-items-center">
-                                            <a href="javascript:;"
+                                            <a href="{{ route('user.notification.index') }}"
                                                 class="fw-medium truncate me-5 dark-text-gray-300">Important Notice</a>
                                             <div class="fs-xs text-gray-500 ms-auto text-nowrap">
-                                                {{ $notification->created_at->diffForHumans() }}</div>
+                                                {{ $notification->created_at->diffForHumans() }}
+                                            </div>
                                         </div>
                                         <div class="w-full truncate text-gray-600 mt-0.5">{{ $notification->message }}
                                         </div>
