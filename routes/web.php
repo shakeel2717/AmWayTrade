@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DepositController;
 use App\Http\Controllers\KycController;
+use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\user\DashboardController;
 use App\Http\Controllers\user\HistoryController;
 use App\Http\Controllers\user\PlanController;
@@ -10,7 +11,7 @@ use App\Http\Controllers\user\SupportController;
 use App\Http\Controllers\WithdarwController;
 use Illuminate\Support\Facades\Route;
 
-Route::redirect('/', '/login');
+Route::resource('/', LandingPageController::class);
 
 Route::prefix('user/')->middleware('auth', 'user')->name('user.')->group(function () {
     Route::resource('dashboard', DashboardController::class);
