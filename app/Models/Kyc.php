@@ -13,6 +13,7 @@ class Kyc extends Model
     protected $fillable = [
         'category',
         'name',
+        'number',
         'front',
         'back',
         'status',

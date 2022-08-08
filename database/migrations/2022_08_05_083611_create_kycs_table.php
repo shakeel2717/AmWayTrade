@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId("user_id")->constrained()->onDelete("cascade");
             $table->string("category");
             $table->string("name");
+            $table->string("number");
             $table->string("front");
             $table->string("back");
             $table->boolean("status")->default(false);

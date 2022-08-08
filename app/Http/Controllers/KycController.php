@@ -38,6 +38,7 @@ class KycController extends Controller
         $validated = $request->validate([
             'category' => 'required|string',
             'name' => 'required|string',
+            'number' => 'required|string',
             'front' => 'required|image|mimes:png,jpg',
             'back' => 'required|image|mimes:png,jpg',
         ]);
@@ -54,6 +55,7 @@ class KycController extends Controller
             'category' => $validated['category'],
             'name' => $validated['name'],
             'front' => $imageFrontName,
+            'number' => $validated['number'],
             'back' => $imageBackName,
         ]);
 

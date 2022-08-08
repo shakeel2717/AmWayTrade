@@ -127,6 +127,11 @@ final class AllKyc extends PowerGridComponent
                 ->searchable()
                 ->makeInputText(),
 
+            Column::make('NUMBER', 'number')
+                ->sortable()
+                ->searchable()
+                ->makeInputText(),
+
             Column::make('FRONT', 'front_img')
                 ->sortable()
                 ->searchable()

@@ -30,6 +30,11 @@
                             </div>
                         </div>
                         <div class="row">
+                            <div class="col-md-12">
+                                <x-input name="number" placeholder="Legal Document Number" label="show" />
+                            </div>
+                        </div>
+                        <div class="row">
                             <div class="my-5 text-center">
                                 <img src="{{ asset('assets/icons/id-front.svg') }}" width="200" class="mx-auto"
                                     alt="">

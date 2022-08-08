@@ -8,7 +8,7 @@
 <li>
     <a href="{{ route('user.deposit.index') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
         <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="shopping-bag"></i> </div>
-        <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> Add Balance </div>
+        <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> Fund Deposit </div>
     </a>
 </li>
 
