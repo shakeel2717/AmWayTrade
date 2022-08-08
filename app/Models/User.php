@@ -77,4 +77,11 @@ class User extends Authenticatable
     {
         return $this->hasOne(Kyc::class);
     }
+
+
+    public function lotteries()
+    {
+        return $this->hasMany(Lottery::class);
+    }
+
 }

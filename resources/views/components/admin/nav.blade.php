@@ -50,6 +50,33 @@
 </li>
 
 <li>
+    <a href="javascript:;" class="{{ $mode == true ? 'side-' : '' }}menu">
+        <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="target"></i> </div>
+        <div class="{{ $mode == true ? 'side-' : '' }}menu__title">
+        Contest
+            <div class="{{ $mode == true ? 'side-' : '' }}menu__sub-icon"> <i data-feather="chevron-down"></i>
+            </div>
+        </div>
+    </a>
+    <ul class="{{ $mode == true ? 'side-' : '' }}menu__sub">
+        <li>
+            <a href="{{ route('admin.contest.index') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
+                <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="corner-down-right"></i>
+                </div>
+                <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> All Contest </div>
+            </a>
+        </li>
+        <li>
+            <a href="{{ route('admin.contest.create') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
+                <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="corner-down-right"></i>
+                </div>
+                <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> Add new Contest </div>
+            </a>
+        </li>
+    </ul>
+</li>
+
+<li>
     <a href="{{ route('admin.notification.index') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
         <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="airplay"></i> </div>
         <div class="{{ $mode == true ? 'side-' : '' }}menu__title">All Notification </div>

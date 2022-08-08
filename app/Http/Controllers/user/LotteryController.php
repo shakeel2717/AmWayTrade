@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\user;
 
-use App\Models\Currency;
+use App\Http\Controllers\Controller;
+use App\Models\Contest;
+use App\Models\Lottery;
 use Illuminate\Http\Request;
 
-class WithdarwController extends Controller
+class LotteryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +16,7 @@ class WithdarwController extends Controller
      */
     public function index()
     {
-        return view("user.withdraw.index");
+        return view("user.lottery.index");
     }
 
     /**
@@ -24,7 +26,8 @@ class WithdarwController extends Controller
      */
     public function create()
     {
-        //
+        $contest = Contest::where('status', 'open')->firstOrFail();
+        return view("user.lottery.create", compact("contest"));
     }
 
     /**
@@ -35,51 +38,36 @@ class WithdarwController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'coin' => 'required|integer|exists:currencies,id',
-            'amount' => 'required|numeric|min:5|max:1000000',
-            'address' => 'required|string',
-        ]);
+        // checking active contests
+        $contest = Contest::where('status', 'open')->firstOrFail();
 
-        $currency = Currency::findOrFail($validated['coin']);
-
-        // checking if withdraw is not min
-        if ($validated['amount'] < options("min withdraw")) {
-            // fallback
-            return redirect()->back()->withErrors("Min Withdrawals Limit is: " . options("min withdraw"));
+        // checking if already participated
+        $security = Lottery::where('user_id', auth()->user()->id)->where('contest_id', $contest->id)->get();
+        if ($security->count() > 0) {
+            return redirect()->back()->withErrors("You are already Participated in this Contest.");
         }
 
         // checking balance
-        if ($validated['amount'] > balance(auth()->user()->id)) {
+        // checking balance
+        if ($contest->fees > balance(auth()->user()->id)) {
             return redirect()->back()->withErrors("Insufficient Balance");
         }
 
-        $withdraw = auth()->user()->withdraws()->create([
-            'currency_id' => $currency->id,
-            'amount' => $validated['amount'],
-            'address' => $validated['address'],
+        // adding a new lottery entry
+        $contest->lotteries()->create([
+            'user_id' => auth()->user()->id,
+            'amount' => $contest->fees,
         ]);
-
-        $fees = $validated['amount'] * options("withdraw fees") / 100;
 
         // creating transactions
-        $withdrawTransaction = auth()->user()->transactions()->create([
-            'type' => "withdraw",
-            'amount' => $validated['amount'] - $fees,
+        $transaction = auth()->user()->transactions()->create([
+            'type' => "contest participate",
+            'amount' => $contest->fees,
             'sum' => false,
-            'status' => false,
-            'note' => $withdraw->id,
+            'reference' => "participation in the contest: " . $contest->title . "",
         ]);
 
-        // withdrawal fees charges
-        $withdrawTransaction = auth()->user()->transactions()->create([
-            'type' => "withdrawals fees",
-            'amount' => $fees,
-            'sum' => false,
-            'note' => $withdraw->id,
-        ]);
-
-        return redirect()->back()->with("success", "Withraw Request Submitted Successfully");
+        return redirect()->back()->with("success", "Your participation in the contest was successful.");
     }
 
     /**

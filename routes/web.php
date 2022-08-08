@@ -5,6 +5,7 @@ use App\Http\Controllers\KycController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\user\DashboardController;
 use App\Http\Controllers\user\HistoryController;
+use App\Http\Controllers\user\LotteryController;
 use App\Http\Controllers\user\NotificationController;
 use App\Http\Controllers\user\PlanController;
 use App\Http\Controllers\user\ProfileController;
@@ -25,6 +26,7 @@ Route::prefix('user/')->middleware('auth', 'user')->name('user.')->group(functio
     Route::resource('support', SupportController::class);
     Route::resource('kyc', KycController::class);
     Route::resource('notification', NotificationController::class);
+    Route::resource('lottery', LotteryController::class);
     Route::prefix("history")->name("history.")->controller(HistoryController::class)->group(function () {
         Route::get('recent', 'recent')->name("recent");
         Route::get('deposit', 'deposit')->name("deposit");

@@ -88,6 +88,34 @@
 
 
 <li>
+    <a href="javascript:;" class="{{ $mode == true ? 'side-' : '' }}menu">
+        <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="target"></i> </div>
+        <div class="{{ $mode == true ? 'side-' : '' }}menu__title">
+        Lottery
+            <div class="{{ $mode == true ? 'side-' : '' }}menu__sub-icon"> <i data-feather="chevron-down"></i>
+            </div>
+        </div>
+    </a>
+    <ul class="{{ $mode == true ? 'side-' : '' }}menu__sub">
+        <li>
+            <a href="{{ route('user.lottery.create') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
+                <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="corner-down-right"></i>
+                </div>
+                <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> Participate </div>
+            </a>
+        </li>
+        <li>
+            <a href="{{ route('user.lottery.index') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
+                <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="corner-down-right"></i>
+                </div>
+                <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> Recent Participate </div>
+            </a>
+        </li>
+    </ul>
+</li>
+
+
+<li>
     <a href="{{ route('user.history.recent') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
         <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="list"></i> </div>
         <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> Recent Transaction </div>

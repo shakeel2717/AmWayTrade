@@ -6,6 +6,7 @@ namespace Database\Seeders;
 use Illuminate\Support\Str;
 
 use App\Models\Address;
+use App\Models\Contest;
 use App\Models\Currency;
 use App\Models\Option;
 use App\Models\Plan;
@@ -216,6 +217,13 @@ class DatabaseSeeder extends Seeder
         Option::create([
             "name" => "withdraw fees",
             "value" => 5,
+        ]);
+
+
+        Contest::create([
+            'title' => "Win 1000$ or a Mobile",
+            'reward' => 1000,
+            'fees' => 1,
         ]);
     }
 }

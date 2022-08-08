@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin\AdminController;
+use App\Http\Controllers\admin\ContestController;
 use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\FinanceController;
 use App\Http\Controllers\admin\HistoryController;
@@ -17,6 +18,7 @@ Route::prefix('admin/')->middleware('auth', 'admin')->name('admin.')->group(func
     Route::resource('support', SupportController::class);
     Route::resource('kyc', KycController::class);
     Route::resource('notification', NotificationController::class);
+    Route::resource('contest', ContestController::class);
     Route::prefix("history")->name("history.")->controller(HistoryController::class)->group(function () {
         Route::get('users', 'users')->name("users");
         Route::get('deposits', 'deposit')->name("deposits");
