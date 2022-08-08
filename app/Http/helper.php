@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Notification;
 use App\Models\Option;
 use App\Models\Transaction;
 use App\Models\User;
@@ -199,4 +200,10 @@ function options($name)
 {
     $option = Option::where('name', $name)->first();
     return $option->value;
+}
+
+
+function notifications()
+{
+    return Notification::get();
 }

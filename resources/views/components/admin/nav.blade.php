@@ -49,6 +49,20 @@
     </a>
 </li>
 
+<li>
+    <a href="{{ route('admin.notification.index') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
+        <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="airplay"></i> </div>
+        <div class="{{ $mode == true ? 'side-' : '' }}menu__title">All Notification </div>
+    </a>
+</li>
+
+<li>
+    <a href="{{ route('admin.notification.create') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
+        <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="airplay"></i> </div>
+        <div class="{{ $mode == true ? 'side-' : '' }}menu__title">New Notification </div>
+    </a>
+</li>
+
 
 
 <li>

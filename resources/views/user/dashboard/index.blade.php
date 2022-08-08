@@ -84,7 +84,7 @@
                         <div class="text-gray-600 fs-xs mt-0.5">{{ $transaction->created_at->diffForHumans() }}
                         </div>
                     </div>
-                    <div class="py-1 px-2 rounded-pill fs-xs bg-theme-{{ $transaction->sum ? '9' : '6' }} text-white cursor-pointer fw-medium">
+                    <div class="py-1 px-2 rounded-pill fs-xs bg-theme-9 text-white cursor-pointer fw-medium">
                         {{ $transaction->status ? 'Approved' : 'Pending' }}
                     </div>
                 </div>

@@ -1,6 +1,6 @@
 <li>
     <a href="{{ route('user.dashboard.index') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
-        <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="airplay"></i> </div>
+        <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="monitor"></i> </div>
         <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> Dashboard </div>
     </a>
 </li>
@@ -183,6 +183,13 @@
     <a href="{{ route('user.kyc.index') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
         <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="lock"></i> </div>
         <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> KYC </div>
+    </a>
+</li>
+
+<li>
+    <a href="{{ route('user.notification.index') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
+        <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="help-circle"></i> </div>
+        <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> Notifications </div>
     </a>
 </li>
 

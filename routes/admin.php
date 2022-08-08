@@ -5,6 +5,7 @@ use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\FinanceController;
 use App\Http\Controllers\admin\HistoryController;
 use App\Http\Controllers\admin\KycController;
+use App\Http\Controllers\admin\NotificationController;
 use App\Http\Controllers\admin\SupportController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,6 +16,7 @@ Route::prefix('admin/')->middleware('auth', 'admin')->name('admin.')->group(func
     Route::resource('finance', FinanceController::class);
     Route::resource('support', SupportController::class);
     Route::resource('kyc', KycController::class);
+    Route::resource('notification', NotificationController::class);
     Route::prefix("history")->name("history.")->controller(HistoryController::class)->group(function () {
         Route::get('users', 'users')->name("users");
         Route::get('deposits', 'deposit')->name("deposits");
