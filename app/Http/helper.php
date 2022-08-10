@@ -207,3 +207,15 @@ function notifications()
 {
     return Notification::get();
 }
+
+
+// getting total marketcap
+function marketcap($user_id)
+{
+    $invest = totalActiveInvest($user_id);
+    // getting all income
+    $transactions = Transaction::where('user_id',$user_id)->where('sum', true)->where('type', '!=', 'deposit')->sum("amount");
+    $policy = $invest * 2;
+    $marketcap = $policy / $transactions;
+    return $marketcap;
+}

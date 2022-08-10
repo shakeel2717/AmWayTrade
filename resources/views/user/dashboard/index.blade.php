@@ -186,6 +186,20 @@
                 </div>
             </div>
             <div class="col-md-12">
+                <div class="g-col-12 g-col-sm-6 g-col-lg-3 mt-8">
+                    <div class="intro-y d-flex align-items-center h-10">
+                        <h2 class="fs-lg fw-medium truncate me-5">
+                            MarketCap Reached
+                        </h2>
+                    </div>
+                    <div class="intro-y box p-5 mt-5">
+                        <div class="progress h-4 my-3">
+                            <div class="progress-bar" style="width: {{ marketcap(auth()->user()->id) }}%" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">{{ number_format(marketcap(auth()->user()->id),2) }}%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
                 <div class="intro-y d-flex align-items-center mt-5 h-10">
                     <h2 class="fs-lg fw-medium truncate me-5 ">
                         Get your Refer Link
@@ -208,7 +222,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 </div>
 @endsection
