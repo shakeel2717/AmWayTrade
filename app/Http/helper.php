@@ -217,7 +217,7 @@ function marketcap($user_id)
     $transactions = Transaction::where('user_id',$user_id)->where('sum', true)->where('type', '!=', 'deposit')->sum("amount");
     if ($transactions > 0) {
         $policy = $invest * 2;
-        $marketcap = $policy / $transactions;
+        $marketcap = ($transactions / $policy) * 100;
         return $marketcap;
     } else {
         return 0;
