@@ -98,3 +98,11 @@
         <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> Support Section </div>
     </a>
 </li>
+
+
+<li>
+    <a href="{{ route('admin.setting.index') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
+        <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="sliders"></i> </div>
+        <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> Global Setting </div>
+    </a>
+</li>
