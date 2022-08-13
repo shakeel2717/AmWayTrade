@@ -77,6 +77,13 @@
 </li>
 
 <li>
+    <a href="{{ route('admin.history.plans') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
+        <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="airplay"></i> </div>
+        <div class="{{ $mode == true ? 'side-' : '' }}menu__title">System Plans </div>
+    </a>
+</li>
+
+<li>
     <a href="{{ route('admin.history.rewards') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
         <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="airplay"></i> </div>
         <div class="{{ $mode == true ? 'side-' : '' }}menu__title">Ranks & Reward </div>

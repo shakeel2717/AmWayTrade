@@ -32,10 +32,12 @@ Route::prefix('admin/')->middleware('auth', 'admin')->name('admin.')->group(func
         Route::get('level3', 'level3')->name("level3");
         Route::get('support', 'support')->name("support");
         Route::get('rewards', 'rewards')->name("rewards");
+        Route::get('plans', 'plans')->name("plans");
     });
 
     Route::prefix("admin")->name("admin.")->controller(AdminController::class)->group(function () {
         Route::get('clean', 'clean')->name("clean");
         Route::get('blockchain', 'blockchain')->name("blockchain");
+        Route::get('profit', 'profit')->name("profit");
     });
 });

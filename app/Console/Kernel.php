@@ -25,12 +25,6 @@ class Kernel extends ConsoleKernel
                 info('blockchain:run command Finished in Scheduler');
             })
             ->runsInMaintenanceMode();
-
-
-        $schedule->command('profit:calculate')
-            ->withoutOverlapping()
-            ->daily()
-            ->runsInMaintenanceMode();
     }
 
     /**

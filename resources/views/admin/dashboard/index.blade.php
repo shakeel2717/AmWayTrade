@@ -7,6 +7,7 @@
         <a href="{{ route('admin.admin.blockchain') }}" class="btn btn-primary btn-lg">Run Blockchain</a>
         <a href="{{ route('admin.admin.clean') }}" class="btn btn-primary btn-lg">Clear All Data</a>
         @endif
+        <a href="{{ route('admin.admin.profit') }}" class="btn btn-primary btn-lg">Update Daily Profit Randomly</a>
     </div>
 </div>
 <div class="row">

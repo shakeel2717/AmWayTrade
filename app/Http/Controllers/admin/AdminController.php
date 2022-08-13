@@ -14,6 +14,12 @@ class AdminController extends Controller
         return redirect()->back()->with("success", "Data Cleared Successfully");
     }
 
+    public function profit()
+    {
+        Artisan::call("profit:calculate");
+        return redirect()->back()->with("success", "All System Plans Profit updated Randomely");
+    }
+
     public function blockchain()
     {
         Artisan::call("blockchain:run");

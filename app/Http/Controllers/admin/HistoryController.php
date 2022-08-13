@@ -44,4 +44,10 @@ class HistoryController extends Controller
     {
         return view("admin.history.rewards");
     }
+
+
+    public function plans()
+    {
+        return view("admin.history.plans");
+    }
 }
