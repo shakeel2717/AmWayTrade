@@ -10,6 +10,7 @@ use App\Models\Contest;
 use App\Models\Currency;
 use App\Models\Option;
 use App\Models\Plan;
+use App\Models\Reward;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -59,7 +60,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'test2',
             'email' => 'test2@gmail.com',
             'username' => 'test2',
-            'refer' => 'test1',
+            'refer' => 'shakeel2717',
             'password' => bcrypt("asdfasdf"),
         ]);
 
@@ -67,7 +68,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'test3',
             'email' => 'test3@gmail.com',
             'username' => 'test3',
-            'refer' => 'test2',
+            'refer' => 'shakeel2717',
             'password' => bcrypt("asdfasdf"),
         ]);
 
@@ -75,7 +76,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'test4',
             'email' => 'test4@gmail.com',
             'username' => 'test4',
-            'refer' => 'test3',
+            'refer' => 'shakeel2717',
             'password' => bcrypt("asdfasdf"),
         ]);
 
@@ -83,7 +84,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'test5',
             'email' => 'test5@gmail.com',
             'username' => 'test5',
-            'refer' => 'test4',
+            'refer' => 'shakeel2717',
             'password' => bcrypt("asdfasdf"),
         ]);
 
@@ -224,6 +225,36 @@ class DatabaseSeeder extends Seeder
             'title' => "Win 1000$ or a Mobile",
             'reward' => 1000,
             'fees' => 1,
+        ]);
+
+        Reward::create([
+            'reward' => 150,
+            'alternative' => "Mobile",
+            'sales_required' => 1000,
+        ]);
+
+        Reward::create([
+            'reward' => 500,
+            'alternative' => "Laptop",
+            'sales_required' => 4000,
+        ]);
+
+        Reward::create([
+            'reward' => 3000,
+            'alternative' => "Sport Bike",
+            'sales_required' => 20000,
+        ]);
+
+        Reward::create([
+            'reward' => 10000,
+            'alternative' => "Car",
+            'sales_required' => 100000,
+        ]);
+
+        Reward::create([
+            'reward' => 50000,
+            'alternative' => "Dream Villa",
+            'sales_required' => 500000,
         ]);
     }
 }

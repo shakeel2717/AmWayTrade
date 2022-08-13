@@ -2,6 +2,7 @@
 
 use App\Models\Notification;
 use App\Models\Option;
+use App\Models\Reward;
 use App\Models\Transaction;
 use App\Models\User;
 use App\Models\UserPlan;
@@ -214,12 +215,36 @@ function marketcap($user_id)
 {
     $invest = totalActiveInvest($user_id);
     // getting all income
-    $transactions = Transaction::where('user_id',$user_id)->where('sum', true)->where('type', '!=', 'deposit')->sum("amount");
-    if ($transactions > 0) {
+    $transactions = Transaction::where('user_id', $user_id)->where('sum', true)->where('type', '!=', 'deposit')->sum("amount");
+    if ($transactions > 0 && $invest > 0) {
         $policy = $invest * 2;
         $marketcap = ($transactions / $policy) * 100;
         return $marketcap;
     } else {
         return 0;
+    }
+}
+
+
+
+function checkReward($reward, $user_id)
+{
+    $fulfill = [];
+    // checking if reward is achieve
+    $reward = Reward::find($reward);
+    $user = User::find($user_id);
+    // checking my direct refers for the requirement sales
+    $directRefers = User::where('refer', $user->username)->get();
+    foreach ($directRefers as $directRefer) {
+        if (totalActiveInvest($directRefer->id) >= $reward->sales_required) {
+            $fulfill[] = $directRefer->id;
+        }
+    }
+    
+    // checking if this collections are begger then 5
+    if (collect($fulfill)->count() >= 5) {
+        return true;
+    } else {
+        return false;
     }
 }

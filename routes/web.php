@@ -9,6 +9,7 @@ use App\Http\Controllers\user\LotteryController;
 use App\Http\Controllers\user\NotificationController;
 use App\Http\Controllers\user\PlanController;
 use App\Http\Controllers\user\ProfileController;
+use App\Http\Controllers\user\RewardController;
 use App\Http\Controllers\user\SupportController;
 use App\Http\Controllers\WithdarwController;
 use Illuminate\Support\Facades\Route;
@@ -27,6 +28,7 @@ Route::prefix('user/')->middleware('auth', 'user')->name('user.')->group(functio
     Route::resource('kyc', KycController::class);
     Route::resource('notification', NotificationController::class);
     Route::resource('lottery', LotteryController::class);
+    Route::resource('reward', RewardController::class);
     Route::prefix("history")->name("history.")->controller(HistoryController::class)->group(function () {
         Route::get('recent', 'recent')->name("recent");
         Route::get('deposit', 'deposit')->name("deposit");
