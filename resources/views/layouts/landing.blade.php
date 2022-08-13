@@ -131,7 +131,8 @@
                         </div>
                         <div class="slide-btn-group">
                             <div class="inner-layer">
-                                <a href="{{ route('register') }}" class="slide-btn" data-animation="fade-in-bottom" data-delay="3.5s">Get Started Today</a>
+                                <a href="{{ route('register') }}" class="slide-btn" data-animation="fade-in-bottom" data-delay="3.5s">Get Started</a>
+                                <a href="{{ route('login') }}" class="slide-btn" data-animation="fade-in-bottom" data-delay="3.5s">Sign In</a>
                             </div>
                         </div>
                     </div>
@@ -193,8 +194,8 @@ Amwaytrad is a leading solution provider of , and affiliate marketing throughout
                             <i class="dl dl-stats"></i>
                             <div class="list-feature-content">
                                 <h3>Business Growth</h3>
-                                <p>Our financial experts support or help you to to find out which way you can raise your
-                                    funds more.</p>
+                                <p>Everything you need to grow your capital fast in one place.
+Get access to the powerful community right now.</p>
                             </div>
                         </li>
                         <li class="wow fadeInLeft" data-wow-delay="400ms">
