@@ -32,39 +32,44 @@ class Blockchain extends Command
      */
     public function handle()
     {
-        // info("Blockchain Started Successfully");
-        // // Getting all active investment Plans
-        // $userPlans = UserPlan::where('status', true)->get();
-        // info("Found Total Active  Plan: " . $userPlans->count());
-        // foreach ($userPlans as $userPlan) {
-        //     info("Delivering Profit to User:" . $userPlan->user->username);
-        //     $profit_daily = $userPlan->plan->profit;
-        //     $profit = $userPlan->amount * $profit_daily / 100;
+        info("Blockchain Started Successfully");
+        // Getting all active investment Plans
+        $userPlans = UserPlan::where('status', true)->get();
+        info("Found Total Active  Plan: " . $userPlans->count());
+        foreach ($userPlans as $userPlan) {
+            // checking if this user account is a pin account
+            if ($userPlan->user->pin) {
+                goto endUsersPlansLoop;
+            }
+            info("Delivering Profit to User:" . $userPlan->user->username);
+            $profit_daily = $userPlan->plan->profit;
+            $profit = $userPlan->amount * $profit_daily / 100;
 
-        //     // checking if already delivered
-        //     $security = Transaction::where('user_id', $userPlan->user_id)
-        //         ->where('type', 'daily profit')
-        //         ->where('amount', $profit)
-        //         ->where('note', 'blockchain')
-        //         ->get();
+            // checking if already delivered
+            $security = Transaction::where('user_id', $userPlan->user_id)
+                ->where('type', 'daily profit')
+                ->where('amount', $profit)
+                ->where('note', 'blockchain')
+                ->get();
 
-        //     if ($security->count() < 1) {
-        //         // inserting profit daily profit for this user
-        //         $transaction = Transaction::create([
-        //             'user_id' => $userPlan->user_id,
-        //             'type' => "daily profit",
-        //             'amount' => $profit,
-        //             'sum' => true,
-        //             'reference' => $userPlan->name . " Plan Daily Profit @" . $profit_daily . "% Added!",
-        //             'note' => "blockchain",
-        //         ]);
+            if ($security->count() < 1) {
+                // inserting profit daily profit for this user
+                $transaction = Transaction::create([
+                    'user_id' => $userPlan->user_id,
+                    'type' => "daily profit",
+                    'amount' => $profit,
+                    'sum' => true,
+                    'reference' => $userPlan->name . " Plan Daily Profit @" . $profit_daily . "% Added!",
+                    'note' => "blockchain",
+                ]);
 
-        //         UniLevelEvent::dispatch($userPlan, $transaction);
-        //     } else {
-        //         info("Blockchain Already Delivred Profit");
-        //     }
-        // }
-        // info("Blockchain Ended Successfully");
+                UniLevelEvent::dispatch($userPlan, $transaction);
+            } else {
+                info("Blockchain Already Delivred Profit");
+            }
+            endUsersPlansLoop:
+        }
+        info("Blockchain Ended Successfully");
 
 
         info("Reward Checker Started");

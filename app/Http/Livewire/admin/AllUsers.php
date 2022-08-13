@@ -189,21 +189,53 @@ final class AllUsers extends PowerGridComponent
      * @return array<int, Button>
      */
 
-    /*
+
     public function actions(): array
     {
-       return [
-           Button::make('edit', 'Edit')
-               ->class('bg-indigo-500 cursor-pointer text-white px-3 py-2.5 m-1 rounded text-sm')
-               ->route('user.edit', ['user' => 'id']),
+        return [
+            //       Button::make('edit', 'Edit')
+            //           ->class('bg-indigo-500 cursor-pointer text-white px-3 py-2.5 m-1 rounded text-sm')
+            //           ->route('plan.edit', ['plan' => 'id']),
 
-           Button::make('destroy', 'Delete')
-               ->class('bg-red-500 cursor-pointer text-white px-3 py-2 m-1 rounded text-sm')
-               ->route('user.destroy', ['user' => 'id'])
-               ->method('delete')
+            Button::make('pin', 'PIN')
+                ->class('btn btn-primary btn-sm')
+                ->emit('pin', ['id' => 'id']),
+            Button::make('unpin', 'UN-PIN')
+                ->class('btn btn-success btn-sm')
+                ->emit('unpin', ['id' => 'id'])
         ];
     }
-    */
+
+
+
+    protected function getListeners()
+    {
+        return array_merge(
+            parent::getListeners(),
+            [
+                'pin',
+                'unpin',
+            ]
+        );
+    }
+
+
+
+    public function pin($id)
+    {
+        $method = User::find($id['id']);
+        $method->pin = true;
+        $method->save();
+    }
+
+    public function unpin($id)
+    {
+        $method = User::find($id['id']);
+        $method->pin = false;
+        $method->save();
+    }
+
+
 
     public function onUpdatedEditable(string $id, string $field, string $value): void
     {
@@ -234,16 +266,20 @@ final class AllUsers extends PowerGridComponent
      * @return array<int, RuleActions>
      */
 
-    /*
+
     public function actionRules(): array
     {
-       return [
+        return [
 
-           //Hide button edit for ID 1
-            Rule::button('edit')
-                ->when(fn($user) => $user->id === 1)
+            //Hide button edit for ID 1
+            Rule::button('pin')
+                ->when(fn ($user) => $user->pin == true)
+                ->hide(),
+
+            //Hide button edit for ID 1
+            Rule::button('unpin')
+                ->when(fn ($user) => $user->pin == false)
                 ->hide(),
         ];
     }
-    */
 }

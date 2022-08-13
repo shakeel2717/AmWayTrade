@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('country')->nullable();
             $table->boolean('status')->default(false);
             $table->boolean('suspend')->default(false);
+            $table->boolean('pin')->default(false);
             $table->boolean('kyc_status')->default(false);
             $table->string('refer')->default('default');
             $table->string('role')->default('user');
