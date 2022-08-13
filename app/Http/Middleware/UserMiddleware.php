@@ -17,6 +17,17 @@ class UserMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
+
+        // checking suspend status
+        if (auth()->user()->suspend == true) {
+            // logout
+            Auth::guard('web')->logout();
+            $request->session()->invalidate();
+            $request->session()->regenerateToken();
+            return redirect()->route("login")->withErrors("Account Suspended, Please Contact Support");
+        }
+
+        
         if (auth()->user()->role == "user") {
             return $next($request);
         } elseif (auth()->user()->role == 'admin') {

@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
+use Illuminate\Support\Facades\Auth;
 
 class Authenticate extends Middleware
 {
@@ -16,15 +17,6 @@ class Authenticate extends Middleware
     {
         if (!$request->expectsJson()) {
             return route('login');
-        }
-
-        // checking suspend status
-        if (auth()->user()->suspend == true) {
-            // logout
-            Auth::guard('web')->logout();
-            $request->session()->invalidate();
-            $request->session()->regenerateToken();
-            return redirect()->route("login")->withErrors("Account Suspended, Please Contact Support");
         }
 
         if (auth()->user()->role == 'user') {
