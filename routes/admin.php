@@ -31,6 +31,7 @@ Route::prefix('admin/')->middleware('auth', 'admin')->name('admin.')->group(func
         Route::get('level2', 'level2')->name("level2");
         Route::get('level3', 'level3')->name("level3");
         Route::get('support', 'support')->name("support");
+        Route::get('rewards', 'rewards')->name("rewards");
     });
 
     Route::prefix("admin")->name("admin.")->controller(AdminController::class)->group(function () {

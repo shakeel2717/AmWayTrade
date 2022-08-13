@@ -18,4 +18,10 @@ class Transaction extends Model
         'status',
         'reference',
     ];
+
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
