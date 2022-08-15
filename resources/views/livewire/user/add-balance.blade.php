@@ -35,6 +35,12 @@
                 <img src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl={{ $qr }}&choe=UTF-8" alt="QR Address" class="img-fluid mx-auto" width="250">
             </div>
         </div>
+        <div class="mt-5">
+                <div class="form-group text-center">
+                    <label for="address">Copy your Address</label>
+                    <input type="text" name="address" id="address" class="form-control text-center" value="{{ $qr }}">
+                </div>
+            </div>
         @endif
     </div>
 </div>
