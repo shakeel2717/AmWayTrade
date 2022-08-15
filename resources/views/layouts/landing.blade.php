@@ -186,8 +186,7 @@
                 <div class="col-md-6 wow fadeInLeft" data-wow-delay="200ms">
                     <div class="section-heading">
                         <h2>Developing the Powerful <br> Business Online!</h2>
-                        <p>AMWAYTRADE is a Largest Platform Investing in Forex and Crypto Trading since 2018. 
-Amwaytrad is a leading solution provider of , and affiliate marketing throughout the globe by merging top trending industries at a distinctive platform.</p>
+                        <p>amwaytrade is a leading solution provider of eCommerce, advertising, and affiliate marketing throughout the globe by merging top trending industries at a distinctive platform.</p>
                     </div>
                     <ul class="list-feature">
                         <li class="wow fadeInLeft" data-wow-delay="200ms">
@@ -195,7 +194,7 @@ Amwaytrad is a leading solution provider of , and affiliate marketing throughout
                             <div class="list-feature-content">
                                 <h3>Business Growth</h3>
                                 <p>Everything you need to grow your capital fast in one place.
-Get access to the powerful community right now.</p>
+                                    Get access to the powerful community right now.</p>
                             </div>
                         </li>
                         <li class="wow fadeInLeft" data-wow-delay="400ms">
@@ -222,6 +221,38 @@ Get access to the powerful community right now.</p>
                                     </path>
                                 </svg></span>
                         </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="service-section bg-grey bd-bottom padding">
+        <div class="container">
+            <div class="section-heading mb-40 text-center wow fadeInUp" data-wow-delay="200ms">
+                <h4><span></span>What We Do <span></span></h4>
+                <h2>Get Exceptional Services</h2>
+                <p>with an expert team in analysis and trading we will boost your capital in an extraordinary way.
+                </p>
+            </div>
+            <div class="row service-items">
+                <div class="col-md-6 sm-padding wow fadeInUp" data-wow-delay="300ms">
+                    <div class="service-item">
+                        <div class="service-icon"><i class="dl dl-stats"></i></div>
+                        <h3>VISION</h3>
+                        <p>To Nurture a vibrant, prosperous, and globally expanding community through extraordinary services and opportunities
+                        </p>
+                        <a href="{{ route('register') }}" class="read-more">Read More<i class="las la-long-arrow-alt-right"></i></a>
+                        <div class="dir-overlay"></div>
+                    </div>
+                </div>
+                <div class="col-md-6 sm-padding wow fadeInUp" data-wow-delay="400ms">
+                    <div class="service-item">
+                        <div class="service-icon"><i class="dl dl-success"></i></div>
+                        <h3>MISSION</h3>
+                        <p>Our mission is to empower the common person, regardless of their background, gender, race, or age by giving them a unique opportunity to achieve their goals and dreams come true
+                        </p>
+                        <a href="{{ route('register') }}" class="read-more">Read More<i class="las la-long-arrow-alt-right"></i></a>
+                        <div class="dir-overlay"></div>
                     </div>
                 </div>
             </div>
@@ -262,62 +293,6 @@ Get access to the powerful community right now.</p>
                 </div>
             </div>
         </div>
-        </div>
-        </div>
-        </div>
-    </section>
-
-    <section class="service-section bg-grey bd-bottom padding">
-        <div class="container">
-            <div class="section-heading mb-40 text-center wow fadeInUp" data-wow-delay="200ms">
-                <h4><span></span>What We Do <span></span></h4>
-                <h2>Get Exceptional Services</h2>
-                <p>Financial experts support or help you to to find out which <br> way you can raise your funds more.
-                </p>
-            </div>
-            <div class="row service-items">
-                <div class="col-lg-3 col-sm-6 sm-padding wow fadeInUp" data-wow-delay="200ms">
-                    <div class="service-item">
-                        <div class="service-icon"><i class="dl dl-presentation"></i></div>
-                        <h3>Create Account</h3>
-                        <p>{{ env('APP_DESC') }}
-                        </p>
-                        <a href="{{ route('register') }}" class="read-more">Read More<i class="las la-long-arrow-alt-right"></i></a>
-                        <div class="dir-overlay"></div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 sm-padding wow fadeInUp" data-wow-delay="300ms">
-                    <div class="service-item">
-                        <div class="service-icon"><i class="dl dl-stats"></i></div>
-                        <h3>Deposit Funds</h3>
-                        <p>{{ env('APP_DESC') }}
-                        </p>
-                        <a href="{{ route('register') }}" class="read-more">Read More<i class="las la-long-arrow-alt-right"></i></a>
-                        <div class="dir-overlay"></div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 sm-padding wow fadeInUp" data-wow-delay="400ms">
-                    <div class="service-item">
-                        <div class="service-icon"><i class="dl dl-success"></i></div>
-                        <h3>Choose Package</h3>
-                        <p>{{ env('APP_DESC') }}
-                        </p>
-                        <a href="{{ route('register') }}" class="read-more">Read More<i class="las la-long-arrow-alt-right"></i></a>
-                        <div class="dir-overlay"></div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 sm-padding wow fadeInUp" data-wow-delay="500ms">
-                    <div class="service-item">
-                        <div class="service-icon"><i class="dl dl-dollar"></i></div>
-                        <h3>Withdraw Anytime</h3>
-                        <p>{{ env('APP_DESC') }}
-                        </p>
-                        <a href="{{ route('register') }}" class="read-more">Read More<i class="las la-long-arrow-alt-right"></i></a>
-                        <div class="dir-overlay"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </section>
 
     <section class="project-section bd-bottom padding">
@@ -348,8 +323,7 @@ Get access to the powerful community right now.</p>
             <div class="section-heading text-center">
                 <h4 class="wow fadeInUp" data-wow-delay="200ms">Take Your INVESTMENT to Next Level!</h4>
                 <h2 class="wow fadeInUp" data-wow-delay="300ms">FOREX TRADING Helping All <br> Over the World!</h2>
-                <p class="wow fadeInUp" data-wow-delay="400ms">Financial experts support or help you to to find out
-                    which <br> way you can raise your funds more.</p>
+                <p class="wow fadeInUp" data-wow-delay="400ms">regardless of trend, earn money by investing in the top crypto and forex on the market.</p>
                 <a href="{{ route('user.support.create') }}" class="default-btn wow fadeInUp" data-wow-delay="500ms">Talk with Support Agent</a>
             </div>
             <div class="row counter-wrap mb-70">
