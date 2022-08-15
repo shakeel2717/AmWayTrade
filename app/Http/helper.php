@@ -255,11 +255,19 @@ function checkReward($reward, $user_id)
             $fulfill[] = $directRefer->id;
         }
     }
-    
+
     // checking if this collections are begger then 5
     if (collect($fulfill)->count() >= 5) {
         return true;
     } else {
         return false;
     }
+}
+
+
+function edie($message)
+{
+    // store this message into log
+    info($message);
+    die();
 }
