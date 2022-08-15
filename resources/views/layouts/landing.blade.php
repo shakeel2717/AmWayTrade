@@ -441,7 +441,7 @@ Get access to the powerful community right now.</p>
                             <h3><a href="{{ route('register') }}">{{ $plan->name }} Plan</a></h3>
                             <h3><a href="{{ route('register') }}">${{ number_format($plan->price_from,2) }} - ${{ number_format($plan->price_to,2) }}</a></h3>
                             <div class="my-4 mx-auto text-center">
-                                <img src="{{ asset('landing/trophy.png') }}" alt="Package" class="w-50">
+                                <img src="{{ asset('assets/icons/'.$loop->iteration) }}.png" alt="Package" class="w-50">
                             </div>
                             <p>Min Withdraw: ${{ options("min withdraw") }}</p>
                             <p>Instant Deposit</p>
