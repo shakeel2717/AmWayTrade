@@ -22,7 +22,6 @@ return new class extends Migration
                 $table->string('address');
                 $table->string('dest_tag')->nullable();
                 $table->string('txn_id');
-                $table->string('txn_id')->nullable();
                 $table->string('status')->default('initialized');
                 $table->timestamps();
             });
