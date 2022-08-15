@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\User;
+namespace App\Http\Livewire\user;
 
 use App\Models\Address;
 use App\Models\Currency;
