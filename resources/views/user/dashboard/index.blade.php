@@ -226,8 +226,13 @@
                         </h2>
                     </div>
                     <div class="intro-y box p-5 mt-5">
-                        <div class="progress h-4 my-3">
+                        <label class="mt-2" for="">You Recieved</label>
+                        <div class="progress h-4 mt-2">
                             <div class="progress-bar" style="width: {{ marketcap(auth()->user()->id) }}%" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">{{ number_format(marketcap(auth()->user()->id),2) }}%</div>
+                        </div>
+                        <label class="mt-2" for="">Remaining</label>
+                        <div class="progress h-4 mt-2">
+                            <div class="progress-bar" style="width: {{ 100 - marketcap(auth()->user()->id) }}%" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">{{ number_format(100 - marketcap(auth()->user()->id),2) }}%</div>
                         </div>
                     </div>
                 </div>

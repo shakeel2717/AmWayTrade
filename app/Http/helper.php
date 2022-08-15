@@ -226,6 +226,21 @@ function marketcap($user_id)
 }
 
 
+function marketcapRemaining($user_id)
+{
+    $invest = totalActiveInvest($user_id);
+    // getting all income
+    $transactions = Transaction::where('user_id', $user_id)->where('sum', true)->where('type', '!=', 'deposit')->sum("amount");
+    if ($transactions > 0 && $invest > 0) {
+        $policy = $invest * 2;
+        $marketcap = ($policy / $transactions) * 100;
+        return $marketcap;
+    } else {
+        return 0;
+    }
+}
+
+
 
 function checkReward($reward, $user_id)
 {
