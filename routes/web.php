@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CoinPaymentController;
 use App\Http\Controllers\DepositController;
 use App\Http\Controllers\KycController;
 use App\Http\Controllers\LandingPageController;
@@ -50,6 +51,11 @@ Route::prefix('user/')->middleware('auth', 'user')->name('user.')->group(functio
         Route::get('/indirect/level/2/commission', 'indirectCommissionL2')->name("indirect.commission.level2");
         Route::get('/indirect/level/3/commission', 'indirectCommissionL3')->name("indirect.commission.level3");
     });
+});
+
+
+Route::prefix('payment')->group(function () {
+    Route::post('/webhook', [CoinPaymentController::class, 'webhook'])->name('webhook');
 });
 
 require __DIR__ . '/auth.php';
