@@ -14,17 +14,15 @@ return new class extends Migration
     public function up()
     {
         Schema::create('btc_payments', function (Blueprint $table) {
-            Schema::create('btc_payments', function (Blueprint $table) {
-                $table->id();
-                $table->foreignId('user_id')->constrained()->onDelete('cascade');
-                $table->foreignId("currency_id")->constrained()->onDelete("cascade");
-                $table->double('amount');
-                $table->string('address');
-                $table->string('dest_tag')->nullable();
-                $table->string('txn_id');
-                $table->string('status')->default('initialized');
-                $table->timestamps();
-            });
+            $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId("currency_id")->constrained()->onDelete("cascade");
+            $table->double('amount');
+            $table->string('address');
+            $table->string('dest_tag')->nullable();
+            $table->string('txn_id');
+            $table->string('status')->default('initialized');
+            $table->timestamps();
         });
     }
 
