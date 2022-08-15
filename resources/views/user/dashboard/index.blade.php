@@ -255,7 +255,7 @@
                                 <i data-feather="copy" onclick="copyFunction()" class="position-absolute z-30 end-0 top-0 bottom-0 my-auto me-4 w-4 h-4"></i>
                             </div>
                         </div>
-                        <img class="d-none d-sm-block position-absolute top-0 end-0 w-1/2 mt-1 me-n12" alt="Rubick Bootstrap HTML Admin Template" src="{{ asset('assets/images/phone-illustration.svg') }}">
+                        <img class="d-none d-sm-block position-absolute top-0 end-0 w-1/2 mt-1 me-n12" alt="Rubick Bootstrap HTML Admin Template" src="{{ asset('assets/icons/refer.png') }}">
                     </div>
                 </div>
             </div>
