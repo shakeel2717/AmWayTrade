@@ -17,7 +17,7 @@
                                     (@if ($lottery->contest->status == 'open')
                                         Waiting for the Result....
                                     @elseif ($lottery->contest->status == 'closed')
-                                        @if ($lottery->winner == true)
+                                        @if ($lottery->contest->user_id == auth()->user()->id)
                                             Winner
                                         @else
                                             Defeat

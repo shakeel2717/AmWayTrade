@@ -13,7 +13,7 @@ class Lottery extends Model
         'user_id',
         'contest_id',
         'amount',
-        'winner',
+        'status',
     ];
 
 

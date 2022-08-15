@@ -137,6 +137,39 @@
             </div>
         </div>
         @endforelse
+        <div class="col-md-12">
+            <div class="intro-y d-flex align-items-center h-10">
+                <h2 class="fs-lg fw-medium truncate me-5">
+                    Lottery System
+                </h2>
+            </div>
+            <div class="row">
+                <div class="intro-y col-md-6 mt-5">
+                    <div class="box p-5 zoom-in">
+                        <div class="d-flex align-items-center">
+                            <div class="flex-none">
+                                <div class="fs-lg fw-medium truncate">
+                                    {{ (!$contest) ? "No Contest" : $contest->lotteries->count() }}
+                                </div>
+                                <div class="text-gray-600 lead mt-1">Total Participate</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="intro-y col-md-6 mt-5">
+                    <div class="box p-5 zoom-in">
+                        <div class="d-flex align-items-center">
+                            <div class="flex-none">
+                                <div class="fs-lg fw-medium truncate">
+                                    {{ (!$contest) ? "No Contest" : number_format($contest->reward, 2) }}
+                                </div>
+                                <div class="text-gray-600 lead mt-1">Reward for Winner </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="col-md-6 mt-5">
         <div class="row">

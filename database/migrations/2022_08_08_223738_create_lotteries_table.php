@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId("user_id")->constrained()->onDelete("cascade");
             $table->foreignId("contest_id")->constrained()->onDelete("cascade");
-            $table->bigInteger("amount");
-            $table->boolean("winner")->default(false);
+            $table->double("amount");
+            $table->boolean("status")->default(false);
             $table->timestamps();
         });
     }

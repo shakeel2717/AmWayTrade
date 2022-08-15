@@ -86,7 +86,7 @@ final class AllLotteries extends PowerGridComponent
             ->addColumn('user_id')
             ->addColumn('contest_id')
             ->addColumn('amount')
-            ->addColumn('winner')
+            ->addColumn('status')
             ->addColumn('created_at_formatted', fn (Lottery $model) => Carbon::parse($model->created_at)->format('d/m/Y H:i:s'))
             ->addColumn('updated_at_formatted', fn (Lottery $model) => Carbon::parse($model->updated_at)->format('d/m/Y H:i:s'));
     }
@@ -120,7 +120,7 @@ final class AllLotteries extends PowerGridComponent
             Column::make('AMOUNT', 'amount')
                 ->makeInputRange(),
 
-            Column::make('WINNER', 'winner')
+            Column::make('STATUS', 'status')
                 ->toggleable(),
 
             Column::make('CREATED AT', 'created_at_formatted', 'created_at')

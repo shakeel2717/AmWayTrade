@@ -191,12 +191,13 @@ final class AllContest extends PowerGridComponent
         // checking if this contest members are upto 1
         if ($contest->lotteries->count() > 0) {
             $contest->status = "closed";
-            $contest->save();
-
+            
             // declaring the winner
             $random = $contest->lotteries->random();
             // finding this user
             $user = User::find($random->user_id);
+            $contest->user_id = $user->id;
+            $contest->save();
             // adding the reward to this user account
             // creating transactions
             $reward = $user->transactions()->create([

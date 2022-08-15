@@ -19,6 +19,7 @@ return new class extends Migration
             $table->bigInteger("reward");
             $table->integer("fees");
             $table->string("status")->default("open");
+            $table->foreignId("user_id")->nullable()->constrained()->onDelete("cascade");
             $table->timestamps();
         });
     }
