@@ -152,19 +152,6 @@ class DatabaseSeeder extends Seeder
         ]);
 
 
-        Address::create([
-            'user_id' => 1,
-            'currency_id' => 1,
-            'address' => Str::random(30),
-        ]);
-
-        Address::create([
-            'user_id' => 1,
-            'currency_id' => 2,
-            'address' => Str::random(30),
-        ]);
-
-
         Option::create([
             "name" => "direct",
             "value" => 8,
