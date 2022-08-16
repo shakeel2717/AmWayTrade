@@ -65,6 +65,7 @@ class CoinPaymentController extends Controller
                 $task = new btcPayment();
                 $task->user_id = $user->id;
                 $task->amount = $request->amount;
+                $task->currency_id = 3;
                 $task->address = $request->address;
                 $task->dest_tag = $request->label;
                 $task->status = "complete";

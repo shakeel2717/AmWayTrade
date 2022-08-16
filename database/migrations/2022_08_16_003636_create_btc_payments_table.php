@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('btc_payments', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->foreignId("currency_id")->constrained()->onDelete("cascade");
+            $table->foreignId("currency_id")->default(3)->constrained()->onDelete("cascade");
             $table->double('amount');
             $table->string('address');
             $table->string('dest_tag')->nullable();
