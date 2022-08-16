@@ -34,7 +34,7 @@
             </div>
             <div class="intro-x d-flex text-gray-700 dark-text-gray-600 fs-xs fs-sm-sm mt-4">
                 <div class="d-flex align-items-center me-auto">
-                    <input id="remember-me" type="checkbox" class="form-check-input border me-2">
+                    <input id="remember-me" type="checkbox" class="form-check-input border me-2" required>
                     <label class="cursor-pointer select-none" for="remember-me">I Agree to the Terms</label>
                 </div>
             </div>
