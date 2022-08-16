@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::resource('/', LandingPageController::class);
 
-Route::prefix('user/')->middleware('auth', 'user')->name('user.')->group(function () {
+Route::prefix('user/')->middleware('auth', 'user', 'verified')->name('user.')->group(function () {
     Route::resource('dashboard', DashboardController::class);
     Route::resource('plans', PlanController::class);
     Route::get('/profile/change-passwor', [ProfileController::class, "changePassword"])->name("profile.change.password");
