@@ -17,7 +17,7 @@ class Kernel extends ConsoleKernel
     {
         $schedule->command('blockchain:run')
             ->withoutOverlapping()
-            ->everyMinute()
+            ->dailyAt("00:02")
             ->before(function () {
                 info('blockchain:run command Starting in Scheduler');
             })
