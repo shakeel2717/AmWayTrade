@@ -6,7 +6,7 @@ You’ve initiated a request to withdraw from your {{ env('APP_NAME') }} account
 
 # {{ session('otp') }}
 
-Please carefully review the withdrawal address and operation information before you proceed. { env('APP_NAME') }} will not be responsible for any funds sent to the wrong address.
+Please carefully review the withdrawal address and operation information before you proceed. {{ env('APP_NAME') }} will not be responsible for any funds sent to the wrong address.
 
 @component('mail::button', ['url' => route('user.support.create')])
 Support Center
