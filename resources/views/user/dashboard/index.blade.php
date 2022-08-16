@@ -12,7 +12,7 @@
                     <div class="text-gray-600 lead mt-1">Available Balance</div>
                 </div>
                 <div class="flex-none ms-auto position-relative">
-                    <img src="{{ asset('assets/icons/graph.png') }}" alt="Balance">
+                    <img src="{{ asset('assets/icons/balance.png') }}" alt="Balance" width="80">
                 </div>
             </div>
         </div>
@@ -27,7 +27,7 @@
                     <div class="text-gray-600 lead mt-1">Total Investment</div>
                 </div>
                 <div class="flex-none ms-auto position-relative">
-                    <img src="{{ asset('assets/icons/tasks.png') }}" alt="Balance">
+                    <img src="{{ asset('assets/icons/investment.png') }}" alt="Balance" width="80">
                 </div>
             </div>
         </div>
@@ -42,7 +42,7 @@
                     <div class="text-gray-600 lead mt-1">Total Payout</div>
                 </div>
                 <div class="flex-none ms-auto position-relative">
-                    <img src="{{ asset('assets/icons/directory.png') }}" alt="Balance">
+                    <img src="{{ asset('assets/icons/payout.png') }}" alt="Balance" width="80">
                 </div>
             </div>
         </div>
@@ -57,7 +57,7 @@
                     <div class="text-gray-600 lead mt-1">My Downline Team</div>
                 </div>
                 <div class="flex-none ms-auto position-relative">
-                    <img src="{{ asset('assets/icons/hierarchy.png') }}" alt="Balance">
+                    <img src="{{ asset('assets/icons/medal.png') }}" alt="Balance" width="80">
                 </div>
             </div>
         </div>
