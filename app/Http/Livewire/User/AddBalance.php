@@ -49,7 +49,7 @@ class AddBalance extends Component
             }
 
             if ($information['error'] != 'ok') {
-                info("Error");
+                info("Error: " . json_encode($information));
                 return "<h3>There's Some Issue in The API, Please Contact Support!</h3>";
             }
 
