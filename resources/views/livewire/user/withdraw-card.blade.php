@@ -17,6 +17,13 @@
         </div>
         <x-input name="amount" placeholder="Enter Amount" label="show" />
         <x-input name="address" placeholder="Enter Address" label="show" />
+        <x-input name="otp" placeholder="8 Characters OTP" label="show" />
+        <div class="mt-2">
+            <small wire:click="otpRequest" class="text-theme-1" style="cursor:pointer;">Request OTP Now</small>
+        </div>
+        <div class="text-center w-full mt-3" wire:loading>
+                <i data-loading-icon="puff" class="w-8 h-8"></i>
+            </div>
         <div class="mt-5">
             <button type="submit" class="btn btn-primary btn-lg">Submit Withdraw Request</button>
         </div>

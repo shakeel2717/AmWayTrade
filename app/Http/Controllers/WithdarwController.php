@@ -39,7 +39,14 @@ class WithdarwController extends Controller
             'coin' => 'required|integer|exists:currencies,id',
             'amount' => 'required|numeric|min:5|max:1000000',
             'address' => 'required|string',
+            'otp' => 'required|string|min:8|max:8',
         ]);
+
+        // validating OTP
+        if ($validated['otp'] != session('otp')) {
+            return redirect()->back()->withErrors("Invalid OTP, Please retry");
+        }
+
 
         $currency = Currency::findOrFail($validated['coin']);
 
