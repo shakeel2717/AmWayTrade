@@ -99,6 +99,13 @@ final class AllUsers extends PowerGridComponent
             ->addColumn('phone')
             ->addColumn('country')
             ->addColumn('status')
+            ->addColumn('balance', function (User $model) {
+                return "$" . number_format(balance($model->id), 2);
+            })
+
+            ->addColumn('invest', function (User $model) {
+                return "$" . number_format(totalActiveInvest($model->id), 2);
+            })
             ->addColumn('suspend')
             ->addColumn('refer')
             ->addColumn('role')
@@ -154,6 +161,9 @@ final class AllUsers extends PowerGridComponent
 
             Column::make('STATUS', 'status')
                 ->toggleable(),
+
+            Column::make('BALANCE', 'balance'),
+            Column::make('INVEST', 'invest'),
 
             Column::make('SUSPEND', 'suspend')
                 ->toggleable(),

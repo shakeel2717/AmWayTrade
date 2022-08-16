@@ -76,6 +76,18 @@ function totalCommission($user_id)
 }
 
 
+function business($user_id)
+{
+    $business = 0;
+    $refers = User::whereIn('id',allRefers($user_id))->get();
+    foreach ($refers as $refer) {
+        $business = $business + totalActiveInvest($refer);
+    }
+
+    return $business;
+}
+
+
 
 
 function allRefers($user_id)
@@ -186,7 +198,7 @@ function totalInvest($user_id)
 
 function totalActiveInvest($user_id)
 {
-    $userPlans = UserPlan::where("user_id", $user_id)->where('status', true)->sum('amount');
+    $userPlans = UserPlan::where('user_id', $user_id)->where('status', true)->sum('amount');
     return $userPlans;
 }
 
