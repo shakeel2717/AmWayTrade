@@ -31,8 +31,6 @@
         <div class="d-flex justify-content-center align-items-center">
             <form action="{{ route('verification.send') }}" method="POST">
                 @csrf
-                <div class="intro-x mt-2 text-gray-500 d-xl-none text-center">Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.</div>
-
                 <div class="intro-x mt-5 mt-xl-8 text-center text-xl-start">
                     <button class="btn btn-primary py-3 px-4 me-xl-3">Resend Verification Email</button>
                 </div>
