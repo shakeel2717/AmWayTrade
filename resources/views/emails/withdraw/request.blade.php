@@ -15,5 +15,5 @@ Support Center
 The verification code will be valid for 30 minutes. Please do not share your code with anyone.
 
 Thanks,<br>
-{{ config('app.name') }}
+{{ env('APP_NAME') }}
 @endcomponent
