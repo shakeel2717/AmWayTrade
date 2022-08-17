@@ -88,7 +88,9 @@ final class pendingWithdraw extends PowerGridComponent
             ->addColumn('id')
             ->addColumn('type')
             ->addColumn('amount')
-            ->addColumn('sum')
+            ->addColumn('address', function(Transaction $model){
+                return $model->withdraw->address;
+            })
             ->addColumn('note')
             ->addColumn('reference')
             ->addColumn('created_at_formatted', fn (Transaction $model) => Carbon::parse($model->created_at)->format('d/m/Y H:i:s'))
@@ -122,9 +124,10 @@ final class pendingWithdraw extends PowerGridComponent
                 ->searchable()
                 ->makeInputText(),
 
-            Column::make('REFERENCE', 'reference')
+            Column::make('ADDRESS', 'address')
                 ->sortable()
                 ->searchable()
+                ->clickToCopy(true)
                 ->makeInputText(),
 
             Column::make('CREATED AT', 'created_at_formatted', 'created_at')
