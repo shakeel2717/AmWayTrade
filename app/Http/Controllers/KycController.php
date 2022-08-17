@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\KycRequest;
 use App\Models\Kyc;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class KycController extends Controller
 {
@@ -58,6 +60,9 @@ class KycController extends Controller
             'number' => $validated['number'],
             'back' => $imageBackName,
         ]);
+
+        // sending email for KYC Request
+        Mail::to(auth()->user()->email)->send(new KycRequest());
 
         return redirect()->back()->with('success','KYC Request Submit Successfully.');
     }

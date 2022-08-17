@@ -2,10 +2,12 @@
 
 namespace App\Http\Livewire\admin;
 
+use App\Mail\KycComplete;
 use App\Models\Kyc;
 use App\Models\User;
 use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Mail;
 use PowerComponents\LivewirePowerGrid\Rules\{Rule, RuleActions};
 use PowerComponents\LivewirePowerGrid\Traits\ActionButton;
 use PowerComponents\LivewirePowerGrid\{Button, Column, Exportable, Footer, Header, PowerGrid, PowerGridComponent, PowerGridEloquent};
@@ -210,10 +212,14 @@ final class AllKyc extends PowerGridComponent
         $method->status = true;
         $method->save();
 
-
+        
+        
         $user = User::find($method->user_id);
         $user->kyc_status = true;
         $user->save();
+
+        // sending email to user
+        Mail::to($user->email)->send(new KycComplete());
     }
 
 
