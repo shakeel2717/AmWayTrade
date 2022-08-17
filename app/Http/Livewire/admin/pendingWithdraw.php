@@ -196,7 +196,7 @@ final class pendingWithdraw extends PowerGridComponent
         $withdraw->save();
 
         // sending email
-        Mail::to($transaction->user->email)->send(new WithdrawSuccess($transaction))
+        Mail::to($transaction->user->email)->send(new WithdrawSuccess($transaction));
     }
 
 
