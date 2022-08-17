@@ -2,10 +2,12 @@
 
 namespace App\Http\Livewire\admin;
 
+use App\Mail\WithdrawSuccess;
 use App\Models\Transaction;
 use App\Models\Withdraw;
 use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Mail;
 use PowerComponents\LivewirePowerGrid\Rules\{Rule, RuleActions};
 use PowerComponents\LivewirePowerGrid\Traits\ActionButton;
 use PowerComponents\LivewirePowerGrid\{Button, Column, Exportable, Footer, Header, PowerGrid, PowerGridComponent, PowerGridEloquent};
@@ -186,12 +188,15 @@ final class pendingWithdraw extends PowerGridComponent
 
     public function approve($id)
     {
-        $method = Transaction::find($id['id']);
-        $method->status = true;
-        $method->save();
-        $withdraw = Withdraw::find($method->note);
+        $transaction = Transaction::find($id['id']);
+        $transaction->status = true;
+        $transaction->save();
+        $withdraw = Withdraw::find($transaction->note);
         $withdraw->status = true;
         $withdraw->save();
+
+        // sending email
+        Mail::to($transaction->user->email)->send(new WithdrawSuccess($transaction))
     }
 
 
