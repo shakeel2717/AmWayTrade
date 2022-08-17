@@ -259,57 +259,6 @@
         </div>
     </section>
 
-    <section class="counter-section padding">
-        <div class="overlay"></div>
-        <div class="container">
-            <div class="section-heading text-center">
-                <h4 class="wow fadeInUp" data-wow-delay="200ms">Take Your INVESTMENT to Next Level!</h4>
-                <h2 class="wow fadeInUp" data-wow-delay="300ms">FOREX TRADING Helping All <br> Over the World!</h2>
-                <p class="wow fadeInUp" data-wow-delay="400ms">regardless of trend, earn money by investing in the top crypto and forex on the market.</p>
-                <a href="{{ route('user.support.create') }}" class="default-btn wow fadeInUp" data-wow-delay="500ms">Talk with Support Agent</a>
-            </div>
-            <div class="row counter-wrap mb-70">
-                <div class="col-lg-3 col-sm-6 bd-right">
-                    <div class="counter-item">
-                        <div class="counter-content">
-                            <div class="counter-icon"><i class="dl dl-startup"></i></div>
-                            <h3><span class="odometer" data-count="2589">00</span></h3>
-                            <h4>All Users</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 bd-right">
-                    <div class="counter-item">
-                        <div class="counter-content">
-                            <div class="counter-icon"><i class="dl dl-presentation"></i></div>
-                            <h3><span class="odometer" data-count="4518">00</span></h3>
-                            <h4>Happy Investors</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 bd-right">
-                    <div class="counter-item">
-                        <div class="counter-content">
-                            <div class="counter-icon"><i class="dl dl-timer"></i></div>
-                            <h3><span class="odometer" data-count="6274">00</span></h3>
-                            <h4>Total Withdraw</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="counter-item">
-                        <div class="counter-content">
-                            <div class="counter-icon"><i class="dl dl-success"></i></div>
-                            <h3><span class="odometer" data-count="1345">00</span></h3>
-                            <h4>Worldwide Brunch</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
     <section class="about-section bd-bottom padding">
         <div class="container">
             <div class="row">
@@ -346,7 +295,55 @@
             </div>
         </div>
     </section>
-
+    <section class="counter-section padding">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="section-heading text-center">
+                <h4 class="wow fadeInUp" data-wow-delay="200ms">Take Your INVESTMENT to Next Level!</h4>
+                <h2 class="wow fadeInUp" data-wow-delay="300ms">FOREX TRADING Helping All <br> Over the World!</h2>
+                <p class="wow fadeInUp" data-wow-delay="400ms">regardless of trend, earn money by investing in the top crypto and forex on the market.</p>
+                <a href="{{ route('user.support.create') }}" class="default-btn wow fadeInUp" data-wow-delay="500ms">Talk with Support Team</a>
+            </div>
+            <div class="row counter-wrap mb-70">
+                <div class="col-lg-3 col-sm-6 bd-right">
+                    <div class="counter-item">
+                        <div class="counter-content">
+                            <div class="counter-icon"><i class="dl dl-startup"></i></div>
+                            <h3><span class="odometer" data-count="5518">00</span></h3>
+                            <h4>All Users</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 bd-right">
+                    <div class="counter-item">
+                        <div class="counter-content">
+                            <div class="counter-icon"><i class="dl dl-presentation"></i></div>
+                            <h3><span class="odometer" data-count="4518">00</span></h3>
+                            <h4>Happy Investors</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 bd-right">
+                    <div class="counter-item">
+                        <div class="counter-content">
+                            <div class="counter-icon"><i class="dl dl-timer"></i></div>
+                            <h3><span class="odometer" data-count="6274">00</span></h3>
+                            <h4>Total Withdraw</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="counter-item">
+                        <div class="counter-content">
+                            <div class="counter-icon"><i class="dl dl-success"></i></div>
+                            <h3><span class="odometer" data-count="1345">00</span></h3>
+                            <h4>Worldwide Brunch</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <section class="project-section bd-bottom padding">
         <div class="container">
             <div class="section-heading-wrap row mb-40">
