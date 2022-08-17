@@ -88,7 +88,10 @@ final class pendingWithdraw extends PowerGridComponent
             ->addColumn('id')
             ->addColumn('type')
             ->addColumn('amount')
-            ->addColumn('address', function(Transaction $model){
+            ->addColumn('currency', function (Transaction $model) {
+                return $model->withdraw->currency->name;
+            })
+            ->addColumn('address', function (Transaction $model) {
                 return $model->withdraw->address;
             })
             ->addColumn('note')
@@ -123,6 +126,13 @@ final class pendingWithdraw extends PowerGridComponent
                 ->sortable()
                 ->searchable()
                 ->makeInputText(),
+
+            Column::make('CURRENCY', 'currency')
+                ->sortable()
+                ->searchable()
+                ->clickToCopy(true)
+                ->makeInputText(),
+
 
             Column::make('ADDRESS', 'address')
                 ->sortable()

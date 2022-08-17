@@ -17,4 +17,10 @@ class Withdraw extends Model
         'status',
         'address',
     ];
+
+
+    public function currency()
+    {
+        return $this->belongsTo(Currency::class);
+    }
 }
