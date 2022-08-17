@@ -156,6 +156,14 @@
                                 "title": "Nasdaq 100"
                             },
                             {
+                                "proName": "FTX:TSLAUSD",
+                                "title": "TESLA"
+                            },
+                            {
+                                "proName": "BITTREX:AAPLUSDT",
+                                "title": "APPLE"
+                            },
+                            {
                                 "proName": "FX_IDC:EURUSD",
                                 "title": "EUR/USD"
                             },
