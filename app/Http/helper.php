@@ -79,7 +79,7 @@ function totalCommission($user_id)
 function business($user_id)
 {
     $business = 0;
-    $refers = User::whereIn('id',allRefers($user_id))->get();
+    $refers = User::whereIn('id', allRefers($user_id))->get();
     foreach ($refers as $refer) {
         $business = $business + totalActiveInvest($refer);
     }
@@ -92,12 +92,14 @@ function business($user_id)
 
 function allRefers($user_id)
 {
-    $collection = directRefers($user_id);
-    $collection->prepend(levelFirstRefers($user_id));
-    $collection->prepend(levelSecondRefers($user_id));
-    $collection->prepend(levelThirdRefers($user_id));
 
-    return $collection;
+    $refers = collect([
+        directRefers($user_id),
+        levelFirstRefers($user_id),
+        levelSecondRefers($user_id),
+        levelThirdRefers($user_id),
+    ])->collapse();
+    return $refers;
 }
 
 
@@ -109,7 +111,7 @@ function directRefers($user_id)
     foreach ($refers as $refer) {
         $allRefers[] = $refer->id;
     }
-    return collect($allRefers);
+    return $allRefers;
 }
 
 
@@ -124,7 +126,7 @@ function levelFirstRefers($user_id)
             $allRefers[] = $level1Refer->id;
         }
     }
-    return collect($allRefers);
+    return $allRefers;
 }
 
 
@@ -142,7 +144,7 @@ function levelSecondRefers($user_id)
             }
         }
     }
-    return collect($allRefers);
+    return $allRefers;
 }
 
 
@@ -163,7 +165,7 @@ function levelThirdRefers($user_id)
             }
         }
     }
-    return collect($allRefers);
+    return $allRefers;
 }
 
 function levelFourthRefers($user_id)

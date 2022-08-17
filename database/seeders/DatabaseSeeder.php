@@ -60,7 +60,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'test2',
             'email' => 'test2@gmail.com',
             'username' => 'test2',
-            'refer' => 'shakeel2717',
+            'refer' => 'test1',
             'password' => bcrypt("asdfasdf"),
         ]);
 
@@ -68,7 +68,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'test3',
             'email' => 'test3@gmail.com',
             'username' => 'test3',
-            'refer' => 'shakeel2717',
+            'refer' => 'test2',
             'password' => bcrypt("asdfasdf"),
         ]);
 
@@ -76,7 +76,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'test4',
             'email' => 'test4@gmail.com',
             'username' => 'test4',
-            'refer' => 'shakeel2717',
+            'refer' => 'test3',
             'password' => bcrypt("asdfasdf"),
         ]);
 
@@ -84,7 +84,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'test5',
             'email' => 'test5@gmail.com',
             'username' => 'test5',
-            'refer' => 'shakeel2717',
+            'refer' => 'test4',
             'password' => bcrypt("asdfasdf"),
         ]);
 
