@@ -34,7 +34,7 @@
     <div class="d-flex">
         <nav class="side-nav">
             <a href="" class="intro-x d-flex align-items-center ps-5 pt-4">
-                <img alt="Rubick Tailwind HTML Admin Template" class="w-40" src="{{ asset('assets/brand/logo-light.svg') }}">
+                <img alt="{{ env('APP_DESC') }}" class="w-40" src="{{ asset('assets/brand/logo-light.svg') }}">
             </a>
             <div class="side-nav__devider my-6"></div>
             <ul>
@@ -85,8 +85,8 @@
                     </div>
                 </div>
                 <div class="intro-x dropdown w-8 h-8">
-                    <div class="dropdown-toggle w-8 h-8 rounded-pill overflow-hidden shadow-lg image-fit zoom-in" role="button" aria-expanded="false" data-bs-toggle="dropdown">
-                        <img alt="Rubick Tailwind HTML Admin Template" src="{{ asset('assets/profile/'. auth()->user()->profile) }}">
+                    <div class="dropdown-toggle d-flex justify-content-center align-items-center p-2 w-8 h-8 rounded-pill overflow-hidden shadow-lg image-fit zoom-in" role="button" aria-expanded="false" data-bs-toggle="dropdown">
+                        <img alt="{{ env('APP_DESC') }}" src="{{ asset('assets/profile/'. auth()->user()->profile) }}">
                     </div>
                     <div class="dropdown-menu w-56">
                         <ul class="dropdown-content bg-theme-26 dark-bg-dark-6 text-white">
