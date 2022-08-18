@@ -103,6 +103,57 @@ function allRefers($user_id)
 }
 
 
+function directInvestment($user_id)
+{
+    $business = 0;
+    $refers = User::whereIn('id', directRefers($user_id))->get();
+    foreach ($refers as $refer) {
+        $business = $business + totalActiveInvest($refer->id);
+    }
+
+    return $business;
+}
+
+function inDirectFirstInvestment($user_id)
+{
+    $business = 0;
+    $refers = User::whereIn('id', levelFirstRefers($user_id))->get();
+    foreach ($refers as $refer) {
+        $business = $business + totalActiveInvest($refer->id);
+    }
+
+    return $business;
+}
+
+function inDirectSecondInvestment($user_id)
+{
+    $business = 0;
+    $refers = User::whereIn('id', levelSecondRefers($user_id))->get();
+    foreach ($refers as $refer) {
+        $business = $business + totalActiveInvest($refer->id);
+    }
+
+    return $business;
+}
+
+function inDirectThirdInvestment($user_id)
+{
+    $business = 0;
+    $refers = User::whereIn('id', levelThirdRefers($user_id))->get();
+    foreach ($refers as $refer) {
+        $business = $business + totalActiveInvest($refer->id);
+    }
+
+    return $business;
+}
+
+
+function downlineBusiness($user_id)
+{
+    return directInvestment($user_id) + inDirectFirstInvestment($user_id) + inDirectSecondInvestment($user_id) + inDirectThirdInvestment($user_id);
+}
+
+
 function directRefers($user_id)
 {
     $allRefers = [];

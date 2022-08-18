@@ -106,6 +106,9 @@ final class AllUsers extends PowerGridComponent
             ->addColumn('invest', function (User $model) {
                 return "$" . number_format(totalActiveInvest($model->id), 2);
             })
+            ->addColumn('business', function (User $model) {
+                return "$" . number_format(downlineBusiness($model->id), 2);
+            })
             ->addColumn('suspend')
             ->addColumn('refer')
             ->addColumn('role')
@@ -164,6 +167,7 @@ final class AllUsers extends PowerGridComponent
 
             Column::make('BALANCE', 'balance'),
             Column::make('INVEST', 'invest'),
+            Column::make('BUSINESS', 'business'),
 
             Column::make('SUSPEND', 'suspend')
                 ->toggleable(),
