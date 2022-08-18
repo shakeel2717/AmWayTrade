@@ -37,6 +37,7 @@ class DatabaseSeeder extends Seeder
             'username' => 'admin',
             'role' => 'admin',
             'status' => true,
+            'email_verified_at' => now(),
             'password' => bcrypt("asdfasdf"),
         ]);
 
@@ -45,6 +46,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Shakeel Ahmad',
             'email' => 'shakeel2717@gmail.com',
             'username' => 'shakeel2717',
+            'email_verified_at' => now(),
             'password' => bcrypt("asdfasdf"),
         ]);
 

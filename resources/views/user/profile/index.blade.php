@@ -11,8 +11,14 @@
             </div>
             <div class="card-body">
 
-                <form action="{{ route('user.profile.store') }}" method="POST">
+                <form action="{{ route('user.profile.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label for="profile">Profile Picture</label>
+                            <input type="file" name="profile" id="profile" placeholder="Upload Profile Picture" class="form-control">
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="col-md-6">
                             <x-input name="name" placeholder="Full Name" value="{{ auth()->user()->name }}" label="show" />

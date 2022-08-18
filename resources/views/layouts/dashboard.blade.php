@@ -86,7 +86,7 @@
                 </div>
                 <div class="intro-x dropdown w-8 h-8">
                     <div class="dropdown-toggle w-8 h-8 rounded-pill overflow-hidden shadow-lg image-fit zoom-in" role="button" aria-expanded="false" data-bs-toggle="dropdown">
-                        <img alt="Rubick Tailwind HTML Admin Template" src="{{ asset('assets/images/profile-4.jpg') }}">
+                        <img alt="Rubick Tailwind HTML Admin Template" src="{{ asset('assets/profile/'. auth()->user()->profile) }}">
                     </div>
                     <div class="dropdown-menu w-56">
                         <ul class="dropdown-content bg-theme-26 dark-bg-dark-6 text-white">

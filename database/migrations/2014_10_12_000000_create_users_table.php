@@ -28,6 +28,7 @@ return new class extends Migration
             $table->boolean('pin')->default(false);
             $table->boolean('kyc_status')->default(false);
             $table->string('refer')->default('default');
+            $table->string('profile')->default('default.png');
             $table->string('role')->default('user');
             $table->rememberToken();
             $table->timestamps();

@@ -43,9 +43,19 @@ class ProfileController extends Controller
             'phone' => 'required|min:5|max:255|string',
             'city' => 'required|min:3|max:255|string',
             'country' => 'required|min:3|max:255|string',
+            'profile' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         $user = User::find(auth()->user()->id);
+
+        if (isset($validated['profile'])) {
+            // get picture
+            $profile = $request->file('profile');
+            $profile_name = auth()->user()->username . time() . '.' . $profile->getClientOriginalExtension();
+            $profile->move(public_path('assets/profile'), $profile_name);
+            $user->profile = $profile_name;
+        }
+
         $user->name = $validated['name'];
         $user->email = $validated['email'];
         $user->phone = $validated['phone'];

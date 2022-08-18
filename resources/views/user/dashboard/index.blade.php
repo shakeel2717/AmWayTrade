@@ -1,5 +1,5 @@
 @extends('layouts.dashboard')
-@section('title', 'Dashboard')
+@section('title', 'Welcome to Dashboard')
 @section('content')
 <div class="row">
     <div class="intro-y col-md-3">
