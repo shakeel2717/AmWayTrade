@@ -80,6 +80,15 @@ class PlanController extends Controller
         // Activating User Plan
         $plan = Plan::findOrFail($id);
 
+        // checking investment terms
+        if ($validated['amount'] < $plan->price_from) {
+            return redirect()->back()->withErrors("Please Select Correct Plan acording to your Investment Amount.");
+        }
+
+        if ($validated['amount'] > $plan->price_to) {
+            return redirect()->back()->withErrors("Please Select Correct Plan acording to your Investment Amount.");
+        }
+
         // checking balance
         if ($validated['amount'] > balance(auth()->user()->id)) {
             return redirect()->back()->withErrors("Insufficient Balance");
