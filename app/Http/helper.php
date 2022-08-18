@@ -285,3 +285,24 @@ function edie($message)
     info($message);
     die();
 }
+
+
+function directActiveRefers($user_id)
+{
+    $user = User::Find($user_id);
+    $refers = User::where('refer', $user->username)->where('status', true)->count();
+    return $refers;
+}
+
+function directActiveInvestment($user_id)
+{
+    $invest = 0;
+    $user = User::Find($user_id);
+    $refers = User::where('refer', $user->username)->where('status', true)->get();
+
+    foreach ($refers as $refer) {
+        $invest = $invest + totalActiveInvest($refer->id);
+    }
+
+    return $invest;
+}
