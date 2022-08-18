@@ -91,7 +91,7 @@
     <a href="javascript:;" class="{{ $mode == true ? 'side-' : '' }}menu">
         <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="target"></i> </div>
         <div class="{{ $mode == true ? 'side-' : '' }}menu__title">
-        Lottery
+            Lottery
             <div class="{{ $mode == true ? 'side-' : '' }}menu__sub-icon"> <i data-feather="chevron-down"></i>
             </div>
         </div>
@@ -276,6 +276,11 @@
     <a href="{{ route('user.kyc.index') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
         <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="lock"></i> </div>
         <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> KYC </div>
+        @if (auth()->user()->kyc_status == true)
+        <div class="fs-xs bg-theme-9 px-1 rounded-2 text-white ms-auto">Approved</div>
+        @else
+        <div class="fs-xs bg-theme-11 px-1 rounded-2 text-white ms-auto">Pending</div>
+        @endif
     </a>
 </li>
 
