@@ -87,7 +87,9 @@ final class RecentTransaction extends PowerGridComponent
             ->addColumn('type_format', function (Transaction $model) {
                 return strtoupper($model->type);
             })
-            ->addColumn('amount')
+            ->addColumn('amount_format', function (Transaction $model) {
+                return number_format($model->amount, 2);
+            })
             ->addColumn('sum')
             ->addColumn('note')
             ->addColumn('status_format', function (Transaction $model) {
@@ -120,7 +122,7 @@ final class RecentTransaction extends PowerGridComponent
                 ->searchable()
                 ->makeInputText(),
 
-            Column::make('AMOUNT', 'amount')
+            Column::make('AMOUNT', 'amount_format', 'amount')
                 ->sortable()
                 ->searchable()
                 ->makeInputText(),

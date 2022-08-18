@@ -14,7 +14,8 @@
                 <form action="{{ route('user.lottery.store') }}" method="POST">
                     @csrf
                     <div class="my-5 text-center mx-auto">
-                        <img src="{{ asset('assets/icons/money.png') }}" alt="money" class="mx-auto">
+                        <img src="{{ asset('assets/icons/lottery.png') }}" alt="money" class="mx-auto" width="300">
+                        <br>
                         <h2 class="my-3 fs-2xl text-center">Participate in Lottery, and Win ${{ $contest->reward }}</h2>
                         <div class="row">
                             <div class="form-group mt-5">
