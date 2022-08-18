@@ -163,7 +163,7 @@ Welcome {{ auth()->user()->username }} to Dashboard
                         <div class="d-flex align-items-center">
                             <div class="flex-none">
                                 <div class="fs-lg fw-medium truncate">
-                                    {{ (!$contest) ? "No Contest" : number_format($contest->reward, 2) }}
+                                    ${{ (!$contest) ? "No Contest" : number_format($contest->reward, 2) }}
                                 </div>
                                 <div class="text-gray-600 lead mt-1">Reward for Winner </div>
                             </div>
