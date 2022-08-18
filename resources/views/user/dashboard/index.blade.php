@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 @section('title')
-Welcome {{ auth()->user()->username }} to Dashboard
+Welcome to Dashboard
 @endsection
 @section('content')
 <div class="row">
@@ -113,8 +113,8 @@ Welcome {{ auth()->user()->username }} to Dashboard
         <div class="mt-5">
             <div class="intro-y">
                 <div class="box px-4 py-4 mb-3 d-flex align-items-center zoom-in">
-                    <div class="w-10 h-10 flex-none image-fit rounded-2 overflow-hidden">
-                        <img alt="Rubick Bootstrap HTML Admin Template" src="{{ asset('assets/icons/diamond.png') }}">
+                    <div class="w-20 h-20 flex-none image-fit rounded-2 overflow-hidden">
+                        <img alt="Rubick Bootstrap HTML Admin Template" src="{{ asset('assets/icons/'.$loop->iteration) }}.png">
                     </div>
                     <div class="ms-4 me-auto">
                         <div class="fw-medium">
