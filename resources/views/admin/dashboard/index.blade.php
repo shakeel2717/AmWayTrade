@@ -251,5 +251,50 @@
             </div>
         </div>
     </div>
+    <div class="intro-y col-md-3">
+        <div class="box p-5 zoom-in mt-4">
+            <div class="d-flex align-items-center">
+                <div class="w-2/4 flex-none">
+                    <div class="fs-lg fw-medium truncate">
+                        {{ $supports->count() }}
+                    </div>
+                    <div class="text-theme-1 lead mt-1">Support Tickets</div>
+                </div>
+                <div class="flex-none ms-auto position-relative">
+                    <img src="{{ asset('assets/icons/graph.png') }}" alt="Balance">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="intro-y col-md-3">
+        <div class="box p-5 zoom-in mt-4">
+            <div class="d-flex align-items-center">
+                <div class="w-2/4 flex-none">
+                    <div class="fs-lg fw-medium truncate">
+                        {{ $supports->where('solved',false)->count() }}
+                    </div>
+                    <div class="text-theme-1 lead mt-1">Support Pending</div>
+                </div>
+                <div class="flex-none ms-auto position-relative">
+                    <img src="{{ asset('assets/icons/graph.png') }}" alt="Balance">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="intro-y col-md-3">
+        <div class="box p-5 zoom-in mt-4">
+            <div class="d-flex align-items-center">
+                <div class="w-2/4 flex-none">
+                    <div class="fs-lg fw-medium truncate">
+                        {{ $supports->where('solved',true)->count() }}
+                    </div>
+                    <div class="text-theme-1 lead mt-1">Closed Pending</div>
+                </div>
+                <div class="flex-none ms-auto position-relative">
+                    <img src="{{ asset('assets/icons/graph.png') }}" alt="Balance">
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 @endsection

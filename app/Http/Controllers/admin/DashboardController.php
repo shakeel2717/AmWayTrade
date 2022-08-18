@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Support;
 use App\Models\Transaction;
 use App\Models\User;
 use App\Models\UserPlan;
@@ -20,7 +21,8 @@ class DashboardController extends Controller
         $users = User::get();
         $userPlans = UserPlan::get();
         $transactions = Transaction::get();
-        return view("admin/dashboard/index", compact("users", "userPlans", "transactions"));
+        $supports = Support::get();
+        return view("admin/dashboard/index", compact("users", "userPlans", "transactions","supports"));
     }
 
     /**
