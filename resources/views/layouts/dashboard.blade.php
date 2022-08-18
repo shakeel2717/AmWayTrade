@@ -99,13 +99,13 @@
                                 <hr class="dropdown-divider border-theme-27 dark-border-dark-3">
                             </li>
                             <li>
-                                <a href="" class="dropdown-item text-white bg-theme-1-hover dark-bg-dark-3-hover"> <i data-feather="user" class="w-4 h-4 me-2"></i> Profile </a>
+                                <a href="{{ route('user.profile.index') }}" class="dropdown-item text-white bg-theme-1-hover dark-bg-dark-3-hover"> <i data-feather="user" class="w-4 h-4 me-2"></i> Profile </a>
                             </li>
                             <li>
-                                <a href="" class="dropdown-item text-white bg-theme-1-hover dark-bg-dark-3-hover"> <i data-feather="lock" class="w-4 h-4 me-2"></i> Change Password </a>
+                                <a href="{{ route('user.profile.change.password') }}" class="dropdown-item text-white bg-theme-1-hover dark-bg-dark-3-hover"> <i data-feather="lock" class="w-4 h-4 me-2"></i> Change Password </a>
                             </li>
                             <li>
-                                <a href="" class="dropdown-item text-white bg-theme-1-hover dark-bg-dark-3-hover"> <i data-feather="help-circle" class="w-4 h-4 me-2"></i> Help </a>
+                                <a href="{{ route('user.support.index') }}" class="dropdown-item text-white bg-theme-1-hover dark-bg-dark-3-hover"> <i data-feather="help-circle" class="w-4 h-4 me-2"></i> Help </a>
                             </li>
                             <li>
                                 <hr class="dropdown-divider border-theme-27 dark-border-dark-3">
