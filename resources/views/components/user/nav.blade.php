@@ -193,14 +193,14 @@
             <a href="{{ route('user.history.passive.4') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
                 <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="corner-down-right"></i>
                 </div>
-                <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> Uni-Level 4 </div>
+                <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> Uni-Level 4 Commission </div>
             </a>
         </li>
         <li>
             <a href="{{ route('user.history.passive.5') }}" class="{{ $mode == true ? 'side-' : '' }}menu">
                 <div class="{{ $mode == true ? 'side-' : '' }}menu__icon"> <i data-feather="corner-down-right"></i>
                 </div>
-                <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> Uni-Level 5 </div>
+                <div class="{{ $mode == true ? 'side-' : '' }}menu__title"> Uni-Level 5 Commission </div>
             </a>
         </li>
     </ul>

@@ -1,5 +1,7 @@
 @extends('layouts.dashboard')
-@section('title', 'Welcome to Dashboard')
+@section('title')
+Welcome {{ auth()->user()->username }} to Dashboard
+@endsection
 @section('content')
 <div class="row">
     <div class="intro-y col-md-3">

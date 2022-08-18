@@ -9,7 +9,7 @@
                     <div class="intro-y">
                         <div class="box px-4 py-4 mb-3 d-flex align-items-center zoom-in">
                             <div class="w-10 h-10 flex-none image-fit rounded-2 overflow-hidden">
-                                <img alt="Rubick Bootstrap HTML Admin Template" src="{{ asset('assets/icons/wallet.png') }}">
+                                <img alt="Rubick Bootstrap HTML Admin Template" src="{{ asset('assets/icons/support.png') }}">
                             </div>
                             <div class="ms-4 me-auto">
                                 <div class="fw-medium">
@@ -30,7 +30,7 @@
                         <div class="box px-4 py-4 mb-3 d-flex align-items-center zoom-in">
                             <div class="w-10 h-10 flex-none image-fit rounded-2 overflow-hidden">
                                 <img alt="Rubick Bootstrap HTML Admin Template"
-                                    src="{{ asset('assets/icons/wallet.png') }}">
+                                    src="{{ asset('assets/icons/support.png') }}">
                             </div>
                             <div class="ms-4 me-auto">
                                 <div class="fw-medium">
