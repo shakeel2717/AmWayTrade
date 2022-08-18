@@ -162,9 +162,9 @@ final class Level3Commission extends PowerGridComponent
     //           ->class('bg-indigo-500 cursor-pointer text-white px-3 py-2.5 m-1 rounded text-sm')
     //           ->route('transaction.edit', ['transaction' => 'id']),
 
-           Button::make('destroy', 'Delete')
-                ->class('btn btn-danger btn-sm')
-                ->emit('delete', ['id' => 'id'])
+        //    Button::make('destroy', 'Delete')
+        //         ->class('btn btn-danger btn-sm')
+        //         ->emit('delete', ['id' => 'id'])
         ];
     }
 

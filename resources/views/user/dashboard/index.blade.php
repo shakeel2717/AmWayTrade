@@ -230,11 +230,15 @@ Welcome {{ auth()->user()->username }} to Dashboard
                     <div class="intro-y box p-5 mt-5">
                         <label class="mt-2" for="">You Recieved</label>
                         <div class="progress h-4 mt-2">
-                            <div class="progress-bar" style="width: {{ marketcap(auth()->user()->id) }}%" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">{{ number_format(marketcap(auth()->user()->id),2) }}%</div>
+                            <div class="progress-bar bg-theme-9" style="width: {{ marketcap(auth()->user()->id) }}%" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">{{ number_format(marketcap(auth()->user()->id),2) }}%</div>
                         </div>
                         <label class="mt-2" for="">Remaining</label>
                         <div class="progress h-4 mt-2">
-                            <div class="progress-bar" style="width: {{ 100 - marketcap(auth()->user()->id) }}%" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">{{ number_format(100 - marketcap(auth()->user()->id),2) }}%</div>
+                            <div class="progress-bar bg-theme-11" style="width: {{ 100 - marketcap(auth()->user()->id) }}%" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">{{ number_format(100 - marketcap(auth()->user()->id),2) }}%</div>
+                        </div>
+                        <label class="mt-2" for="">Total</label>
+                        <div class="progress h-4 mt-2">
+                            <div class="progress-bar bg-theme-10" style="width: 100%" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">${{ number_format(totalActiveInvest(auth()->user()->id) * 2,2) }}</div>
                         </div>
                     </div>
                 </div>
