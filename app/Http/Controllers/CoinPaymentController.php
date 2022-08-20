@@ -76,7 +76,7 @@ class CoinPaymentController extends Controller
                 $deposit->type = 'deposit';
                 $deposit->reference = 'coinPayment Gateway';
                 $deposit->sum = 'in';
-                $deposit->status = 'approved';
+                $deposit->status = true;
                 $deposit->note = $txn_id;
                 $deposit->save();
                 info('CoinPayment Payment  Success');
@@ -98,7 +98,7 @@ class CoinPaymentController extends Controller
                 $deposit->type = 'deposit';
                 $deposit->reference = 'coinPayment Gateway';
                 $deposit->sum = 'in';
-                $deposit->status = 'approved';
+                $deposit->status = true;
                 $deposit->note = $txn_id;
                 $deposit->save();
                 info('CoinPayment Payment Status 100 Success');
