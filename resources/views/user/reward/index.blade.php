@@ -17,6 +17,9 @@
                         >
                     </div>
                     <div class="ms-4 me-auto">
+                        <div class="fw-medium fs-xl mb-2 text-uppercase text-theme-10">
+                            {{ $reward->title }} Reward!
+                        </div>
                         <div class="fw-medium fs-lg text-uppercase">
                             ${{ number_format($reward->reward,2) }} <span class="fs-xs">OR</span> {{ $reward->alternative }}
                         </div>
@@ -29,8 +32,8 @@
                 </div>
                 <div class="box px-4 py-4">
                     <p>You have Direct Active Refers: {{ directActiveRefers(auth()->user()->id) }} | {{ (directActiveRefers(auth()->user()->id) > 4) ? "Achieved!" : "Remaining: ". 5 - directActiveRefers(auth()->user()->id) }}</p>
-                    <p>Total Business:  ${{ directActiveInvestment(auth()->user()->id) }}
-                         | Business Required: ${{$reward->sales_required * 5}}</p>
+                    <p>Total Business: ${{ directActiveInvestment(auth()->user()->id) }}
+                        | Business Required: ${{$reward->sales_required * 5}}</p>
                 </div>
             </div>
         </div>
