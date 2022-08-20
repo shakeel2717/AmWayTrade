@@ -10,6 +10,7 @@ class Reward extends Model
     use HasFactory;
 
     protected $fillable = [
+        'title',
         'reward',
         'alternative',
         'sales_required',

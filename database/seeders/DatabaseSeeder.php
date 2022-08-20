@@ -222,30 +222,35 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Reward::create([
+            'title' => "Start Up",
             'reward' => 150,
             'alternative' => "Mobile",
             'sales_required' => 1000,
         ]);
 
         Reward::create([
+            'title' => "Courage",
             'reward' => 500,
             'alternative' => "Laptop",
             'sales_required' => 4000,
         ]);
 
         Reward::create([
+            'title' => "Booster",
             'reward' => 3000,
             'alternative' => "Sport Bike",
             'sales_required' => 20000,
         ]);
 
         Reward::create([
+            'title' => "Gold",
             'reward' => 10000,
             'alternative' => "Car",
             'sales_required' => 100000,
         ]);
 
         Reward::create([
+            'title' => "Diamond",
             'reward' => 50000,
             'alternative' => "Dream Villa",
             'sales_required' => 500000,
