@@ -1,5 +1,5 @@
 @extends('layouts.dashboard')
-@section('title', 'All Deposit Statement')
+@section('title', 'All Deposit')
 @section('content')
 <div class="row mt-5">
     <div class="intro-y col-md-12">
@@ -15,4 +15,4 @@
         </div>
     </div>
 </div>
-@section('footer')
+@endsection
