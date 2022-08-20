@@ -66,7 +66,7 @@ class CoinPaymentController extends Controller
             $payment->save();
 
             // Inserting User Plan
-            // checking if alrady inserted
+            // checking if already inserted
             $transaction = Transaction::where('user_id', $payment->user_id)->where('reference', 'coinPayment Gateway')->where('note', $txn_id)->count();
             if ($transaction < 1) {
                 // getting this user Payment ID
