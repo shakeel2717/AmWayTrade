@@ -50,7 +50,7 @@ final class AllDeposit extends PowerGridComponent
      */
     public function datasource(): Builder
     {
-        return Transaction::query()->where('type', 'deposit');
+        return Transaction::query()->where("user_id", auth()->user()->id)->where('type', 'deposit');
     }
 
     /*
