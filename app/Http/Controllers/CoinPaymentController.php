@@ -20,13 +20,9 @@ class CoinPaymentController extends Controller
         $ipn_secret = env('IPN_SECRET');
         info('CoinPayment webhook  Init');
         $txn_id = $request->txn_id;
-        $payment = btcPayment::where("txn_id", $txn_id)->first();
-
-        // getting this currencuy
-        $currency = Currency::where('symbol', $request->currency)->first();
-        if ($currency == "") {
-            edie("Currency Mismatch");
-        }
+        $payment = btcPayment::where("txn_id", $txn_id)->firstOrFail();
+        $order_currency = $payment->currency; //BTC
+        $order_total = $payment->amount; //BTC
 
         if (!isset($request->ipn_mode) || $request->ipn_mode != 'hmac') {
             edie("IPN Mode is not HMAC");
@@ -50,42 +46,88 @@ class CoinPaymentController extends Controller
             edie("HMAC signature does not match.");
         }
 
-        // checking if this Request comes from ipn_type=Deposit
-        if (isset($request->ipn_type) || $request->ipn_type == 'deposit') {
-            info('Deposit Request Found');
-            if ($request->status == 100 && $request->status_text == "Deposit confirmed") {
-                // Proccess for Payment
-                // getting this user
-                $user = User::where('email', $request->label)->first();
-                if (!$user) {
-                    edie("User not Found. User Email: " . $request->label);
-                }
+        $amount1 = floatval($request->amount1); //IN USD
+        $amount2 = floatval($request->amount2); //IN BTC
+        $currency1 = $request->currency1; //USD
+        $currency2 = $request->currency2; //BTC
+        $status = intval($request->status);
 
-                // Inserting New Transaction Request Storing into session
-                $task = new btcPayment();
-                $task->user_id = $user->id;
-                $task->amount = $request->amount;
-                $task->currency_id = 3;
-                $task->address = $request->address;
-                $task->dest_tag = $request->label;
-                $task->status = "complete";
-                $task->txn_id = $request->txn_id;
-                $task->save();
+        if ($currency2 != $order_currency) {
+            edie("Currency Mismatch");
+        }
 
+        if ($amount2 < $order_total) {
+            edie("Amount is lesser than order total");
+        }
 
-                $deposit = $user->transactions()->create([
+        if ($status == 1 || $status == 2) {
+            // Payment is complete
+            $payment->status = "success";
+            $payment->save();
+
+            // Inserting User Plan
+            // checking if alrady inserted
+            $transaction = Transaction::where('user_id', $payment->user_id)->where('reference', 'coinPayment Gateway')->where('note', $txn_id)->count();
+            if ($transaction < 1) {
+                // getting this user Payment ID
+                $deposit = new Transaction();
+                $deposit->user_id = $payment->user_id;
+                $deposit->amount = $amount1;
+                $deposit->type = 'deposit';
+                $deposit->reference = 'coinPayment Gateway';
+                $deposit->sum = 'in';
+                $deposit->status = 'approved';
+                $deposit->note = $txn_id;
+                $deposit->save();
+                info('CoinPayment Payment  Success');
+            } else {
+                info('CoinPayment Payment Already Inserted');
+            }
+        } else if ($status >= 100) {
+            // Payment is complete
+            $payment->status = "complete";
+            $payment->save();
+
+            // checking if already payment not inserted, then insert new
+            // $balance = Transaction::firstOrCreate([
+            // 'user_id' => $payment->user_id,
+            // 'amount' => $amount1,
+            // 'note' => $txn_id,
+            // 'type' => 'deposit',
+            // 'reference' => 'coinPayment Gateway',
+            // 'sum' => 'in',
+            // 'status' => 'approved',
+            // ]);
+            // if ($balance) {
+            //     info('CoinPayment Payment  Success');
+            // } else {
+            //     info('CoinPayment Payment  Failed, UserId: '. $payment->user_id. "and Txnid: ".$txn_id);
+            // }
+
+            // checking if alrady inserted
+            $transaction = Transaction::where('user_id', $payment->user_id)->where('reference', 'coinPayment Gateway')->where('note', $txn_id)->count();
+            if ($transaction < 1) {
+                // getting this user Payment ID
+                $deposit = Transaction::create([
+                    'user_id' => $payment->user_id,
                     'type' => "deposit",
                     'amount' => $request->amount,
                     'sum' => true,
                     'note' => $request->txn_id,
                     'reference' => "coinPayment Gateway",
                 ]);
-
-                info('CoinPayment Payment Success from Deposit');
+                info('CoinPayment Payment Status 100 Success');
+            } else {
+                info('CoinPayment Payment Already Inserted 100');
             }
+        } else if ($status < 0) {
+            // Payment Error
+            $payment->status = "error";
+            $payment->save();
         } else {
-            info('Invalid Transaction Type.');
+            // Payment Pending
+            $payment->status = "pending";
+            $payment->save();
         }
-        info('Coin Payment Finish');
     }
 }
