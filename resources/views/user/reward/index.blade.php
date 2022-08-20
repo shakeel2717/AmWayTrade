@@ -30,7 +30,7 @@
                 <div class="box px-4 py-4">
                     <p>You have Direct Active Refers: {{ directActiveRefers(auth()->user()->id) }} | {{ (directActiveRefers(auth()->user()->id) > 4) ? "Achieved!" : "Remaining: ". 5 - directActiveRefers(auth()->user()->id) }}</p>
                     <p>Total Business:  ${{ directActiveInvestment(auth()->user()->id) }}
-                         | Business Required: ${{$reward->sales_required * 20}}</p>
+                         | Business Required: ${{$reward->sales_required * 5}}</p>
                 </div>
             </div>
         </div>
