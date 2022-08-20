@@ -33,6 +33,7 @@ Route::prefix('admin/')->middleware('auth', 'admin')->name('admin.')->group(func
         Route::get('support', 'support')->name("support");
         Route::get('rewards', 'rewards')->name("rewards");
         Route::get('plans', 'plans')->name("plans");
+        Route::get('ranks', 'ranks')->name("ranks");
     });
 
     Route::prefix("admin")->name("admin.")->controller(AdminController::class)->group(function () {

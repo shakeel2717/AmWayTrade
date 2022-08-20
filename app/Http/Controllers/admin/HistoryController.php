@@ -46,6 +46,12 @@ class HistoryController extends Controller
     }
 
 
+    public function ranks()
+    {
+        return view("admin.history.ranks");
+    }
+
+
     public function plans()
     {
         return view("admin.history.plans");
