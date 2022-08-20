@@ -88,34 +88,19 @@ class CoinPaymentController extends Controller
             $payment->status = "complete";
             $payment->save();
 
-            // checking if already payment not inserted, then insert new
-            // $balance = Transaction::firstOrCreate([
-            // 'user_id' => $payment->user_id,
-            // 'amount' => $amount1,
-            // 'note' => $txn_id,
-            // 'type' => 'deposit',
-            // 'reference' => 'coinPayment Gateway',
-            // 'sum' => 'in',
-            // 'status' => 'approved',
-            // ]);
-            // if ($balance) {
-            //     info('CoinPayment Payment  Success');
-            // } else {
-            //     info('CoinPayment Payment  Failed, UserId: '. $payment->user_id. "and Txnid: ".$txn_id);
-            // }
-
-            // checking if alrady inserted
+            // checking if already inserted
             $transaction = Transaction::where('user_id', $payment->user_id)->where('reference', 'coinPayment Gateway')->where('note', $txn_id)->count();
             if ($transaction < 1) {
                 // getting this user Payment ID
-                $deposit = Transaction::create([
-                    'user_id' => $payment->user_id,
-                    'type' => "deposit",
-                    'amount' => $request->amount,
-                    'sum' => true,
-                    'note' => $request->txn_id,
-                    'reference' => "coinPayment Gateway",
-                ]);
+                $deposit = new Transaction();
+                $deposit->user_id = $payment->user_id;
+                $deposit->amount = $amount1;
+                $deposit->type = 'deposit';
+                $deposit->reference = 'coinPayment Gateway';
+                $deposit->sum = 'in';
+                $deposit->status = 'approved';
+                $deposit->note = $txn_id;
+                $deposit->save();
                 info('CoinPayment Payment Status 100 Success');
             } else {
                 info('CoinPayment Payment Already Inserted 100');
