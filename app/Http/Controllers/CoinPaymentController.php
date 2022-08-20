@@ -21,7 +21,7 @@ class CoinPaymentController extends Controller
         info('CoinPayment webhook  Init');
         $txn_id = $request->txn_id;
         $payment = btcPayment::where("txn_id", $txn_id)->firstOrFail();
-        $order_currency = $payment->currency; //BTC
+        $order_currency = $payment->currencyf; //BTC
         $order_total = $payment->amount; //BTC
 
         if (!isset($request->ipn_mode) || $request->ipn_mode != 'hmac') {

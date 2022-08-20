@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId("currency_id")->default(3)->constrained()->onDelete("cascade");
-            $table->string('currency');
+            $table->string('currencyf');
             $table->double('amount');
             $table->double('amountf');
             $table->string('address');
