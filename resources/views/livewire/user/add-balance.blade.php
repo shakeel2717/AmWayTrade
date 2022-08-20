@@ -11,6 +11,23 @@
                     <option value="">No Address Found</option>
                     @endforelse
                 </select>
+                @error('coin')
+                <div class="mt-1 error text-theme-11">
+                    {{ $message }}
+                </div>
+                @enderror
+            </div>
+            <div class="mt-2">
+                <option for="amount">Enter Amount in USD</option>
+                <input type="text" wire:model="amount" class="form-control" name="amount" placeholder="Amount" id="amount">
+                @error('amount')
+                <div class="mt-1 error text-theme-11">
+                    {{ $message }}
+                </div>
+                @enderror
+            </div>
+            <div class="mt-2">
+                <button wire:click="createTransaction" class="btn btn-primary">Generate Address</button>
             </div>
             <div class="text-center w-full mt-3" wire:loading>
                 <i data-loading-icon="puff" class="w-8 h-8"></i>
@@ -36,11 +53,11 @@
             </div>
         </div>
         <div class="mt-5">
-                <div class="form-group text-center">
-                    <label for="address">Copy your Address</label>
-                    <input type="text" name="address" id="address" class="form-control text-center" value="{{ $qr }}">
-                </div>
+            <div class="form-group text-center">
+                <label for="address">Copy your Address</label>
+                <input type="text" name="address" id="address" class="form-control text-center" value="{{ $qr }}">
             </div>
+        </div>
         @endif
     </div>
 </div>

@@ -11,6 +11,7 @@ use Exception;
 class AddBalance extends Component
 {
     public $currencies;
+    public $amount;
     public $coin;
     public $qr;
     public $icon;
@@ -20,47 +21,36 @@ class AddBalance extends Component
         $this->currencies = Currency::where('status', true)->get();
     }
 
-    function updatedCoin($coin)
+
+    protected $rules = [
+        'coin' => 'required|integer',
+        'amount' => 'required|integer|min:1',
+    ];
+
+    function createTransaction()
     {
-        $currency = Currency::find($coin);
+        $this->validate();
+        $currency = Currency::find($this->coin);
         $this->coin = $currency->name;
         $this->icon = $currency->icon;
-        $address = Address::where('user_id', auth()->user()->id)->where('currency_id', $coin)->first();
-        if ($address != "") {
-            $this->qr = $address->address;
-            info("Already Address Found");
+        $private_key = env('PRIKEY');
+        $public_key = env('PUBKEY');
+        try {
+            $cps_api = new CoinpaymentsAPI($private_key, $public_key, 'json');
+            $currency1 = "USD";
+            $currency2 = $currency->symbol;
+            $buyer_email = auth()->user()->email;
+            $ipn_url = env('IPN_URL');
+            $information = $cps_api->CreateSimpleTransactionWithConversion($this->amount, $currency1, $currency2, $buyer_email, $ipn_url);
+        } catch (Exception $e) {
+            echo 'Error: ' . $e->getMessage();
+            exit();
+        }
+
+        if ($information['error'] == 'ok') {
+            $this->qr = $information['result']['address'];
         } else {
-            info("Already Not Address Found");
-            // fetching the address from coinPayment
-            $private_key = env('PRIKEY');
-            $public_key = env('PUBKEY');
-            $method = $currency->symbol;
-
-            try {
-                $cps_api = new CoinpaymentsAPI($private_key, $public_key, 'json');
-                $currency2 = $method;
-                $buyer_email = auth()->user()->email;
-                $ipn_url = env('IPN_URL');
-                $information = $cps_api->GetCallbackAddressWithIpn($currency2, $ipn_url, $buyer_email);
-                info("Try Successs");
-            } catch (Exception $e) {
-                echo 'Error: ' . $e->getMessage();
-                exit();
-            }
-
-            if ($information['error'] != 'ok') {
-                info("Error: " . json_encode($information));
-                return "<h3>There's Some Issue in The API, Please Contact Support!</h3>";
-            }
-
-            $address = new Address();
-            $address->user_id = auth()->user()->id;
-            $address->currency_id = $coin;
-            $address->address = $information['result']['address'];
-            $address->save();
-            info("Address Saved");
-
-            $this->qr = $address->address;
+            dd("API Connection Problem, Please Contact Administrator");
         }
     }
 
