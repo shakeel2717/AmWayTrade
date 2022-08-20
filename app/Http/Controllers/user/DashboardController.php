@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
+use App\Models\btcPayment;
 use App\Models\Contest;
 use Illuminate\Http\Request;
 

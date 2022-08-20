@@ -57,7 +57,7 @@ class AddBalance extends Component
             $task = new btcPayment();
             $task->user_id = auth()->user()->id;
             $task->currency_id = $currency->id;
-            $task->currency = $currency1;
+            $task->currencyf = $currency1;
             $task->amount = $information['result']['amount'];
             $task->amountf = $this->amount;
             $task->address = $information['result']['address'];
