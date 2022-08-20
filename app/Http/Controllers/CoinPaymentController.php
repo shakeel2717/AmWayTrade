@@ -75,7 +75,7 @@ class CoinPaymentController extends Controller
                 $deposit->amount = $amount1;
                 $deposit->type = 'deposit';
                 $deposit->reference = 'coinPayment Gateway';
-                $deposit->sum = 'in';
+                $deposit->sum = true;
                 $deposit->status = true;
                 $deposit->note = $txn_id;
                 $deposit->save();
@@ -97,7 +97,7 @@ class CoinPaymentController extends Controller
                 $deposit->amount = $amount1;
                 $deposit->type = 'deposit';
                 $deposit->reference = 'coinPayment Gateway';
-                $deposit->sum = 'in';
+                $deposit->sum = true;
                 $deposit->status = true;
                 $deposit->note = $txn_id;
                 $deposit->save();
