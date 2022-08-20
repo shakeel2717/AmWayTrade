@@ -241,7 +241,7 @@
             <div class="d-flex align-items-center">
                 <div class="w-2/4 flex-none">
                     <div class="fs-lg fw-medium truncate">
-                        ${{ number_format($transactions->where('type','deposit')->where('status',true)->where('reference','coinPayment')->sum("amount"),2) }}
+                        ${{ number_format($transactions->where('type','deposit')->where('status',true)->where('reference','coinPayment Gateway')->sum("amount"),2) }}
                     </div>
                     <div class="text-theme-1 lead mt-1">CoinPayment Deposit</div>
                 </div>
