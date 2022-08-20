@@ -39,6 +39,9 @@
             <div class="mt-3">
                 <h2 class="fs-lg">Currency Name: <span class="fw-bold text-theme-1">{{ $coin }}</span></h2>
                 <h2 class="fs-lg">Status: <span class="text-theme-1">Active</span></h2>
+                <br>
+                <hr>
+                <p class="fs-lg mt-3"><span class="text-theme-1"><a href="{{$statusLink}}" target="_blank">Click here </a></span> to check the Payment Status</p>
             </div>
         </div>
         @endif

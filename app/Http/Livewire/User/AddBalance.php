@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\user;
 
 use App\Models\Address;
+use App\Models\btcPayment;
 use App\Models\Currency;
 use Livewire\Component;
 use CoinpaymentsAPI;
@@ -15,6 +16,7 @@ class AddBalance extends Component
     public $coin;
     public $qr;
     public $icon;
+    public $statusLink;
 
     public function mount()
     {
@@ -49,6 +51,23 @@ class AddBalance extends Component
 
         if ($information['error'] == 'ok') {
             $this->qr = $information['result']['address'];
+
+            // adding this request into database
+
+            $task = new btcPayment();
+            $task->user_id = auth()->user()->id;
+            $task->currency_id = $currency->id;
+            $task->currency = $currency1;
+            $task->amount = $information['result']['amount'];
+            $task->amountf = $this->amount;
+            $task->address = $information['result']['address'];
+            $task->dest_tag = 1;
+            $task->txn_id = $information['result']['txn_id'];
+            $task->checkout_url = $information['result']['checkout_url'];
+            $task->status_url = $information['result']['status_url'];
+            $task->save();
+
+            $this->statusLink = $task->status_url;
         } else {
             dd("API Connection Problem, Please Contact Administrator");
         }

@@ -12,10 +12,14 @@ class btcPayment extends Model
     protected $fillable = [
         'user_id',
         'currency_id',
+        'currency',
         'amount',
+        'amountf',
         'address',
         'dest_tag',
         'txn_id',
         'status',
+        'checkout_url',
+        'status_url'
     ];
 }
