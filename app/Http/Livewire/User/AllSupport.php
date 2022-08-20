@@ -110,26 +110,15 @@ final class AllSupport extends PowerGridComponent
     public function columns(): array
     {
         return [
-            Column::make('CATEGORY', 'category')
-                ->sortable()
-                ->searchable()
-                ->makeInputText(),
+            Column::make('CATEGORY', 'category'),
 
-            Column::make('MESSAGE', 'message')
-                ->sortable()
-                ->searchable(),
+            Column::make('MESSAGE', 'message'),
 
             Column::make('SOLVED', 'solved_format', 'solved'),
 
-            Column::make('CREATED AT', 'created_at_formatted', 'created_at')
-                ->searchable()
-                ->sortable()
-                ->makeInputDatePicker(),
+            Column::make('CREATED AT', 'created_at_formatted', 'created_at'),
 
-            Column::make('UPDATED AT', 'updated_at_formatted', 'updated_at')
-                ->searchable()
-                ->sortable()
-                ->makeInputDatePicker(),
+            Column::make('UPDATED AT', 'updated_at_formatted', 'updated_at'),
         ];
     }
 

@@ -115,27 +115,15 @@ final class Level2Commission extends PowerGridComponent
     public function columns(): array
     {
         return [
-            Column::make('TYPE', 'type_format', 'type')
-                ->sortable()
-                ->searchable()
-                ->makeInputText(),
+            Column::make('TYPE', 'type_format', 'type'),
 
-            Column::make('AMOUNT', 'amount')
-                ->sortable()
-                ->searchable()
-                ->makeInputText(),
+            Column::make('AMOUNT', 'amount'),
 
             Column::make('STATUS', 'status_format', 'status'),
 
-            Column::make('REFERENCE', 'reference')
-                ->sortable()
-                ->searchable()
-                ->makeInputText(),
+            Column::make('REFERENCE', 'reference'),
 
-            Column::make('CREATED AT', 'created_at_formatted', 'created_at')
-                ->searchable()
-                ->sortable()
-                ->makeInputDatePicker(),
+            Column::make('CREATED AT', 'created_at_formatted', 'created_at'),
 
         ];
     }

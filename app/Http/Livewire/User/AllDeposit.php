@@ -110,30 +110,15 @@ final class AllDeposit extends PowerGridComponent
     public function columns(): array
     {
         return [
-            Column::make('TYPE', 'type')
-                ->sortable()
-                ->searchable()
-                ->makeInputText(),
+            Column::make('TYPE', 'type'),
 
-            Column::make('AMOUNT', 'amount')
-                ->sortable()
-                ->searchable()
-                ->makeInputText(),
+            Column::make('AMOUNT', 'amount'),
 
-            Column::make('STATUS', 'status_format')
-                ->sortable()
-                ->searchable()
-                ->makeInputText(),
+            Column::make('STATUS', 'status_format'),
 
-            Column::make('REFERENCE', 'reference')
-                ->sortable()
-                ->searchable()
-                ->makeInputText(),
+            Column::make('REFERENCE', 'reference'),
 
-            Column::make('CREATED AT', 'created_at_formatted', 'created_at')
-                ->searchable()
-                ->sortable()
-                ->makeInputDatePicker(),
+            Column::make('CREATED AT', 'created_at_formatted', 'created_at'),
 
         ];
     }

@@ -105,14 +105,9 @@ final class AllNotification extends PowerGridComponent
     public function columns(): array
     {
         return [
-            Column::make('MESSAGE', 'message')
-                ->sortable()
-                ->searchable(),
+            Column::make('MESSAGE', 'message'),
 
-            Column::make('NOTIFICATION DATE', 'created_at_formatted', 'created_at')
-                ->searchable()
-                ->sortable()
-                ->makeInputDatePicker(),
+            Column::make('NOTIFICATION DATE', 'created_at_formatted', 'created_at'),
 
         ];
     }

@@ -118,29 +118,17 @@ final class AllDirectRefer extends PowerGridComponent
     public function columns(): array
     {
         return [
-            Column::make('NAME', 'name')
-                ->sortable()
-                ->searchable()
-                ->makeInputText(),
+            Column::make('NAME', 'name'),
 
-            Column::make('USERNAME', 'username')
-                ->sortable()
-                ->searchable()
-                ->makeInputText(),
+            Column::make('USERNAME', 'username'),
 
-            Column::make('COUNTRY', 'country')
-                ->sortable()
-                ->searchable()
-                ->makeInputText(),
+            Column::make('COUNTRY', 'country'),
 
             Column::make('INVESTMENT', 'investment'),
 
             Column::make('STATUS', 'status_format'),
 
-            Column::make('JOIN DATE', 'created_at_formatted', 'created_at')
-                ->searchable()
-                ->sortable()
-                ->makeInputDatePicker(),
+            Column::make('JOIN DATE', 'created_at_formatted', 'created_at'),
 
         ];
     }
