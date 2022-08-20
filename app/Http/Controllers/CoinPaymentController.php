@@ -52,7 +52,7 @@ class CoinPaymentController extends Controller
         $currency2 = $request->currency2; //BTC
         $status = intval($request->status);
 
-        if ($currency2 != $order_currency) {
+        if ($currency2 != $payment->currency->symbol) {
             edie("Currency Mismatch");
         }
 
