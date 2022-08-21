@@ -1,5 +1,5 @@
 @extends('layouts.dashboard')
-@section('title', 'All In-Direct Level 3 Team Statement')
+@section('title', 'My Support Tickets')
 @section('content')
 <div class="row mt-5">
     <div class="intro-y col-md-12">
