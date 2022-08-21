@@ -164,7 +164,7 @@ Welcome to Dashboard
                 <div class="intro-y">
                     <div class="box px-4 py-4 mb-3 d-flex align-items-center zoom-in">
                         <div class="w-20 h-20 flex-none image-fit rounded-2 overflow-hidden">
-                            <img alt="Rubick Bootstrap HTML Admin Template" src="{{ asset('assets/icons/'.$loop->iteration) }}.png">
+                            <img alt="Rubick Bootstrap HTML Admin Template" src="{{ asset('assets/icons/'.$userPlan->id) }}.png">
                         </div>
                         <div class="ms-4 me-auto">
                             <div class="fw-medium">
