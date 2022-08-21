@@ -376,9 +376,9 @@
         <div class="map"></div>
         <div class="container">
             <div class="section-heading mb-40 text-center wow fadeInUp" data-wow-delay="200ms">
-                <h4>Global Business</h4>
+                <h4>Sustainability</h4>
                 <h2>Words From Clients</h2>
-                <p>Financial experts support or help you to to find out which <br> way you can raise your funds more.
+                <p>our strategies and services have been time tested and designed to last for years hence remain highly sustainable.
                 </p>
             </div>
         </div>
@@ -390,9 +390,7 @@
                 <div class="col-md-6 wow fadeInLeft" data-wow-delay="200ms">
                     <div class="cta-content">
                         <h2>It's All About (The) Forex</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus doloremque qui,
-                            accusamus quae accusantium, mollitia distinctio, quibusdam voluptatem pariatur voluptas et
-                            magni dolores odio corporis exercitationem rem modi fugit? Excepturi?</p>
+                        <p>our strategies and services have been time tested and designed to last for years hence remain highly sustainable.</p>
                         <a href="contact.html" class="default-btn">Create Account</a>
                     </div>
                 </div>
@@ -404,9 +402,9 @@
     <section class="blog-section bg-grey bd-bottom padding">
         <div class="container">
             <div class="section-heading mb-40 text-center wow fadeInUp" data-wow-delay="200ms">
-                <h4>PRICING</h4>
+                <h4>{{ env('APP_NAME') }}</h4>
                 <h2>Get The Latest PRICING</h2>
-                <p>We welcome you to become a part of the Amwaytrad and excel in your growth through tremendous opportunities at our platform.</p>
+                <p> investment offer. depending on the amount of your investment, you  can choose one of our investment plans and consistently.</p>
             </div>
             <div class="row">
                 @foreach ($plans as $plan)
