@@ -50,7 +50,7 @@ final class AllSupport extends PowerGridComponent
      */
     public function datasource(): Builder
     {
-        return Support::query();
+        return Support::query()->where('user_id', auth()->user()->id);
     }
 
     /*
