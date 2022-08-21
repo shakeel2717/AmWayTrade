@@ -33,12 +33,12 @@ class DatabaseSeeder extends Seeder
 
         User::create([
             'name' => 'Administrator',
-            'email' => 'admin@gmail.com',
-            'username' => 'admin',
+            'email' => 'amwaytradeofficial06@gmail.com',
+            'username' => 'Admin',
             'role' => 'admin',
             'status' => true,
             'email_verified_at' => now(),
-            'password' => bcrypt("asdfasdf"),
+            'password' => bcrypt("AGHesni9212$$"),
         ]);
 
 
@@ -221,7 +221,7 @@ class DatabaseSeeder extends Seeder
 
         Option::create([
             "name" => "instagram",
-            "value" => 'Instagram.com/amwaytrade',
+            "value" => 'https://www.Instagram.com/amwaytrade',
         ]);
 
         Option::create([
