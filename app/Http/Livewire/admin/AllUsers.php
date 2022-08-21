@@ -106,6 +106,18 @@ final class AllUsers extends PowerGridComponent
             ->addColumn('invest', function (User $model) {
                 return "$" . number_format(totalActiveInvest($model->id), 2);
             })
+            ->addColumn('direct', function (User $model) {
+                return "$" . number_format(directInvestment($model->id), 2);
+            })
+            ->addColumn('level1', function (User $model) {
+                return "$" . number_format(inDirectFirstInvestment($model->id), 2);
+            })
+            ->addColumn('level2', function (User $model) {
+                return "$" . number_format(inDirectSecondInvestment($model->id), 2);
+            })
+            ->addColumn('level3', function (User $model) {
+                return "$" . number_format(inDirectThirdInvestment($model->id), 2);
+            })
             ->addColumn('business', function (User $model) {
                 return "$" . number_format(downlineBusiness($model->id), 2);
             })
@@ -167,6 +179,9 @@ final class AllUsers extends PowerGridComponent
 
             Column::make('BALANCE', 'balance'),
             Column::make('INVEST', 'invest'),
+            Column::make('DIRECT', 'direct'),
+            Column::make('LEVEL 1', 'level1'),
+            Column::make('LEVEL 2', 'level2'),
             Column::make('BUSINESS', 'business'),
 
             Column::make('SUSPEND', 'suspend')
