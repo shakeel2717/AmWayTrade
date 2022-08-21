@@ -231,12 +231,12 @@ class DatabaseSeeder extends Seeder
 
         Option::create([
             "name" => "telegram",
-            "value" => '',
+            "value" => '#',
         ]);
 
         Option::create([
             "name" => "whatsapp",
-            "value" => '',
+            "value" => '#',
         ]);
 
 
