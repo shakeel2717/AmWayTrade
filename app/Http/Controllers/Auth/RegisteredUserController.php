@@ -59,9 +59,6 @@ class RegisteredUserController extends Controller
             return redirect()->back()->withErrors('Captcha Error, Please try again.');
         }
 
-        return 1;
-
-
         if ($validated['refer'] != "") {
             $refer = User::where('username', $validated['refer'])->first();
             if ($refer != "") {
