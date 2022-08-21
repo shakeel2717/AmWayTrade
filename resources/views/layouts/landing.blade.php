@@ -267,6 +267,22 @@
         </div>
     </section>
 
+    
+    <section class="cta-section bg-grey">
+        <div class="container">
+            <div class="row cta-wrap">
+                <div class="col-md-6 wow fadeInLeft" data-wow-delay="200ms">
+                    <div class="cta-content">
+                        <h2>Sustainability</h2>
+                        <p>our strategies and services have been time tested and designed to last for years hence remain highly sustainable.</p>
+                        <a href="contact.html" class="default-btn">Create Account</a>
+                    </div>
+                </div>
+                <div class="cta-img d-none d-md-block"></div>
+            </div>
+        </div>
+    </section>
+
     <section class="about-section bd-bottom padding">
         <div class="container">
             <div class="row">
@@ -384,27 +400,13 @@
         </div>
     </section>
 
-    <section class="cta-section bg-grey">
-        <div class="container">
-            <div class="row cta-wrap">
-                <div class="col-md-6 wow fadeInLeft" data-wow-delay="200ms">
-                    <div class="cta-content">
-                        <h2>Sustainability</h2>
-                        <p>our strategies and services have been time tested and designed to last for years hence remain highly sustainable.</p>
-                        <a href="contact.html" class="default-btn">Create Account</a>
-                    </div>
-                </div>
-                <div class="cta-img d-none d-md-block"></div>
-            </div>
-        </div>
-    </section>
 
     <section class="blog-section bg-grey bd-bottom padding">
         <div class="container">
             <div class="section-heading mb-40 text-center wow fadeInUp" data-wow-delay="200ms">
                 <h4>{{ env('APP_NAME') }}</h4>
                 <h2>INVESTMENT OFFER</h2>
-                <p> investment offer. depending on the amount of your investment, you  can choose one of our investment plans and consistently.</p>
+                <p> Depending on the amount of your investment, you  can choose one of our investment plans and consistently.</p>
             </div>
             <div class="row">
                 @foreach ($plans as $plan)
