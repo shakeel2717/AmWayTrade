@@ -43,10 +43,6 @@
 </head>
 
 <body class="header-1 business">
-    {{-- <div class="site-preloader-wrap">
-        <div class="spinner"></div>
-    </div> --}}
-
     <header class="header header-one">
         <div class="top-header-one top-bar">
             <div class="container">
@@ -62,11 +58,21 @@
                     </div>
                     <div class="top-right">
                         <ul class="top-social">
-                            <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
-                            <li><a href="#" target="_blank"><i class="fab fa-pinterest"></i></a></li>
-                            <li><a href="#" target="_blank"><i class="fab fa-youtube"></i></a></li>
+                            @if (options('facebook') != "")
+                            <li><a href="{{options('facebook')}}" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                            @endif
+                            @if (options('twitter') != "")
+                            <li><a href="{{options('twitter')}}" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                            @endif
+                            @if (options('instagram') != "")
+                            <li><a href="{{options('instagram')}}" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                            @endif
+                            @if (options('whatsapp') != "")
+                            <li><a href="{{options('whatsapp')}}" target="_blank"><i class="fab fa-whatsapp"></i></a></li>
+                            @endif
+                            @if (options('telegram') != "")
+                            <li><a href="{{options('telegram')}}" target="_blank"><i class="fab fa-telegram"></i></a></li>
+                            @endif
                         </ul>
                     </div>
                 </div>

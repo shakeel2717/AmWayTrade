@@ -214,6 +214,33 @@ class DatabaseSeeder extends Seeder
             "value" => 5,
         ]);
 
+        Option::create([
+            "name" => "facebook",
+            "value" => 'https://www.facebook.com/Amwaytradeofficial-110454685114899/',
+        ]);
+
+        Option::create([
+            "name" => "instagram",
+            "value" => 'Instagram.com/amwaytrade',
+        ]);
+
+        Option::create([
+            "name" => "twitter",
+            "value" => 'https://twitter.com/TradeAmway?t=MvPZfChnhRBeABtQlP6UIA&s=08',
+        ]);
+
+        Option::create([
+            "name" => "telegram",
+            "value" => '',
+        ]);
+
+        Option::create([
+            "name" => "whatsapp",
+            "value" => '',
+        ]);
+
+
+
 
         Contest::create([
             'title' => "Win 1000$ or a Mobile",

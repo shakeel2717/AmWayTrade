@@ -265,7 +265,12 @@ function totalPayout($user_id)
 function options($name)
 {
     $option = Option::where('name', $name)->first();
-    return $option->value;
+    if($option != "")
+    {
+        return $option->value;
+    } else {
+        return null;
+    }
 }
 
 
