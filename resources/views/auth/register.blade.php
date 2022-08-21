@@ -1,5 +1,5 @@
 @extends('layouts.auth')
-@section('title', 'Sign In')
+@section('title', 'Create Account')
 @section('form')
 <div class="g-col-2 g-col-xl-1 d-none d-xl-flex flex-column min-vh-screen">
     <a href="{{ route('login') }}" class="-intro-x d-flex align-items-center pt-5">
@@ -31,6 +31,9 @@
                 <x-input name="password" type="password" placeholder="Password" />
                 <x-input name="password_confirmation" type="password" placeholder="Confirm Password" />
                 <x-input name="refer" type="text" placeholder="Refer Username" value="{{ $refer }}" />
+                <div class="my-4">
+                    <div class="g-recaptcha" data-sitekey="{{ env('CAPTCHASITEKEY') }}"></div>
+                </div>
             </div>
             <div class="intro-x d-flex text-gray-700 dark-text-gray-600 fs-xs fs-sm-sm mt-4">
                 <div class="d-flex align-items-center me-auto">

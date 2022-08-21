@@ -10,6 +10,7 @@
     <meta name="author" content="ASAN WEBS DEVELOPMENT">
     <title>@yield('title', 'Authentication') | {{ env('APP_DESC') }}</title>
     <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}" />
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
 <body class="login">

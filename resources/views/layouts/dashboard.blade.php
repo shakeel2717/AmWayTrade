@@ -9,6 +9,7 @@
     <meta name="keywords" content="{{ env('APP_KEYWORDS') }}">
     <meta name="author" content="ASAN WEBS DEVELOPMENT">
     <title>@yield('title', 'Dashboard') - {{ env('APP_DESC') }}</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}" />
     @yield('header')
     @livewireStyles
