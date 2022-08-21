@@ -398,9 +398,10 @@
         <div class="map"></div>
         <div class="container">
             <div class="section-heading mb-40 text-center wow fadeInUp" data-wow-delay="200ms">
-                <h4>Sustainability</h4>
-                <h2>Words From Clients</h2>
-                <p>our strategies and services have been time tested and designed to last for years hence remain highly sustainable.
+                <!-- <h4>Sustainability</h4> -->
+                <h2>Explore. Network. Earn. Repeat.</h2>
+                <p>Get passive income and multiply your investments on main trends in digital market.
+                    Reduce your risks by supporting the community and sharing experiences
                 </p>
             </div>
         </div>
