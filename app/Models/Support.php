@@ -21,4 +21,8 @@ class Support extends Model
     {
         return $this->hasMany(Conversation::class)->orderBy("id","Desc");
     }
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }

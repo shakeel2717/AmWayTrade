@@ -68,7 +68,11 @@ final class AllDeposit extends PowerGridComponent
      */
     public function relationSearch(): array
     {
-        return [];
+        return [
+            "User" => [
+                'username'
+            ]
+        ];
     }
 
     /*
@@ -83,6 +87,9 @@ final class AllDeposit extends PowerGridComponent
     {
         return PowerGrid::eloquent()
             ->addColumn('id')
+            ->addColumn('username', function (Transaction $model) {
+                return $model->user->username;
+            })
             ->addColumn('type')
             ->addColumn('amount')
             ->addColumn('sum')
@@ -109,6 +116,11 @@ final class AllDeposit extends PowerGridComponent
     public function columns(): array
     {
         return [
+            Column::make('USERNAME', 'username')
+                ->sortable()
+                ->searchable()
+                ->makeInputText(),
+
             Column::make('TYPE', 'type')
                 ->sortable()
                 ->searchable()
@@ -117,7 +129,7 @@ final class AllDeposit extends PowerGridComponent
             Column::make('AMOUNT', 'amount')
                 ->sortable()
                 ->searchable()
-                ->makeInputText(),
+                ->makeInputRange(),
 
             Column::make('REFERENCE', 'reference')
                 ->sortable()

@@ -51,7 +51,7 @@ final class AllWithdraws extends PowerGridComponent
      */
     public function datasource(): Builder
     {
-        return Transaction::query()->where('type', 'withdraw')->where('status',true);
+        return Transaction::query()->where('type', 'withdraw')->where('status', true);
     }
 
     /*
@@ -69,7 +69,11 @@ final class AllWithdraws extends PowerGridComponent
      */
     public function relationSearch(): array
     {
-        return [];
+        return [
+            "User" => [
+                'username'
+            ]
+        ];
     }
 
     /*
@@ -84,6 +88,9 @@ final class AllWithdraws extends PowerGridComponent
     {
         return PowerGrid::eloquent()
             ->addColumn('id')
+            ->addColumn('username', function (Transaction $model) {
+                return $model->user->username;
+            })
             ->addColumn('type')
             ->addColumn('amount')
             ->addColumn('sum')
@@ -110,6 +117,13 @@ final class AllWithdraws extends PowerGridComponent
     public function columns(): array
     {
         return [
+
+            Column::make('USERNAME', 'username')
+                ->sortable()
+                ->searchable()
+                ->makeInputText(),
+
+
             Column::make('TYPE', 'type')
                 ->sortable()
                 ->searchable()

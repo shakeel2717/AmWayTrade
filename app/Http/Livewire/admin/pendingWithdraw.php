@@ -71,7 +71,11 @@ final class pendingWithdraw extends PowerGridComponent
      */
     public function relationSearch(): array
     {
-        return [];
+        return [
+            "User" => [
+                'username'
+            ]
+        ];
     }
 
     /*
@@ -86,6 +90,9 @@ final class pendingWithdraw extends PowerGridComponent
     {
         return PowerGrid::eloquent()
             ->addColumn('id')
+            ->addColumn('username', function (Transaction $model) {
+                return $model->user->username;
+            })
             ->addColumn('type')
             ->addColumn('amount')
             ->addColumn('currency', function (Transaction $model) {
@@ -117,6 +124,13 @@ final class pendingWithdraw extends PowerGridComponent
     public function columns(): array
     {
         return [
+
+            Column::make('USERNAME', 'username')
+                ->sortable()
+                ->searchable()
+                ->makeInputText(),
+
+
             Column::make('TYPE', 'type')
                 ->sortable()
                 ->searchable()

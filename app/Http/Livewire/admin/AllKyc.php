@@ -71,7 +71,11 @@ final class AllKyc extends PowerGridComponent
      */
     public function relationSearch(): array
     {
-        return [];
+        return [
+            "User" => [
+                'username'
+            ]
+        ];
     }
 
     /*
@@ -86,6 +90,9 @@ final class AllKyc extends PowerGridComponent
     {
         return PowerGrid::eloquent()
             ->addColumn('id')
+            ->addColumn('username', function (Transaction $model) {
+                return $model->user->username;
+            })
             ->addColumn('category')
             ->addColumn('name')
             ->addColumn('front_img', function (Kyc $model) {
@@ -118,6 +125,11 @@ final class AllKyc extends PowerGridComponent
         return [
             Column::make('ID', 'id')
                 ->makeInputRange(),
+
+                Column::make('USERNAME', 'username')
+                ->sortable()
+                ->searchable()
+                ->makeInputText(),
 
             Column::make('CATEGORY', 'category')
                 ->sortable()

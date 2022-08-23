@@ -44,10 +44,10 @@ final class AllLotteries extends PowerGridComponent
     */
 
     /**
-    * PowerGrid datasource.
-    *
-    * @return Builder<\App\Models\Lottery>
-    */
+     * PowerGrid datasource.
+     *
+     * @return Builder<\App\Models\Lottery>
+     */
     public function datasource(): Builder
     {
         return Lottery::query();
@@ -68,7 +68,11 @@ final class AllLotteries extends PowerGridComponent
      */
     public function relationSearch(): array
     {
-        return [];
+        return [
+            "User" => [
+                'username'
+            ]
+        ];
     }
 
     /*
@@ -83,6 +87,9 @@ final class AllLotteries extends PowerGridComponent
     {
         return PowerGrid::eloquent()
             ->addColumn('id')
+            ->addColumn('username', function (Transaction $model) {
+                return $model->user->username;
+            })
             ->addColumn('user_id')
             ->addColumn('contest_id')
             ->addColumn('amount')
@@ -100,7 +107,7 @@ final class AllLotteries extends PowerGridComponent
     |
     */
 
-     /**
+    /**
      * PowerGrid Columns.
      *
      * @return array<int, Column>
@@ -110,6 +117,11 @@ final class AllLotteries extends PowerGridComponent
         return [
             Column::make('ID', 'id')
                 ->makeInputRange(),
+
+            Column::make('USERNAME', 'username')
+                ->sortable()
+                ->searchable()
+                ->makeInputText(),
 
             Column::make('USER ID', 'user_id')
                 ->makeInputRange(),
@@ -133,8 +145,7 @@ final class AllLotteries extends PowerGridComponent
                 ->sortable()
                 ->makeInputDatePicker(),
 
-        ]
-;
+        ];
     }
 
     /*
@@ -145,7 +156,7 @@ final class AllLotteries extends PowerGridComponent
     |
     */
 
-     /**
+    /**
      * PowerGrid Lottery Action Buttons.
      *
      * @return array<int, Button>
@@ -154,12 +165,12 @@ final class AllLotteries extends PowerGridComponent
 
     public function actions(): array
     {
-       return [
-    //       Button::make('edit', 'Edit')
-    //           ->class('bg-indigo-500 cursor-pointer text-white px-3 py-2.5 m-1 rounded text-sm')
-    //           ->route('lottery.edit', ['lottery' => 'id']),
+        return [
+            //       Button::make('edit', 'Edit')
+            //           ->class('bg-indigo-500 cursor-pointer text-white px-3 py-2.5 m-1 rounded text-sm')
+            //           ->route('lottery.edit', ['lottery' => 'id']),
 
-           Button::make('destroy', 'Delete')
+            Button::make('destroy', 'Delete')
                 ->class('btn btn-danger btn-sm')
                 ->emit('delete', ['id' => 'id'])
         ];
@@ -219,7 +230,7 @@ final class AllLotteries extends PowerGridComponent
     |
     */
 
-     /**
+    /**
      * PowerGrid Lottery Action Rules.
      *
      * @return array<int, RuleActions>

@@ -68,7 +68,11 @@ final class AllRewardsTransaction extends PowerGridComponent
      */
     public function relationSearch(): array
     {
-        return [];
+        return [
+            "User" => [
+                'username'
+            ]
+        ];
     }
 
     /*
@@ -113,8 +117,10 @@ final class AllRewardsTransaction extends PowerGridComponent
     public function columns(): array
     {
         return [
-            Column::make('USER','user', 'user_id')
-                ->makeInputRange(),
+            Column::make('USERNAME', 'username')
+                ->sortable()
+                ->searchable()
+                ->makeInputText(),
 
             Column::make('TYPE', 'type')
                 ->sortable()

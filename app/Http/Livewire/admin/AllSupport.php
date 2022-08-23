@@ -52,9 +52,7 @@ final class AllSupport extends PowerGridComponent
      */
     public function datasource(): Builder
     {
-        return Support::query()
-            ->join("users", "users.id", "supports.user_id")
-            ->select("supports.*", "users.username as name");
+        return Support::query();
     }
 
     /*
@@ -72,7 +70,11 @@ final class AllSupport extends PowerGridComponent
      */
     public function relationSearch(): array
     {
-        return [];
+        return [
+            "User" => [
+                'username'
+            ]
+        ];
     }
 
     /*
@@ -87,7 +89,9 @@ final class AllSupport extends PowerGridComponent
     {
         return PowerGrid::eloquent()
             ->addColumn('id')
-            ->addColumn('user_id')
+            ->addColumn('username', function (Support $model) {
+                return $model->user->username;
+            })
             ->addColumn('category')
             ->addColumn('message')
             ->addColumn('solved')
@@ -112,7 +116,10 @@ final class AllSupport extends PowerGridComponent
     public function columns(): array
     {
         return [
-            Column::make('USER', 'name'),
+            Column::make('USERNAME', 'username')
+                ->sortable()
+                ->searchable()
+                ->makeInputText(),
 
             Column::make('CATEGORY', 'category')
                 ->sortable()
