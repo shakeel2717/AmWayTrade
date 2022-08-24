@@ -7,6 +7,7 @@ use App\Models\Reward;
 use App\Models\Transaction;
 use App\Models\User;
 use App\Models\UserPlan;
+use Carbon\Carbon;
 use Illuminate\Console\Command;
 
 class Blockchain extends Command
@@ -50,6 +51,7 @@ class Blockchain extends Command
                 ->where('type', 'daily profit')
                 ->where('amount', $profit)
                 ->where('note', 'blockchain')
+                ->whereDate('created_at', Carbon::today())
                 ->get();
 
             if ($security->count() < 1) {
@@ -85,7 +87,7 @@ class Blockchain extends Command
             foreach ($rewards as $reward) {
                 if (checkReward($reward->id, $user->id)) {
                     // checking if already delivered
-                    $security = Transaction::where('user_id', $user->id)->where('type', 'reward')->where('amount', $reward->reward)->where('note', 'blockchain')->count();
+                    $security = Transaction::where('user_id', $user->id)->where('type', 'reward')->where('amount', $reward->reward)->where('note', 'blockchain')->whereDate('created_at', Carbon::today())->count();
                     if ($security < 1) {
                         // delivering Reward for this User
                         $transaction = Transaction::create([
