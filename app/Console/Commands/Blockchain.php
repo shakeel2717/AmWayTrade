@@ -39,7 +39,7 @@ class Blockchain extends Command
         info("Found Total Active  Plan: " . $userPlans->count());
         foreach ($userPlans as $userPlan) {
             // checking if this user account is a pin account
-            if ($userPlan->user->pin) {
+            if ($userPlan->user->pin == true || $userPlan->user->suspend == true) {
                 goto endUsersPlansLoop;
             }
             info("Delivering Profit to User:" . $userPlan->user->username);
@@ -70,6 +70,7 @@ class Blockchain extends Command
                 info("Blockchain Already Delivred Profit");
             }
             endUsersPlansLoop:
+            info("User PIN, Or Suspended Account!");
         }
         info("Blockchain Ended Successfully");
 
