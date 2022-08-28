@@ -265,8 +265,7 @@ function totalPayout($user_id)
 function options($name)
 {
     $option = Option::where('name', $name)->first();
-    if($option != "")
-    {
+    if ($option != "") {
         return $option->value;
     } else {
         return null;
@@ -321,7 +320,7 @@ function checkReward($reward, $user_id)
     // checking my direct refers for the requirement sales
     $directRefers = User::where('refer', $user->username)->get();
     foreach ($directRefers as $directRefer) {
-        if (totalActiveInvest($directRefer->id) >= $reward->sales_required) {
+        if (FiveLevelInvestment($directRefer->id) >= $reward->sales_required) {
             $fulfill[] = $directRefer->id;
         }
     }
@@ -360,5 +359,13 @@ function directActiveInvestment($user_id)
         $invest = $invest + totalActiveInvest($refer->id);
     }
 
+    return $invest;
+}
+
+
+function FiveLevelInvestment($user_id)
+{
+    $invest = 0;
+    $invest += inDirectFirstInvestment($user_id) + directInvestment($user_id) + inDirectSecondInvestment($user_id) + inDirectThirdInvestment($user_id);
     return $invest;
 }
