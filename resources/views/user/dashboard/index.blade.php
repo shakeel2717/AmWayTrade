@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 @section('title')
-Welcome to Dashboard
+Welcome back {{auth()->user()->username}}
 @endsection
 @section('rates')
 <div class="g-col-12 mt-8">
