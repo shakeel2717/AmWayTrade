@@ -90,7 +90,7 @@ final class AllKyc extends PowerGridComponent
     {
         return PowerGrid::eloquent()
             ->addColumn('id')
-            ->addColumn('username', function (Transaction $model) {
+            ->addColumn('username', function (Kyc $model) {
                 return $model->user->username;
             })
             ->addColumn('category')
