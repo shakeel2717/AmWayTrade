@@ -16,6 +16,7 @@ class Transaction extends Model
         'sum',
         'note',
         'status',
+        'user_plans_id',
         'reference',
     ];
 

@@ -50,6 +50,7 @@ class Blockchain extends Command
             $security = Transaction::where('user_id', $userPlan->user_id)
                 ->where('type', 'daily profit')
                 ->where('amount', $profit)
+                ->where('user_plans_id', $userPlan->id)
                 ->where('note', 'blockchain')
                 ->whereDate('created_at', Carbon::today())
                 ->get();
@@ -60,6 +61,7 @@ class Blockchain extends Command
                     'user_id' => $userPlan->user_id,
                     'type' => "daily profit",
                     'amount' => $profit,
+                    'user_plans_id' => $userPlan->id,
                     'sum' => true,
                     'reference' => $userPlan->name . " Plan Daily Profit @" . $profit_daily . "% Added!",
                     'note' => "blockchain",
