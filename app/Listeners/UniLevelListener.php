@@ -40,6 +40,11 @@ class UniLevelListener
                     $profit = options("uni level $i") * $event->transaction->amount / 100;
                     info("Loop: " . $i);
                     // inserting profit for this user
+                    // checking if this user has exceed the marketcap limit
+                    if (marketcap($upliner->id) > 100) {
+                        info($upliner->id. ": User Exceed the Marketcap, Skipping UniLevel Profit.");
+                        goto skipUniLevel;
+                    }
                     $transaction = Transaction::create([
                         'user_id' => $upliner->id,
                         'type' => "uni level $i",
@@ -49,6 +54,7 @@ class UniLevelListener
                         'note' => "blockchain",
                     ]);
                     info("Loop: " . $i . " Profit Added Successfully to User: " . $upliner->username);
+                    skipUniLevel:
                     if ($upliner->refer != "default") {
                         $upliner = User::where("username", $upliner->refer)->where('status', true)->first();
                     } else {

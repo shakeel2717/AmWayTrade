@@ -38,6 +38,12 @@ class PlanCommissionListener
 
                 $profit = $event->userPlan->amount * options("direct") / 100;
 
+                // checking if this user has exceed the marketcap limit
+                if (marketcap($upliner->id) > 100) {
+                    info($upliner->id. ": User Exceed the Marketcap, Skipping Direct Commission.");
+                    goto skipDirectCommsion;
+                }
+
                 $transaction = Transaction::create([
                     'user_id' => $upliner->id,
                     'type' => "direct commission",
@@ -46,6 +52,8 @@ class PlanCommissionListener
                     'reference' => "Direct Commission From: " . $user->username . " Added Successfully",
                 ]);
 
+                skipDirectCommsion:
+
                 info("In-Direct Start");
                 if ($upliner->refer != 'default') {
                     info("In-Direct Has Valid Refer");
@@ -53,6 +61,11 @@ class PlanCommissionListener
                     for ($i = 1; $i < 4; $i++) {
                         $profit = $event->userPlan->amount * options("indirect $i") / 100;
                         // inserting profit for this user
+                        // checking if this user has exceed the marketcap limit
+                    if (marketcap($upliner->id) > 100) {
+                        info($upliner->id. ": User Exceed the Marketcap, Skipping Indirect Commssion.");
+                        goto skipInDirectCommission;
+                    }
                         $transaction = Transaction::create([
                             'user_id' => $refer->id,
                             'type' => "indirect level $i",
@@ -62,6 +75,7 @@ class PlanCommissionListener
                         ]);
 
                         info("In-Direct Profit Added Successfully");
+                        skipInDirectCommission:
 
                         if ($refer->refer != "default") {
                             $refer = User::where('username', $refer->refer)->where('status', true)->first();
