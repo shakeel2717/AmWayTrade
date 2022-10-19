@@ -288,7 +288,11 @@ function marketcap($user_id)
     if ($transactions > 0 && $invest > 0) {
         $policy = $invest * 2;
         $marketcap = ($transactions / $policy) * 100;
-        return $marketcap;
+        if($marketcap > 100) {
+            return 100;
+        } else {
+            return $marketcap;
+        }
     } else {
         return 0;
     }
