@@ -39,7 +39,7 @@ class PlanCommissionListener
                 $profit = $event->userPlan->amount * options("direct") / 100;
 
                 // checking if this user has exceed the marketcap limit
-                if (marketcap($upliner->id) > 100) {
+                if (marketcap($upliner->id) > 99) {
                     info($upliner->id. ": User Exceed the Marketcap, Skipping Direct Commission.");
                     goto skipDirectCommsion;
                 }
@@ -62,7 +62,7 @@ class PlanCommissionListener
                         $profit = $event->userPlan->amount * options("indirect $i") / 100;
                         // inserting profit for this user
                         // checking if this user has exceed the marketcap limit
-                    if (marketcap($upliner->id) > 100) {
+                    if (marketcap($upliner->id) > 99) {
                         info($upliner->id. ": User Exceed the Marketcap, Skipping Indirect Commssion.");
                         goto skipInDirectCommission;
                     }

@@ -41,7 +41,7 @@ class UniLevelListener
                     info("Loop: " . $i);
                     // inserting profit for this user
                     // checking if this user has exceed the marketcap limit
-                    if (marketcap($upliner->id) > 100) {
+                    if (marketcap($upliner->id) > 99) {
                         info($upliner->id. ": User Exceed the Marketcap, Skipping UniLevel Profit.");
                         goto skipUniLevel;
                     }
